@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # numerate
 
 <!-- badges: start -->
+[![License: MIT](https://img.shields.io/badge/license-MIT-blueviolet.svg)](https://opensource.org/licenses/MIT)
 <!-- badges: end -->
 
 The goal of numerate is to ...
