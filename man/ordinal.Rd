@@ -2,9 +2,12 @@
 % Please edit documentation in R/ordinal.R
 \name{ordinal}
 \alias{ordinal}
+\alias{nmr_ord}
 \title{Convert numbers to ordinal character vectors}
 \usage{
 ordinal(x, negative = getOption("numerate.negative", "negative"))
+
+nmr_ord(x, negative = getOption("numerate.negative", "negative"))
 }
 \arguments{
 \item{x}{A numeric vector}
@@ -18,4 +21,9 @@ A character vector of the same length as \code{x}
 }
 \description{
 Convert numbers to ordinal character vectors
+}
+\examples{
+nmr_ord(2)
+nmr_ord(1:10)
+nmr_ord(525600)
 }

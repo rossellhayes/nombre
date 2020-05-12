@@ -13,46 +13,75 @@ knitr::opts_chunk$set(
 )
 ```
 
-# numerate
+# numerate <img src="man/figures/logo.png?raw=TRUE" align="right" height="138" />
 
 <!-- badges: start -->
 [![License: MIT](https://img.shields.io/badge/license-MIT-blueviolet.svg)](https://opensource.org/licenses/MIT)
 <!-- badges: end -->
 
-The goal of numerate is to ...
+> *numerate* (adj.): numerically literate
+
+**numerate** converts numeric vectors to character vectors of English words.
+You can use it to express numbers as cardinals (one, two, three) or ordinals (first, second, third), as well as numerators and denominators. **numerate** supports not just whole numbers, but also negatives and fractions.
 
 ## Installation
 
-You can install the released version of numerate from [CRAN](https://CRAN.R-project.org) with:
+You can install the development version of **numerate** from GitHub with:
 
 ``` r
-install.packages("numerate")
+remotes::install_github("rossellhayes/numerate")
 ```
 
-## Example
+## Usage
 
-This is a basic example which shows you how to solve a common problem:
-
-```{r example}
+```{r include = FALSE}
 library(numerate)
-## basic example code
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+**numerate** converts numerics into words:
 
-```{r cars}
-summary(cars)
+```{r}
+nmr_card(2)
+nmr_card(2L)
+x <- rep(TRUE, 525600)
+nmr_card(length(x))
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
+It also works for numeric vectors:
 
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
+```{r}
+nmr_card(8^(1:10))
 ```
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
+**numerate** can also generate ordinals, numerators and denominators:
+
+```{r}
+nmr_ord(1:5)
+nmr_num(1:5)
+nmr_denom(1:5)
+nmr_denom(1:5, numerator = 1:5)
+```
+
+> `r emo::ji("shushing")` (numerators are almost always the same as cardinals)
+
+It can also handle less common numerics, like negative and fractions:
+
+```{r}
+nmr_card(-2)
+nmr_card(99.9)
+```
+
+## Advantages `r emo::ji("rocket")`
+
+**numerate** is implemented using vectorized base R.
+This allows it to run faster than options that implement their own object class, like [**english**](https://cran.r-project.org/web/packages/english/):
+
+```{r}
+bench::mark(nmr_card(1:1000), as.character(english::english(1:1000)))
+```
+
+**numerate** also does not require dependencies for most of its functionality.
+The suggested package [**MASS**](https://cran.r-project.org/web/packages/MASS/) is only required for handling non-integers, a situation that should be rare for most packages considering implementing **numerate**.
 
 ---
 

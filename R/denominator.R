@@ -46,3 +46,8 @@ denominator <- function(
 
   denom
 }
+
+#' @rdname denominator
+#' @export
+
+nmr_denom <- denominator

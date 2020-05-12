@@ -5,7 +5,7 @@ convert_fraction <- function(x) {
   x[x == "0"] <- "0/0"
   x           <- strsplit(x, "/")
   x           <- matrix(as.numeric(unlist(x)), ncol = length(x))
-  numerator   <- cardinal(x[1, ])
+  numerator   <- numerator(x[1, ])
   denominator <- denominator(x[2, ], x[1, ])
 
   paste(numerator, denominator)

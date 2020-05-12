@@ -2,9 +2,17 @@
 % Please edit documentation in R/denominator.R
 \name{denominator}
 \alias{denominator}
+\alias{nmr_denom}
 \title{Convert numbers to ordinal character vectors}
 \usage{
 denominator(
+  x,
+  numerator = 1,
+  quarter = getOption("numerate.quarter", TRUE),
+  negative = getOption("numerate.negative", "negative")
+)
+
+nmr_denom(
   x,
   numerator = 1,
   quarter = getOption("numerate.quarter", TRUE),

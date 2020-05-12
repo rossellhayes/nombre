@@ -8,7 +8,7 @@
 #' @return A character vector of the same length as `x`
 #' @export
 #'
-#' @examples
+#' @example examples/ordinal.R
 
 ordinal <- function(x, negative = getOption("numerate.negative", "negative")) {
   if (!length(x))              return(character(0))
@@ -46,3 +46,8 @@ ordinal <- function(x, negative = getOption("numerate.negative", "negative")) {
 
   ordinal
 }
+
+#' @rdname ordinal
+#' @export
+
+nmr_ord <- ordinal

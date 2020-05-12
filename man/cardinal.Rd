@@ -2,9 +2,18 @@
 % Please edit documentation in R/cardinal.R
 \name{cardinal}
 \alias{cardinal}
+\alias{nmr_card}
+\alias{numerator}
+\alias{nmr_num}
 \title{Convert numbers to cardinal character vectors}
 \usage{
 cardinal(x, negative = getOption("numerate.negative", "negative"))
+
+nmr_card(x, negative = getOption("numerate.negative", "negative"))
+
+numerator(x, negative = getOption("numerate.negative", "negative"))
+
+nmr_num(x, negative = getOption("numerate.negative", "negative"))
 }
 \arguments{
 \item{x}{A numeric vector}
@@ -17,18 +26,21 @@ Default can be changed by setting \code{options("numerate.negative")}.}
 A character vector of the same length as \code{x}
 }
 \description{
-Convert numbers to cardinal character vectors
+\code{cardinal()} and \code{nmr_card()} produce cardinal numbers.
+\code{numerator()} and \code{nmr_num()} produce numerators.
+The results are equivalent for integers, but \code{cardinal()} and \code{nmr_card()}
+support fractional components while \code{numerator()} and \code{nmr_num()} do not.
 }
 \examples{
-cardinal(2)
-cardinal(1:10)
-cardinal(2 + 4/9)
-cardinal(-2)
-cardinal(-2, negative = "minus")
+nmr_card(2)
+nmr_card(1:10)
+nmr_card(2 + 4/9)
+nmr_card(-2)
+nmr_card(-2, negative = "minus")
 
-cardinal(525600)
-paste("There are", cardinal(525600), "minutes in a year.")
+nmr_card(525600)
+paste("There are", nmr_card(525600), "minutes in a year.")
 
-cardinal(3.72e13)
-paste("There are", cardinal(3.72e13), "cells in the human body.")
+nmr_card(3.72e13)
+paste("There are", nmr_card(3.72e13), "cells in the human body.")
 }

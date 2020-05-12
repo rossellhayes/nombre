@@ -2,4 +2,9 @@
 
 export(cardinal)
 export(denominator)
+export(nmr_card)
+export(nmr_denom)
+export(nmr_num)
+export(nmr_ord)
+export(numerator)
 export(ordinal)

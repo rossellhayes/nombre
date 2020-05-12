@@ -1,3 +1,3 @@
-ordinal(2)
-ordinal(1:10)
-ordinal(525600)
+nmr_ord(2)
+nmr_ord(1:10)
+nmr_ord(525600)
