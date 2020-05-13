@@ -20,8 +20,8 @@ library(ipa)
 # nombre <img src="man/figures/logo.png?raw=TRUE" align="right" height="138" />
 
 <!-- badges: start -->
-[![License: MIT](https://img.shields.io/badge/license-MIT-blueviolet.svg)](https://opensource.org/licenses/MIT)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blueviolet.svg)](https://opensource.org/licenses/MIT)
 [![R build status](https://github.com/rossellhayes/nombre/workflows/R-CMD-check/badge.svg)](https://github.com/rossellhayes/nombre/actions)
 [![Codecov test coverage](https://codecov.io/gh/rossellhayes/nombre/branch/master/graph/badge.svg)](https://codecov.io/gh/rossellhayes/nombre?branch=master)
 <!-- badges: end -->
@@ -93,6 +93,9 @@ bench::mark(nom_card(1:1000), as.character(english::english(1:1000)))
 The suggested package [**MASS**](https://cran.r-project.org/web/packages/MASS/) is only required for handling non-integers, a situation that should be rare for most packages considering implementing **nombre**.
 
 ---
+
+Hex sticker image adapted from artwork by
+@[allison_horst](https://github.com/allisonhorst/stats-illustrations).
 
 Hex sticker fonts are 
 [Source Code Pro](https://github.com/adobe-fonts/source-code-pro) by

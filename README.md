@@ -5,10 +5,10 @@
 
 <!-- badges: start -->
 
-[![License:
-MIT](https://img.shields.io/badge/license-MIT-blueviolet.svg)](https://opensource.org/licenses/MIT)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![License:
+MIT](https://img.shields.io/badge/license-MIT-blueviolet.svg)](https://opensource.org/licenses/MIT)
 [![R build
 status](https://github.com/rossellhayes/nombre/workflows/R-CMD-check/badge.svg)](https://github.com/rossellhayes/nombre/actions)
 [![Codecov test
@@ -97,10 +97,10 @@ faster than options that implement their own object class, like
 bench::mark(nom_card(1:1000), as.character(english::english(1:1000)))
 #> Warning: Some expressions had a GC in every iteration; so filtering is disabled.
 #> # A tibble: 2 x 6
-#>   expression                                 min  median `itr/sec` mem_alloc
-#>   <bch:expr>                             <bch:t> <bch:t>     <dbl> <bch:byt>
-#> 1 nom_card(1:1000)                         9.9ms  11.2ms     81.4      841KB
-#> 2 as.character(english::english(1:1000))   131ms 156.9ms      5.89     389KB
+#>   expression                                  min   median `itr/sec` mem_alloc
+#>   <bch:expr>                             <bch:tm> <bch:tm>     <dbl> <bch:byt>
+#> 1 nom_card(1:1000)                         7.29ms   9.72ms    102.       841KB
+#> 2 as.character(english::english(1:1000)) 125.65ms 129.69ms      7.71     389KB
 #> # ... with 1 more variable: `gc/sec` <dbl>
 ```
 
@@ -111,6 +111,9 @@ required for handling non-integers, a situation that should be rare for
 most packages considering implementing **nombre**.
 
 -----
+
+Hex sticker image adapted from artwork by
+@[allison\_horst](https://github.com/allisonhorst/stats-illustrations).
 
 Hex sticker fonts are [Source Code
 Pro](https://github.com/adobe-fonts/source-code-pro) by
