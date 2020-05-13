@@ -1,5 +1,5 @@
-Package: numerate
-Title: Numerical literacy
+Package: nombre
+Title: Number names
 Version: 0.0.1
 Authors@R: 
     person(given = "Alexander",

@@ -9,7 +9,7 @@
 #'     If `TRUE`, the denominator of `4` will be "quarter(s)".
 #'     If `FALSE`, the denominator of `4` will be "fourth(s)".
 #'     Defaults to `TRUE`.
-#'     Default can be changed by setting `options("numerate.quarter")`.
+#'     Default can be changed by setting `options("nombre.quarter")`.
 #'
 #' @return A character vector of the same length as `x`
 #' @export
@@ -17,8 +17,8 @@
 #' @example examples/denominator.R
 
 denominator <- function(
-  x, numerator = 1, quarter = getOption("numerate.quarter", TRUE),
-  negative = getOption("numerate.negative", "negative")
+  x, numerator = 1, quarter = getOption("nombre.quarter", TRUE),
+  negative = getOption("nombre.negative", "negative")
 ) {
   if (!length(x))              return(character(0))
   if (!is.numeric(x))          stop("`x` must be numeric")
@@ -50,4 +50,4 @@ denominator <- function(
 #' @rdname denominator
 #' @export
 
-nmr_denom <- denominator
+nom_denom <- denominator

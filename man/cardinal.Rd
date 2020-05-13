@@ -2,34 +2,34 @@
 % Please edit documentation in R/cardinal.R
 \name{cardinal}
 \alias{cardinal}
-\alias{nmr_card}
+\alias{nom_card}
 \alias{numerator}
-\alias{nmr_num}
+\alias{nom_numer}
 \title{Convert numbers to cardinal character vectors}
 \usage{
-cardinal(x, negative = getOption("numerate.negative", "negative"))
+cardinal(x, negative = getOption("nombre.negative", "negative"))
 
-nmr_card(x, negative = getOption("numerate.negative", "negative"))
+nom_card(x, negative = getOption("nombre.negative", "negative"))
 
-numerator(x, negative = getOption("numerate.negative", "negative"))
+numerator(x, negative = getOption("nombre.negative", "negative"))
 
-nmr_num(x, negative = getOption("numerate.negative", "negative"))
+nom_numer(x, negative = getOption("nombre.negative", "negative"))
 }
 \arguments{
 \item{x}{A numeric vector}
 
 \item{negative}{A character to append to negative numbers.
 Defaults to \code{"negative"}.
-Default can be changed by setting \code{options("numerate.negative")}.}
+Default can be changed by setting \code{options("nombre.negative")}.}
 }
 \value{
 A character vector of the same length as \code{x}
 }
 \description{
-\code{cardinal()} and \code{nmr_card()} produce cardinal numbers.
-\code{numerator()} and \code{nmr_num()} produce numerators.
-The results are equivalent for integers, but \code{cardinal()} and \code{nmr_card()}
-support fractional components while \code{numerator()} and \code{nmr_num()} do not.
+\code{nom_card()} and \code{cardinal()} produce cardinal numbers.
+\code{nom_numer()} and \code{numerator()} produce numerators.
+The results are equivalent for integers, but \code{nom_card()} and \code{cardinal()}
+support fractional components while \code{nom_numer()} and \code{numerator()} do not.
 }
 \examples{
 nmr_card(2)

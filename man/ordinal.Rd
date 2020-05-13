@@ -2,19 +2,19 @@
 % Please edit documentation in R/ordinal.R
 \name{ordinal}
 \alias{ordinal}
-\alias{nmr_ord}
+\alias{nom_ord}
 \title{Convert numbers to ordinal character vectors}
 \usage{
-ordinal(x, negative = getOption("numerate.negative", "negative"))
+ordinal(x, negative = getOption("nombre.negative", "negative"))
 
-nmr_ord(x, negative = getOption("numerate.negative", "negative"))
+nom_ord(x, negative = getOption("nombre.negative", "negative"))
 }
 \arguments{
 \item{x}{A numeric vector}
 
 \item{negative}{A character of length one to append to negative numbers.
 Defaults to \code{"negative"}.
-Default can be changed by setting \code{options("numerate.negative")}.}
+Default can be changed by setting \code{options("nombre.negative")}.}
 }
 \value{
 A character vector of the same length as \code{x}

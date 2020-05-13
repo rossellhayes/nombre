@@ -1,4 +1,4 @@
 library(testthat)
-library(numerate)
+library(nombre)
 
-test_check("numerate")
+test_check("nombre")

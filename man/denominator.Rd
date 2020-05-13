@@ -2,21 +2,21 @@
 % Please edit documentation in R/denominator.R
 \name{denominator}
 \alias{denominator}
-\alias{nmr_denom}
+\alias{nom_denom}
 \title{Convert numbers to ordinal character vectors}
 \usage{
 denominator(
   x,
   numerator = 1,
-  quarter = getOption("numerate.quarter", TRUE),
-  negative = getOption("numerate.negative", "negative")
+  quarter = getOption("nombre.quarter", TRUE),
+  negative = getOption("nombre.negative", "negative")
 )
 
-nmr_denom(
+nom_denom(
   x,
   numerator = 1,
-  quarter = getOption("numerate.quarter", TRUE),
-  negative = getOption("numerate.negative", "negative")
+  quarter = getOption("nombre.quarter", TRUE),
+  negative = getOption("nombre.negative", "negative")
 )
 }
 \arguments{
@@ -31,7 +31,7 @@ When \code{numerator} is not \code{1} or \code{-1}, returns a plural denominator
 If \code{TRUE}, the denominator of \code{4} will be "quarter(s)".
 If \code{FALSE}, the denominator of \code{4} will be "fourth(s)".
 Defaults to \code{TRUE}.
-Default can be changed by setting \code{options("numerate.quarter")}.}
+Default can be changed by setting \code{options("nombre.quarter")}.}
 }
 \value{
 A character vector of the same length as \code{x}

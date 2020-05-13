@@ -1,21 +1,21 @@
 #' Convert numbers to cardinal character vectors
 #'
-#' `cardinal()` and `nmr_card()` produce cardinal numbers.
-#' `numerator()` and `nmr_num()` produce numerators.
-#' The results are equivalent for integers, but `cardinal()` and `nmr_card()`
-#' support fractional components while `numerator()` and `nmr_num()` do not.
+#' `nom_card()` and `cardinal()` produce cardinal numbers.
+#' `nom_numer()` and `numerator()` produce numerators.
+#' The results are equivalent for integers, but `nom_card()` and `cardinal()`
+#' support fractional components while `nom_numer()` and `numerator()` do not.
 #'
 #' @param x A numeric vector
 #' @param negative A character to append to negative numbers.
 #'     Defaults to `"negative"`.
-#'     Default can be changed by setting `options("numerate.negative")`.
+#'     Default can be changed by setting `options("nombre.negative")`.
 #'
 #' @return A character vector of the same length as `x`
 #' @export
 #'
 #' @example examples/cardinal.R
 
-cardinal <- function(x, negative = getOption("numerate.negative", "negative")) {
+cardinal <- function(x, negative = getOption("nombre.negative", "negative")) {
   if (!length(x))              return(character(0))
   if (!is.numeric(x))          stop("`x` must be numeric")
   if (!is.character(negative)) stop("`negative` must be of type character")
@@ -31,7 +31,7 @@ cardinal <- function(x, negative = getOption("numerate.negative", "negative")) {
   if (any(decimal != 0) & !requireNamespace("MASS", quietly = TRUE)) {
     stop(
       paste(
-        "The MASS package is required to use the numerate package with",
+        "The MASS package is required to use the nombre package with",
         "non-integer inputs. Either run `install.packages(MASS)` or use only",
         "integer inputs."
       )
@@ -71,12 +71,12 @@ cardinal <- function(x, negative = getOption("numerate.negative", "negative")) {
 #' @rdname cardinal
 #' @export
 
-nmr_card <- cardinal
+nom_card <- cardinal
 
 #' @rdname cardinal
 #' @export
 
-numerator <- function(x, negative = getOption("numerate.negative", "negative")) {
+numerator <- function(x, negative = getOption("nombre.negative", "negative")) {
   if (!length(x))         return(character(0))
   if (!is.numeric(x))     stop("`x` must be numeric")
   if (any(x != as.integer(x)))
@@ -117,4 +117,4 @@ numerator <- function(x, negative = getOption("numerate.negative", "negative")) 
 #' @rdname cardinal
 #' @export
 
-nmr_num <- numerator
+nom_numer <- numerator

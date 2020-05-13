@@ -3,14 +3,14 @@
 #' @param x A numeric vector
 #' @param negative A character of length one to append to negative numbers.
 #'     Defaults to `"negative"`.
-#'     Default can be changed by setting `options("numerate.negative")`.
+#'     Default can be changed by setting `options("nombre.negative")`.
 #'
 #' @return A character vector of the same length as `x`
 #' @export
 #'
 #' @example examples/ordinal.R
 
-ordinal <- function(x, negative = getOption("numerate.negative", "negative")) {
+ordinal <- function(x, negative = getOption("nombre.negative", "negative")) {
   if (!length(x))              return(character(0))
   if (!is.numeric(x))          stop("`x` must be numeric")
   if (!is.character(negative)) stop("`negative` must be of type character")
@@ -50,4 +50,4 @@ ordinal <- function(x, negative = getOption("numerate.negative", "negative")) {
 #' @rdname ordinal
 #' @export
 
-nmr_ord <- ordinal
+nom_ord <- ordinal
