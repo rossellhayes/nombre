@@ -5,3 +5,4 @@
 ^examples$
 ^\.github$
 ^README\.Rmd$
+^codecov\.yml$

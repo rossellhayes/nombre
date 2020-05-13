@@ -22,6 +22,8 @@ library(ipa)
 <!-- badges: start -->
 [![License: MIT](https://img.shields.io/badge/license-MIT-blueviolet.svg)](https://opensource.org/licenses/MIT)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![R build status](https://github.com/rossellhayes/nombre/workflows/R-CMD-check/badge.svg)](https://github.com/rossellhayes/nombre/actions)
+[![Codecov test coverage](https://codecov.io/gh/rossellhayes/nombre/branch/master/graph/badge.svg)](https://codecov.io/gh/rossellhayes/nombre?branch=master)
 <!-- badges: end -->
 
 > *nombre* (French) `r sampa("/nO~bR/")`: number  
