@@ -36,6 +36,7 @@ test_that("errors", {
   expect_error(nom_denom(numeric(1), negative = character(0)))
   expect_error(nom_denom(numeric(1), negative = character(2)))
   expect_error(nom_denom(numeric(1), numerator = character(1)))
+  expect_error(nom_denom(numeric(2), numerator = numeric(3)))
   expect_error(nom_denom(numeric(2), negative = numeric(3)))
   expect_error(nom_denom(numeric(2), quarter = numeric(1)))
   expect_error(nom_denom(numeric(2), quarter = NA))

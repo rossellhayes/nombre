@@ -16,3 +16,10 @@ test_that("ordinal vector", {
 test_that("early return", {
   expect_equal(nom_ord(numeric(0)), character(0))
 })
+
+test_that("errors", {
+  expect_error(nom_ord(character(1)))
+  expect_error(nom_ord(numeric(1), negative = numeric(1)))
+  expect_error(nom_ord(numeric(1), negative = character(0)))
+  expect_error(nom_ord(numeric(1), negative = character(2)))
+})

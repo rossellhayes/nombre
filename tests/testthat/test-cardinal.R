@@ -31,3 +31,16 @@ test_that("decimal cardinal", {
 test_that("early return", {
   expect_equal(nom_card(numeric(0)), character(0))
 })
+
+test_that("errors", {
+  expect_error(nom_card(character(1)))
+  expect_error(nom_card(numeric(1), negative = numeric(1)))
+  expect_error(nom_card(numeric(1), negative = character(0)))
+  expect_error(nom_card(numeric(1), negative = character(2)))
+  expect_error(nom_numer(character(1)))
+  expect_error(nom_numer(0.5))
+  expect_error(nom_numer(numeric(1), negative = numeric(1)))
+  expect_error(nom_numer(numeric(1), negative = character(0)))
+  expect_error(nom_numer(numeric(1), negative = character(2)))
+  expect_error(convert_hundreds(numeric(0)))
+})
