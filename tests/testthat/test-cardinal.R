@@ -30,6 +30,7 @@ test_that("decimal cardinal", {
 
 test_that("early return", {
   expect_equal(nom_card(numeric(0)), character(0))
+  expect_equal(nom_numer(numeric(0)), character(0))
   expect_equal(convert_hundreds(numeric(0)), character(0))
 })
 
