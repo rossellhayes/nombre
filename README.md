@@ -7,6 +7,8 @@
 
 [![License:
 MIT](https://img.shields.io/badge/license-MIT-blueviolet.svg)](https://opensource.org/licenses/MIT)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- badges: end -->
 
 > *nombre* (French) /nɔ̃bʁ/: number  
@@ -32,19 +34,19 @@ remotes::install_github("rossellhayes/nombre")
 **nombre** converts numerics into words:
 
 ``` r
-nmr_card(2)
+nom_card(2)
 #> [1] "two"
-nmr_card(2L)
+nom_card(2L)
 #> [1] "two"
 x <- rep(TRUE, 525600)
-nmr_card(length(x))
+nom_card(length(x))
 #> [1] "five hundred twenty-five thousand six hundred"
 ```
 
 It also works for numeric vectors:
 
 ``` r
-nmr_card(8^(1:10))
+nom_card(8^(1:10))
 #>  [1] "eight"                                                                                       
 #>  [2] "sixty-four"                                                                                  
 #>  [3] "five hundred twelve"                                                                         
@@ -60,13 +62,13 @@ nmr_card(8^(1:10))
 **nombre** can also generate ordinals, numerators and denominators:
 
 ``` r
-nmr_ord(1:5)
+nom_ord(1:5)
 #> [1] "first"  "second" "third"  "fourth" "fifth"
-nmr_num(1:5)
+nom_numer(1:5)
 #> [1] "one"   "two"   "three" "four"  "five"
-nmr_denom(1:5)
+nom_denom(1:5)
 #> [1] "whole"   "half"    "third"   "quarter" "fifth"
-nmr_denom(1:5, numerator = 1:5)
+nom_denom(1:5, numerator = 1:5)
 #> [1] "whole"    "halves"   "thirds"   "quarters" "fifths"
 ```
 
@@ -75,9 +77,9 @@ nmr_denom(1:5, numerator = 1:5)
 It can also handle less common numerics, like negative and fractions:
 
 ``` r
-nmr_card(-2)
+nom_card(-2)
 #> [1] "negative two"
-nmr_card(99.9)
+nom_card(99.9)
 #> [1] "ninety-nine and nine tenths"
 ```
 
@@ -88,12 +90,13 @@ faster than options that implement their own object class, like
 [**english**](https://cran.r-project.org/web/packages/english/):
 
 ``` r
-bench::mark(nmr_card(1:1000), as.character(english::english(1:1000)))
+bench::mark(nom_card(1:1000), as.character(english::english(1:1000)))
+#> Warning: Some expressions had a GC in every iteration; so filtering is disabled.
 #> # A tibble: 2 x 6
-#>   expression                                  min  median `itr/sec` mem_alloc
-#>   <bch:expr>                             <bch:tm> <bch:t>     <dbl> <bch:byt>
-#> 1 nmr_card(1:1000)                         7.83ms  10.2ms     98.9      841KB
-#> 2 as.character(english::english(1:1000)) 139.23ms 139.2ms      7.18     389KB
+#>   expression                                  min   median `itr/sec` mem_alloc
+#>   <bch:expr>                             <bch:tm> <bch:tm>     <dbl> <bch:byt>
+#> 1 nom_card(1:1000)                         7.21ms   9.65ms    104.       841KB
+#> 2 as.character(english::english(1:1000)) 118.36ms 139.03ms      7.38     389KB
 #> # ... with 1 more variable: `gc/sec` <dbl>
 ```
 

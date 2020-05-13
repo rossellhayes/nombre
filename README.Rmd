@@ -21,6 +21,7 @@ library(ipa)
 
 <!-- badges: start -->
 [![License: MIT](https://img.shields.io/badge/license-MIT-blueviolet.svg)](https://opensource.org/licenses/MIT)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- badges: end -->
 
 > *nombre* (French) `r sampa("/nO~bR/")`: number  
@@ -83,7 +84,7 @@ nom_card(99.9)
 This allows it to run faster than options that implement their own object class, like [**english**](https://cran.r-project.org/web/packages/english/):
 
 ```{r}
-bench::mark(nmr_card(1:1000), as.character(english::english(1:1000)))
+bench::mark(nom_card(1:1000), as.character(english::english(1:1000)))
 ```
 
 **nombre** also does not require dependencies for most of its functionality.
