@@ -10,6 +10,9 @@
 #'     If `FALSE`, the denominator of `4` will be "fourth(s)".
 #'     Defaults to `TRUE`.
 #'     Default can be changed by setting `options("nombre.quarter")`.
+#' @param negative A character of length one to append to negative numbers.
+#'     Defaults to `"negative"`.
+#'     Default can be changed by setting `options("nombre.negative")`.
 #'
 #' @return A character vector of the same length as `x`
 #' @export

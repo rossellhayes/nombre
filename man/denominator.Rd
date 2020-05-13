@@ -32,6 +32,10 @@ If \code{TRUE}, the denominator of \code{4} will be "quarter(s)".
 If \code{FALSE}, the denominator of \code{4} will be "fourth(s)".
 Defaults to \code{TRUE}.
 Default can be changed by setting \code{options("nombre.quarter")}.}
+
+\item{negative}{A character of length one to append to negative numbers.
+Defaults to \code{"negative"}.
+Default can be changed by setting \code{options("nombre.negative")}.}
 }
 \value{
 A character vector of the same length as \code{x}
@@ -40,11 +44,11 @@ A character vector of the same length as \code{x}
 Convert numbers to ordinal character vectors
 }
 \examples{
-denominator(2)
-denominator(1:10)
-denominator(1:10, numerator = 2)
-denominator(1:10, numerator = 1:10)
+nom_denom(2)
+nom_denom(1:10)
+nom_denom(1:10, numerator = 2)
+nom_denom(1:10, numerator = 1:10)
 
-denominator(4)
-denominator(4, quarter = FALSE)
+nom_denom(4)
+nom_denom(4, quarter = FALSE)
 }

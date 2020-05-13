@@ -23,7 +23,7 @@ A character vector of the same length as \code{x}
 Convert numbers to ordinal character vectors
 }
 \examples{
-nmr_ord(2)
-nmr_ord(1:10)
-nmr_ord(525600)
+nom_ord(2)
+nom_ord(1:10)
+nom_ord(525600)
 }
