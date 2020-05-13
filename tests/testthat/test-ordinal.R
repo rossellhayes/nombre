@@ -12,3 +12,7 @@ test_that("ordinal vector", {
     nom_ord(c(1, 2, 100000000)), c("first", "second", "one-hundred-millionth")
   )
 })
+
+test_that("early return", {
+  expect_equal(nom_ord(numeric(0)), character(0))
+})

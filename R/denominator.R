@@ -30,7 +30,8 @@ denominator <- function(
   if (!is.numeric(numerator))  stop("`numerator` must be numeric")
   if (length(numerator) != 1 & length(numerator) != length(x))
     stop("`numerator` must be either length one or the same length as `x`")
-  if (!is.logical(quarter) | length(quarter) != 1 | is.na(quarter))
+  if (length(quarter) != 1) stop("`quarter` must be length one")
+  if (!is.logical(quarter) | is.na(quarter))
     stop("`quarter` must be either `TRUE` or `FALSE`")
 
   denom  <- rep("", length(x))

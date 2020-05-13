@@ -27,3 +27,7 @@ test_that("negative cardinal", {
 test_that("decimal cardinal", {
   expect_equal(nom_card(2.9), "two and nine tenths")
 })
+
+test_that("early return", {
+  expect_equal(nom_card(numeric(0)), character(0))
+})

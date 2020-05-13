@@ -25,3 +25,19 @@ test_that("denominator vector", {
     c("whole", "halves", "one-hundred-millionths")
   )
 })
+
+test_that("early return", {
+  expect_equal(nom_denom(numeric(0)), character(0))
+})
+
+test_that("errors", {
+  expect_error(nom_denom(character(1)))
+  expect_error(nom_denom(numeric(1), negative = numeric(1)))
+  expect_error(nom_denom(numeric(1), negative = character(0)))
+  expect_error(nom_denom(numeric(1), negative = character(2)))
+  expect_error(nom_denom(numeric(1), numerator = character(1)))
+  expect_error(nom_denom(numeric(2), negative = numeric(3)))
+  expect_error(nom_denom(numeric(2), quarter = numeric(1)))
+  expect_error(nom_denom(numeric(2), quarter = NA))
+  expect_error(nom_denom(numeric(2), quarter = logical(2)))
+})
