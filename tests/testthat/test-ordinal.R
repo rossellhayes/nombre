@@ -13,12 +13,41 @@ test_that("ordinal vector", {
   )
 })
 
+test_that("ordinal suffixes without cardinalizing", {
+  expect_equal(nom_ord(1, cardinal = FALSE), "1st")
+  expect_equal(nom_ord(2, cardinal = FALSE), "2nd")
+  expect_equal(nom_ord(3, cardinal = FALSE), "3rd")
+  expect_equal(nom_ord(12, cardinal = FALSE), "12th")
+  expect_equal(nom_ord(21, cardinal = FALSE), "21st")
+  expect_equal(nom_ord(100000000, cardinal = FALSE), "100000000th")
+})
+
+test_that("ordinal suffixes on character vector", {
+  expect_equal(nom_ord("1"), "1st")
+  expect_equal(nom_ord("2"), "2nd")
+  expect_equal(nom_ord("3"), "3rd")
+  expect_equal(nom_ord("12"), "12th")
+  expect_equal(nom_ord("21"), "21st")
+  expect_equal(nom_ord("100000000"), "100000000th")
+  expect_equal(nom_ord("one"), "first")
+  expect_equal(nom_ord("two"), "second")
+  expect_equal(nom_ord("three"), "third")
+  expect_equal(nom_ord("twelve"), "twelfth")
+  expect_equal(nom_ord("twenty-one"), "twenty-first")
+  expect_equal(nom_ord("one hundred million"), "one-hundred-millionth")
+  expect_equal(nom_ord("n"), "nth")
+  expect_equal(nom_ord("dozen"), "dozenth")
+  expect_equal(nom_ord("umpteen"), "umpteenth")
+  expect_equal(nom_ord("eleventy"), "eleventieth")
+  expect_equal(nom_ord("one zillion"), "one-zillionth")
+})
+
 test_that("early return", {
   expect_equal(nom_ord(numeric(0)), character(0))
 })
 
 test_that("errors", {
-  expect_error(nom_ord(character(1)))
+  expect_error(nom_ord(logical(1)))
   expect_error(nom_ord(numeric(1), negative = numeric(1)))
   expect_error(nom_ord(numeric(1), negative = character(0)))
   expect_error(nom_ord(numeric(1), negative = character(2)))
