@@ -31,9 +31,9 @@ cardinal <- function(x, negative = getOption("nombre.negative", "negative")) {
   if (any(decimal != 0) & !requireNamespace("MASS", quietly = TRUE)) {
     stop(
       paste(
-        "The MASS package is required to use the nombre package with",
-        "non-integer inputs. Either run `install.packages(MASS)` or use only",
-        "integer inputs."
+        'The MASS package is required to use the nombre package with',
+        'non-integer inputs. Either run `install.packages("MASS")` or use only',
+        'inputs with no decimal or fractional component.'
       )
     )
   }

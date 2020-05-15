@@ -44,4 +44,13 @@ test_that("errors", {
   expect_error(nom_numer(numeric(1), negative = numeric(1)))
   expect_error(nom_numer(numeric(1), negative = character(0)))
   expect_error(nom_numer(numeric(1), negative = character(2)))
+  with_mock(
+    requireNamespace = function(...) FALSE,
+    expect_error(nom_card(0.5)),
+    expect_error(nom_card(1.5)),
+    expect_error(nom_card(-0.5)),
+    expect_error(nom_card(-1.5)),
+    expect_error(nom_card(1 / 3)),
+    expect_error(nom_card(pi))
+  )
 })
