@@ -45,6 +45,7 @@ denominator <- function(
   if (quarter) denom[abs(x) == 4] <- "quarter"
 
   denom[x < 0 & denom != ""]  <- paste(negative, denom[x < 0 & denom != ""])
+
   denom[denom == ""]          <- ordinal(x[denom == ""], negative = negative)
   denom[plural & abs(x) != 2] <- paste0(denom[plural & abs(x) != 2], "s")
 
