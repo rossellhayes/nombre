@@ -102,24 +102,24 @@ nom_card(99.9)
 
 **nombre** is implemented using vectorized base R. This allows it to run
 faster than options that implement their own object class, like
-[**english**](https://cran.r-project.org/web/packages/english/):
+[**english**](https://CRAN.R-project.org/package=english):
 
 ``` r
 bench::mark(nom_card(1:1000), as.character(english::english(1:1000)))
 #> Warning: Some expressions had a GC in every iteration; so filtering is disabled.
 #> # A tibble: 2 x 6
-#>   expression                                 min  median `itr/sec` mem_alloc
-#>   <bch:expr>                             <bch:t> <bch:t>     <dbl> <bch:byt>
-#> 1 nom_card(1:1000)                        16.7ms  22.8ms     42.5      841KB
-#> 2 as.character(english::english(1:1000)) 327.8ms 337.8ms      2.96     389KB
+#>   expression                                  min   median `itr/sec` mem_alloc
+#>   <bch:expr>                             <bch:tm> <bch:tm>     <dbl> <bch:byt>
+#> 1 nom_card(1:1000)                         7.59ms   9.05ms    103.       841KB
+#> 2 as.character(english::english(1:1000)) 124.85ms 130.35ms      7.40     389KB
 #> # ... with 1 more variable: `gc/sec` <dbl>
 ```
 
 **nombre** also does not require dependencies for most of its
 functionality. The suggested package
-[**MASS**](https://cran.r-project.org/web/packages/MASS/) is only
-required for handling non-integers, a situation that should be rare for
-most packages considering implementing **nombre**.
+[**MASS**](https://CRAN.R-project.org/package=MASS) is only required for
+handling non-integers, a situation that should be rare for most packages
+considering implementing **nombre**.
 
 -----
 
