@@ -73,6 +73,13 @@ nom_denom(1:5, numerator = 1:5)
 
 > `r emo::ji("shushing")` (numerators are almost always the same as cardinals)
 
+You can also add ordinal suffixes to numerics or arbitrary number-like strings:
+
+```{r}
+nom_ord(1:5, cardinal = FALSE)
+nom_ord(c("n", "dozen", "umpteen", "eleventy", "one zillion"))
+```
+
 It can also handle less common numerics, like negative and fractions:
 
 ```{r}

@@ -78,6 +78,17 @@ nom_denom(1:5, numerator = 1:5)
 
 > 🤫 (numerators are almost always the same as cardinals)
 
+You can also add ordinal suffixes to numerics or arbitrary number-like
+strings:
+
+``` r
+nom_ord(1:5, cardinal = FALSE)
+#> [1] "1st" "2nd" "3rd" "4th" "5th"
+nom_ord(c("n", "dozen", "umpteen", "eleventy", "one zillion"))
+#> [1] "nth"           "dozenth"       "umpteenth"     "eleventieth"  
+#> [5] "one-zillionth"
+```
+
 It can also handle less common numerics, like negative and fractions:
 
 ``` r
@@ -97,10 +108,10 @@ faster than options that implement their own object class, like
 bench::mark(nom_card(1:1000), as.character(english::english(1:1000)))
 #> Warning: Some expressions had a GC in every iteration; so filtering is disabled.
 #> # A tibble: 2 x 6
-#>   expression                                  min   median `itr/sec` mem_alloc
-#>   <bch:expr>                             <bch:tm> <bch:tm>     <dbl> <bch:byt>
-#> 1 nom_card(1:1000)                         7.29ms   9.72ms    102.       841KB
-#> 2 as.character(english::english(1:1000)) 125.65ms 129.69ms      7.71     389KB
+#>   expression                                 min  median `itr/sec` mem_alloc
+#>   <bch:expr>                             <bch:t> <bch:t>     <dbl> <bch:byt>
+#> 1 nom_card(1:1000)                        16.7ms  22.8ms     42.5      841KB
+#> 2 as.character(english::english(1:1000)) 327.8ms 337.8ms      2.96     389KB
 #> # ... with 1 more variable: `gc/sec` <dbl>
 ```
 

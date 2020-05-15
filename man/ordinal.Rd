@@ -5,12 +5,26 @@
 \alias{nom_ord}
 \title{Convert numbers to ordinal character vectors}
 \usage{
-ordinal(x, negative = getOption("nombre.negative", "negative"))
+ordinal(
+  x,
+  cardinal = TRUE,
+  negative = getOption("nombre.negative", "negative")
+)
 
-nom_ord(x, negative = getOption("nombre.negative", "negative"))
+nom_ord(
+  x,
+  cardinal = TRUE,
+  negative = getOption("nombre.negative", "negative")
+)
 }
 \arguments{
-\item{x}{A numeric vector}
+\item{x}{A numeric or character vector}
+
+\item{cardinal}{Whether to convert a numeric vector to cardinal numbers
+before applying ordinal suffixes.
+When \code{TRUE}, 1 -> "first".
+When \code{FALSE}, 1 -> "1st".
+Defaults to \code{TRUE}.}
 
 \item{negative}{A character of length one to append to negative numbers.
 Defaults to \code{"negative"}.
@@ -20,10 +34,17 @@ Default can be changed by setting \code{options("nombre.negative")}.}
 A character vector of the same length as \code{x}
 }
 \description{
-Convert numbers to ordinal character vectors
+Adds ordinal suffixes to numbers (or a character vector of number-like
+words).
+Converts numeric vectors to cardinal numbers before adding prefixes unless
+\code{cardinal} is \code{FALSE}.
 }
 \examples{
 nom_ord(2)
 nom_ord(1:10)
 nom_ord(525600)
+
+nom_ord(1:10, cardinal = FALSE)
+
+nom_ord(c("n", "dozen", "umpteen", "eleventy", "one zillion"))
 }
