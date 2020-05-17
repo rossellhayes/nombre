@@ -1,0 +1,16 @@
+citHeader("To cite nombre in publications use:")
+
+citEntry(
+  entry    = "Manual",
+  title    = "nombre: number names",
+  author   = "Rossell Hayes, Alexander",
+  year     = 2020,
+  note     = "R package version 0.1.0",
+  url      = "https://github.com/rossellhayes/nombre",
+  textVersion = paste(
+    "Alexander Rossell Hayes (2020).",
+    "nombre: number names.",
+    "R package version 0.1.0.",
+    "https://github.com/rossellhayes/nombre"
+  )
+)
