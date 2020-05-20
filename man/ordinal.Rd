@@ -3,7 +3,7 @@
 \name{ordinal}
 \alias{ordinal}
 \alias{nom_ord}
-\title{Convert numbers to ordinal character vectors}
+\title{Convert numbers to ordinal character vectors (first, second, third)}
 \usage{
 ordinal(x, cardinal = TRUE, ...)
 

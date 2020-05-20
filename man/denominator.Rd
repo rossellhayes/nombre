@@ -3,7 +3,7 @@
 \name{denominator}
 \alias{denominator}
 \alias{nom_denom}
-\title{Convert numbers to ordinal character vectors}
+\title{Convert numbers to denominator character vectors (whole, half, third)}
 \usage{
 denominator(x, numerator = 1, quarter = getOption("nombre.quarter", TRUE), ...)
 
@@ -28,7 +28,7 @@ Default can be changed by setting \code{options("nombre.quarter")}.}
 A character vector of the same length as \code{x}
 }
 \description{
-Convert numbers to ordinal character vectors
+Convert numbers to denominator character vectors (whole, half, third)
 }
 \examples{
 nom_denom(2)

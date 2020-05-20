@@ -1,4 +1,4 @@
-#' Convert numbers to ordinal character vectors
+#' Convert numbers to ordinal character vectors (first, second, third)
 #'
 #' Adds ordinal suffixes to numbers (or a character vector of number-like
 #' words).

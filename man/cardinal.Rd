@@ -5,7 +5,7 @@
 \alias{nom_card}
 \alias{numerator}
 \alias{nom_numer}
-\title{Convert numbers to cardinal character vectors}
+\title{Convert numbers to cardinal character vectors (one, two, three)}
 \usage{
 cardinal(
   x,

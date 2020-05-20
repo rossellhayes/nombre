@@ -1,4 +1,4 @@
-#' Convert numbers to ordinal character vectors
+#' Convert numbers to denominator character vectors (whole, half, third)
 #'
 #' @param x A numeric vector
 #' @param numerator A numeric vector.
