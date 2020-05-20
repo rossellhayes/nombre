@@ -21,17 +21,9 @@ nom_card(
   numerator = FALSE
 )
 
-numerator(
-  x,
-  max_n = getOption("nombre.max_n", Inf),
-  negative = getOption("nombre.negative", "negative")
-)
+numerator(x, ...)
 
-nom_numer(
-  x,
-  max_n = getOption("nombre.max_n", Inf),
-  negative = getOption("nombre.negative", "negative")
-)
+nom_numer(x, ...)
 }
 \arguments{
 \item{x}{A numeric vector}
@@ -51,6 +43,8 @@ Default can be changed by setting \code{options("nombre.negative")}.}
 \item{numerator}{When \code{TRUE}, an error is produced if \code{x} has a decimal or
 fractional component.
 Defaults to \code{FALSE}.}
+
+\item{...}{Additional arguments of \code{numerator()} are passed to \code{cardinal()}}
 }
 \value{
 A character vector of the same length as \code{x}
