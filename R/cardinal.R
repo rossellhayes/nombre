@@ -7,8 +7,10 @@
 #'
 #' @param x A numeric vector
 #' @param max_n A numeric vector.
-#'     When `x` is greater than `max_n`, `x` remains numeric instead of
-#'     being converted to words.
+#'     When the absolute value of `x` is greater than `max_n`, `x` remains
+#'     numeric instead of being converted to words.
+#'     If `max_n` is negative, no `x`s will be converted to words.
+#'     (This can be useful when `max_n` is passed by another function.)
 #'     Defaults to `Inf`, which converts all `x`s to words.
 #'     Default can be changed by setting `options("nombre.max_n")`.
 #' @param negative A character vector to append to negative numbers.
@@ -53,8 +55,8 @@ cardinal <- function(
     )
   }
 
-  card                      <- character(n)
-  card[abs(x) > abs(max_n)] <- as.character(x[abs(x) > abs(max_n)])
+  card                 <- character(n)
+  card[abs(x) > max_n] <- as.character(x[abs(x) > max_n])
 
   unmaxed <- card == ""
   if (!any(unmaxed)) return(card)

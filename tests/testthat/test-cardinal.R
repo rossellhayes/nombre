@@ -20,6 +20,7 @@ test_that("cardinal with max_n", {
   expect_equal(nom_card(2, 10), "two")
   expect_equal(nom_card(20, 10), "20")
   expect_equal(nom_card(c(2, 20), 10), c("two", "20"))
+  expect_equal(nom_card(c(2, 20), -1), c("2", "20"))
   expect_equal(nom_card(c(20, 20), c(10, 100)), c("20", "twenty"))
 })
 
