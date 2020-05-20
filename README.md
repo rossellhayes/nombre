@@ -63,11 +63,16 @@ nom_card(8^(1:10))
 #> [10] "one billion seventy-three million seven hundred forty-one thousand eight hundred twenty-four"
 ```
 
-**nombre** can also generate ordinals, numerators and denominators:
+**nombre** can also generate ordinals, adverbials, collectives,
+numerators and denominators:
 
 ``` r
 nom_ord(1:5)
 #> [1] "first"  "second" "third"  "fourth" "fifth"
+nom_adv(1:5)
+#> [1] "once"        "twice"       "three times" "four times"  "five times"
+nom_coll(1:5)
+#> [1] "the"       "both"      "all three" "all four"  "all five"
 nom_numer(1:5)
 #> [1] "one"   "two"   "three" "four"  "five"
 nom_denom(1:5)
@@ -89,7 +94,7 @@ nom_ord(c("n", "dozen", "umpteen", "eleventy", "one zillion"))
 #> [5] "one-zillionth"
 ```
 
-It can also handle less common numerics, like negative and fractions:
+It can also handle less common numerics, like negatives and fractions:
 
 ``` r
 nom_card(-2)
@@ -110,8 +115,8 @@ bench::mark(nom_card(1:1000), as.character(english::english(1:1000)))
 #> # A tibble: 2 x 6
 #>   expression                                  min   median `itr/sec` mem_alloc
 #>   <bch:expr>                             <bch:tm> <bch:tm>     <dbl> <bch:byt>
-#> 1 nom_card(1:1000)                         7.59ms   9.05ms    103.       841KB
-#> 2 as.character(english::english(1:1000)) 124.85ms 130.35ms      7.40     389KB
+#> 1 nom_card(1:1000)                         7.31ms   9.89ms     97.5     1.04MB
+#> 2 as.character(english::english(1:1000)) 118.65ms 129.06ms      7.98  389.29KB
 #> # ... with 1 more variable: `gc/sec` <dbl>
 ```
 
