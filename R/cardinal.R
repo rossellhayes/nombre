@@ -19,6 +19,7 @@
 #' @param numerator When `TRUE`, an error is produced if `x` has a decimal or
 #'     fractional component.
 #'     Defaults to `FALSE`.
+#' @param ... Additional arguments of `numerator()` are passed to `cardinal()`
 #'
 #' @return A character vector of the same length as `x`
 #' @family number names
@@ -119,12 +120,8 @@ nom_card <- cardinal
 #' @rdname cardinal
 #' @export
 
-numerator <- function(
-  x,
-  max_n     = getOption("nombre.max_n", Inf),
-  negative  = getOption("nombre.negative", "negative")
-) {
-  cardinal(x, max_n, negative, numerator = TRUE)
+numerator <- function(x, ...) {
+  cardinal(x, ..., numerator = TRUE)
 }
 
 #' @rdname cardinal
