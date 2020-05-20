@@ -15,7 +15,7 @@
 
 adverbial <- function(x, thrice = getOption("nombre.thrice", FALSE), ...) {
   if (!length(x))           return(character(0))
-  if (!is.numeric(x))       stop("`x` must be a numeric or vector")
+  if (!is.numeric(x))       stop("`x` must be a numeric vector")
   if (length(thrice) != 1) stop("`thrice` must be length one")
   if (!is.logical(thrice) | is.na(thrice))
     stop("`thrice` must be either `TRUE` or `FALSE`")
