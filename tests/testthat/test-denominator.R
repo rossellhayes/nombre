@@ -26,6 +26,15 @@ test_that("denominator vector", {
   )
 })
 
+test_that("denominator with max_n", {
+  expect_equal(nom_denom(2, 2, max_n = 10), "halves")
+  expect_equal(nom_denom(20, 2, max_n = 10), "20ths")
+  expect_equal(nom_denom(c(2, 20), 2, max_n = 10), c("halves", "20ths"))
+  expect_equal(
+    nom_denom(c(20, 20), 2, max_n = c(10, 100)), c("20ths", "twentieths")
+  )
+})
+
 test_that("early return", {
   expect_equal(nom_denom(numeric(0)), character(0))
 })
