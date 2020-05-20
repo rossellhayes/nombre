@@ -20,6 +20,7 @@ test_that("ordinal suffixes without cardinalizing", {
   expect_equal(nom_ord(12, cardinal = FALSE), "12th")
   expect_equal(nom_ord(21, cardinal = FALSE), "21st")
   expect_equal(nom_ord(100000000, cardinal = FALSE), "100000000th")
+  expect_equal(nom_ord(c(9, 10), cardinal = FALSE), c("9th", "10th"))
 })
 
 test_that("ordinal with max_n", {

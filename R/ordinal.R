@@ -67,7 +67,7 @@ ordinal <- function(
 
   ordinal[ordinal == ""] <- paste0(x[ordinal == ""], "th")
 
-  ordinal <- gsub(" ", "-", ordinal)
+  ordinal <- gsub(" ", "-", trimws(ordinal))
 
   ordinal
 }
