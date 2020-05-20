@@ -22,3 +22,10 @@ test_that("adverbial max_n", {
 test_that("early return", {
   expect_equal(nom_ord(numeric(0)), character(0))
 })
+
+test_that("errors", {
+  expect_error(nom_adv(logical(1)))
+  expect_error(nom_adv(numeric(1), thrice = numeric(1)))
+  expect_error(nom_adv(numeric(1), quarter = NA))
+  expect_error(nom_adv(numeric(1), quarter = logical(2)))
+})
