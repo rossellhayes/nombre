@@ -52,11 +52,10 @@ test_that("errors", {
   expect_error(nom_card(numeric(1), negative = numeric(1)))
   expect_error(nom_card(numeric(1), negative = character(0)))
   expect_error(nom_card(numeric(1), negative = character(2)))
+  expect_error(nom_card(numeric(1), max_n = numeric(0)))
+  expect_error(nom_card(numeric(1), max_n = character(1)))
   expect_error(nom_numer(character(1)))
   expect_error(nom_numer(0.5))
-  expect_error(nom_numer(numeric(1), negative = numeric(1)))
-  expect_error(nom_numer(numeric(1), negative = character(0)))
-  expect_error(nom_numer(numeric(1), negative = character(2)))
   with_mock(
     requireNamespace = function(...) FALSE,
     expect_error(nom_card(0.5)),
