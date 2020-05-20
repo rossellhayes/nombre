@@ -37,7 +37,7 @@ denominator <- function(
   denom[abs(x) == 2 & plural]  <- gsub("second$", "halves", denom[abs(x) == 2 & plural])
 
   if (quarter)
-    denom[abs(x) == 4] <- gsub("fourth$", "quarter", denom[abs(x) == 1])
+    denom[abs(x) == 4] <- gsub("fourth$", "quarter", denom[abs(x) == 4])
 
   denom[plural & abs(x) != 2] <- paste0(denom[plural & abs(x) != 2], "s")
 
