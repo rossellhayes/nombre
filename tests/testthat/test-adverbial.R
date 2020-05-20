@@ -18,3 +18,7 @@ test_that("adverbial max_n", {
   expect_equal(nom_adv(9:10, max_n = 9), c("nine times", "10 times"))
   expect_equal(nom_adv(1:2, max_n = 1), c("once", "2 times"))
 })
+
+test_that("early return", {
+  expect_equal(nom_ord(numeric(0)), character(0))
+})

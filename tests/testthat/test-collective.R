@@ -13,3 +13,6 @@ test_that("adverbial max_n", {
   expect_equal(nom_adv(1:3, max_n = 1), c("the", "both", "all 3"))
 })
 
+test_that("early return", {
+  expect_equal(nom_ord(numeric(0)), character(0))
+})
