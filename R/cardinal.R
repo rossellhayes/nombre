@@ -6,28 +6,64 @@
 #' support fractional components while `nom_numer()` and `numerator()` do not.
 #'
 #' @param x A numeric vector
+#' @param max_n When `x` is greater than `max_n`, `x` remains numeric instead of
+#'     being converted to words.
+#'     Defaults to `Inf`, which converts all `x`s to words.
+#'     Default can be changed by setting `options("nombre.max_n")`.
 #' @param negative A character to append to negative numbers.
 #'     Defaults to `"negative"`.
 #'     Default can be changed by setting `options("nombre.negative")`.
+#' @param numerator When `TRUE`, an error is produced if `x` has a decimal or
+#'     fractional component.
+#'     Defaults to `FALSE`.
 #'
 #' @return A character vector of the same length as `x`
 #' @export
 #'
 #' @example examples/cardinal.R
 
-cardinal <- function(x, negative = getOption("nombre.negative", "negative")) {
-  if (!length(x))              return(character(0))
+cardinal <- function(
+  x,
+  max_n     = getOption("nombre.max_n", Inf),
+  negative  = getOption("nombre.negative", "negative"),
+  numerator = FALSE
+) {
+  n <- length(x)
+
+  if (!n)                      return(character(0))
   if (!is.numeric(x))          stop("`x` must be numeric")
+  if (!is.numeric(max_n))      stop("`max_n` must be numeric")
+  if (length(max_n) != 1 & length(max_n) != n)
+    stop("`max_n` must be either length one or the same length as `x`")
   if (!is.character(negative)) stop("`negative` must be of type character")
-  if (length(negative) != 1)   stop("`negative` must be length one")
+  if (length(negative) != 1 & length(negative) != n)
+    stop("`negative` must be length one or the same length as `x`")
+  if (numerator & any(x != as.integer(x)))
+    stop("`x` cannot have a decimal component when `numerator` is TRUE")
+  if (any(x != as.integer(x) & !requireNamespace("MASS", quietly = TRUE))) {
+    stop(
+      strwrap(
+        'The MASS package is required to use nombre with non-integer inputs.',
+        paste(
+          'Either run `install.packages("MASS")`',
+          'or use only inputs with no decimal component.'
+        )
+      )
+    )
+  }
 
-  length <- length(x)
+  card                      <- character(n)
+  card[abs(x) > abs(max_n)] <- as.character(x[abs(x) > abs(max_n)])
 
-  minus        <- rep("", length)
-  minus[x < 0] <- paste0(negative, " ")
-  x            <- abs(x)
+  unmaxed <- card == ""
+  if (!any(unmaxed)) return(card)
 
-  decimal                <- x %% 1
+  minus                  <- character(n)
+  minus[x < 0 & unmaxed] <- paste0(negative, " ")
+  x[unmaxed]             <- abs(x[unmaxed])
+
+  decimal          <- numeric(n)
+  decimal[unmaxed] <- x[unmaxed] %% 1
   if (any(decimal != 0) & !requireNamespace("MASS", quietly = TRUE)) {
     stop(
       paste(
@@ -37,35 +73,39 @@ cardinal <- function(x, negative = getOption("nombre.negative", "negative")) {
       )
     )
   }
-  fraction               <- rep("", length)
+  fraction               <- character(n)
   fraction[decimal != 0] <- convert_fraction(decimal[decimal != 0])
-  x                      <- x %/% 1
+  x[unmaxed]             <- x[unmaxed] %/% 1
 
-  x      <- format(x, scientific = FALSE)
-  nchar  <- ceiling(nchar(x[[1]]) / 3) * 3
-  x      <- format(x, justify = "right", width = nchar, scientific = FALSE)
+  x[unmaxed] <- format(x[unmaxed], scientific = FALSE)
+  nchar      <- ceiling(nchar(x[unmaxed][[1]]) / 3) * 3
+  x[unmaxed] <- format(
+    x[unmaxed], justify = "right", width = nchar, scientific = FALSE
+  )
 
-  segment <- matrix(rep(x, nchar / 3), ncol = length, byrow = TRUE)
+  n_unmaxed <- sum(unmaxed)
+
+  segment <- matrix(rep(x[unmaxed], nchar / 3), ncol = n_unmaxed, byrow = TRUE)
   segment <- substr(
-    segment, rep(seq(1, nchar, 3), length), rep(seq(3, nchar, 3), length)
+    segment, rep(seq(1, nchar, 3), n_unmaxed), rep(seq(3, nchar, 3), n_unmaxed)
   )
   segment <- convert_hundreds(segment)
 
-  nrow    <- nrow(segment)
-  power   <- segment
-  power[] <- rep(powers[seq_len(nrow)], length)
-  power   <- power[nrow:1, ]
+  nrow                 <- nrow(segment)
+  power                <- segment
+  power[]              <- rep(powers[seq_len(nrow)], n_unmaxed)
+  power                <- power[nrow:1, ]
   power[segment == ""] <- ""
 
-  segment[]                   <- paste0(segment, power)
-  x                           <- apply(segment, 2, paste, collapse = "")
-  x[x == "" & fraction == ""] <- "zero"
+  segment[]                         <- paste0(segment, power)
+  card[unmaxed]                     <- apply(segment, 2, paste, collapse = "")
+  card[card == "" & fraction == ""] <- "zero"
 
-  and                           <- rep("", length)
-  and[x != "" & fraction != ""] <- " and "
+  and                              <- character(n)
+  and[card != "" & fraction != ""] <- " and "
 
-  x <- paste0(minus, trimws(x), and, fraction)
-  x
+  card <- paste0(minus, trimws(card), and, fraction)
+  card
 }
 
 #' @rdname cardinal
@@ -76,42 +116,50 @@ nom_card <- cardinal
 #' @rdname cardinal
 #' @export
 
-numerator <- function(x, negative = getOption("nombre.negative", "negative")) {
-  if (!length(x))         return(character(0))
-  if (!is.numeric(x))     stop("`x` must be numeric")
-  if (any(x != as.integer(x)))
-    stop("`x` must be an integer or a double with no decimal component")
-  if (!is.character(negative)) stop("`negative` must be of type character")
-  if (length(negative) != 1)   stop("`negative` must be length one")
+# numerator <- function(x, negative = getOption("nombre.negative", "negative")) {
+#   if (!length(x))         return(character(0))
+#   if (!is.numeric(x))     stop("`x` must be numeric")
+#   if (any(x != as.integer(x)))
+#     stop("`x` must be an integer or a double with no decimal component")
+#   if (!is.character(negative)) stop("`negative` must be of type character")
+#   if (length(negative) != 1)   stop("`negative` must be length one")
+#
+#   length <- length(x)
+#
+#   minus        <- rep("", length)
+#   minus[x < 0] <- paste0(negative, " ")
+#   x            <- abs(x)
+#
+#   x      <- format(x, scientific = FALSE)
+#   nchar  <- ceiling(nchar(x[[1]]) / 3) * 3
+#   x      <- format(x, justify = "right", width = nchar, scientific = FALSE)
+#
+#   segment <- matrix(rep(x, nchar / 3), ncol = length, byrow = TRUE)
+#   segment <- substr(
+#     segment, rep(seq(1, nchar, 3), length), rep(seq(3, nchar, 3), length)
+#   )
+#   segment <- convert_hundreds(segment)
+#
+#   nrow    <- nrow(segment)
+#   power   <- segment
+#   power[] <- rep(powers[seq_len(nrow)], length)
+#   power   <- power[nrow:1, ]
+#   power[segment == ""] <- ""
+#
+#   segment[]  <- paste0(segment, power)
+#   x          <- apply(segment, 2, paste, collapse = "")
+#   x[x == ""] <- "zero"
+#
+#   x <- paste0(minus, trimws(x))
+#   x
+# }
 
-  length <- length(x)
-
-  minus        <- rep("", length)
-  minus[x < 0] <- paste0(negative, " ")
-  x            <- abs(x)
-
-  x      <- format(x, scientific = FALSE)
-  nchar  <- ceiling(nchar(x[[1]]) / 3) * 3
-  x      <- format(x, justify = "right", width = nchar, scientific = FALSE)
-
-  segment <- matrix(rep(x, nchar / 3), ncol = length, byrow = TRUE)
-  segment <- substr(
-    segment, rep(seq(1, nchar, 3), length), rep(seq(3, nchar, 3), length)
-  )
-  segment <- convert_hundreds(segment)
-
-  nrow    <- nrow(segment)
-  power   <- segment
-  power[] <- rep(powers[seq_len(nrow)], length)
-  power   <- power[nrow:1, ]
-  power[segment == ""] <- ""
-
-  segment[]  <- paste0(segment, power)
-  x          <- apply(segment, 2, paste, collapse = "")
-  x[x == ""] <- "zero"
-
-  x <- paste0(minus, trimws(x))
-  x
+numerator <- function(
+  x,
+  max_n     = getOption("nombre.max_n", Inf),
+  negative  = getOption("nombre.negative", "negative")
+) {
+  cardinal(x, max_n, negative, numerator = TRUE)
 }
 
 #' @rdname cardinal

@@ -16,12 +16,24 @@ test_that("cardinal vector", {
     )
 })
 
+test_that("cardinal with max_n", {
+  expect_equal(nom_card(2, 10), "two")
+  expect_equal(nom_card(20, 10), "20")
+  expect_equal(nom_card(c(2, 20), 10), c("two", "20"))
+  expect_equal(nom_card(c(20, 20), c(10, 100)), c("20", "twenty"))
+})
+
 test_that("negative cardinal", {
   expect_equal(nom_card(-2), "negative two")
   expect_equal(
     nom_card(-525600), "negative five hundred twenty-five thousand six hundred"
   )
   expect_equal(nom_card(-100000000), "negative one hundred million")
+  expect_equal(nom_card(-2, negative = "minus"), "minus two")
+  expect_equal(
+    nom_card(c(-2, -2), negative = c("negative", "minus")),
+    c("negative two", "minus two")
+  )
 })
 
 test_that("decimal cardinal", {
