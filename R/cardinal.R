@@ -6,11 +6,12 @@
 #' support fractional components while `nom_numer()` and `numerator()` do not.
 #'
 #' @param x A numeric vector
-#' @param max_n When `x` is greater than `max_n`, `x` remains numeric instead of
+#' @param max_n A numeric vector.
+#'     When `x` is greater than `max_n`, `x` remains numeric instead of
 #'     being converted to words.
 #'     Defaults to `Inf`, which converts all `x`s to words.
 #'     Default can be changed by setting `options("nombre.max_n")`.
-#' @param negative A character to append to negative numbers.
+#' @param negative A character vector to append to negative numbers.
 #'     Defaults to `"negative"`.
 #'     Default can be changed by setting `options("nombre.negative")`.
 #' @param numerator When `TRUE`, an error is produced if `x` has a decimal or
