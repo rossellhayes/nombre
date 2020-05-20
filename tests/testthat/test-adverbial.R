@@ -26,6 +26,6 @@ test_that("early return", {
 test_that("errors", {
   expect_error(nom_adv(logical(1)))
   expect_error(nom_adv(numeric(1), thrice = numeric(1)))
-  expect_error(nom_adv(numeric(1), quarter = NA))
-  expect_error(nom_adv(numeric(1), quarter = logical(2)))
+  expect_error(nom_adv(numeric(1), thrice = logical(2)))
+  expect_error(nom_adv(numeric(1), thrice = NA))
 })
