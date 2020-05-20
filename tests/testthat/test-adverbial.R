@@ -20,7 +20,7 @@ test_that("adverbial max_n", {
 })
 
 test_that("early return", {
-  expect_equal(nom_ord(numeric(0)), character(0))
+  expect_equal(nom_adv(numeric(0)), character(0))
 })
 
 test_that("errors", {
