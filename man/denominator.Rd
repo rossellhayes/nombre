@@ -5,27 +5,16 @@
 \alias{nom_denom}
 \title{Convert numbers to ordinal character vectors}
 \usage{
-denominator(
-  x,
-  numerator = 1,
-  quarter = getOption("nombre.quarter", TRUE),
-  negative = getOption("nombre.negative", "negative")
-)
+denominator(x, numerator = 1, quarter = getOption("nombre.quarter", TRUE), ...)
 
-nom_denom(
-  x,
-  numerator = 1,
-  quarter = getOption("nombre.quarter", TRUE),
-  negative = getOption("nombre.negative", "negative")
-)
+nom_denom(x, numerator = 1, quarter = getOption("nombre.quarter", TRUE), ...)
 }
 \arguments{
 \item{x}{A numeric vector}
 
 \item{numerator}{A numeric vector.
 The numerator(s) associated with the denominator(s).
-When \code{numerator} is \code{1} or \code{-1}, returns a singular denominator.
-When \code{numerator} is not \code{1} or \code{-1}, returns a plural denominator.}
+When \code{numerator} is not \code{1} or \code{-1}, the denominator will be pluralized.}
 
 \item{quarter}{A logical of length one.
 If \code{TRUE}, the denominator of \code{4} will be "quarter(s)".
@@ -33,9 +22,7 @@ If \code{FALSE}, the denominator of \code{4} will be "fourth(s)".
 Defaults to \code{TRUE}.
 Default can be changed by setting \code{options("nombre.quarter")}.}
 
-\item{negative}{A character of length one to append to negative numbers.
-Defaults to \code{"negative"}.
-Default can be changed by setting \code{options("nombre.negative")}.}
+\item{...}{Additional arguments passed to \code{\link[=ordinal]{ordinal()}}}
 }
 \value{
 A character vector of the same length as \code{x}
@@ -51,4 +38,13 @@ nom_denom(1:10, numerator = 1:10)
 
 nom_denom(4)
 nom_denom(4, quarter = FALSE)
+
+nom_denom(1:10, numerator = 2, cardinal = FALSE)
+nom_denom(5:15, numerator = 2, max_n = 10)
 }
+\seealso{
+Other number names: 
+\code{\link{cardinal}()},
+\code{\link{ordinal}()}
+}
+\concept{number names}

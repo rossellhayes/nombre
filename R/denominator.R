@@ -12,8 +12,8 @@
 #' @param ... Additional arguments passed to [ordinal()]
 #'
 #' @return A character vector of the same length as `x`
+#' @family number names
 #' @export
-#'
 #' @example examples/denominator.R
 
 denominator <- function(

@@ -5,17 +5,9 @@
 \alias{nom_ord}
 \title{Convert numbers to ordinal character vectors}
 \usage{
-ordinal(
-  x,
-  cardinal = TRUE,
-  negative = getOption("nombre.negative", "negative")
-)
+ordinal(x, cardinal = TRUE, ...)
 
-nom_ord(
-  x,
-  cardinal = TRUE,
-  negative = getOption("nombre.negative", "negative")
-)
+nom_ord(x, cardinal = TRUE, ...)
 }
 \arguments{
 \item{x}{A numeric or character vector}
@@ -26,9 +18,7 @@ When \code{TRUE}, 1 -> "first".
 When \code{FALSE}, 1 -> "1st".
 Defaults to \code{TRUE}.}
 
-\item{negative}{A character of length one to append to negative numbers.
-Defaults to \code{"negative"}.
-Default can be changed by setting \code{options("nombre.negative")}.}
+\item{...}{Further arguments passed to \code{\link[=cardinal]{cardinal()}}}
 }
 \value{
 A character vector of the same length as \code{x}
@@ -45,6 +35,13 @@ nom_ord(1:10)
 nom_ord(525600)
 
 nom_ord(1:10, cardinal = FALSE)
+nom_ord(5:15, max_n = 10)
 
 nom_ord(c("n", "dozen", "umpteen", "eleventy", "one zillion"))
 }
+\seealso{
+Other number names: 
+\code{\link{cardinal}()},
+\code{\link{denominator}()}
+}
+\concept{number names}

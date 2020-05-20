@@ -14,8 +14,8 @@
 #' @param ... Further arguments passed to [cardinal()]
 #'
 #' @return A character vector of the same length as `x`
+#' @family number names
 #' @export
-#'
 #' @example examples/ordinal.R
 
 ordinal <- function(

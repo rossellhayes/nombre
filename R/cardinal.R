@@ -1,4 +1,4 @@
-#' Convert numbers to cardinal character vectors
+#' Convert numbers to cardinal character vectors (one, two, three)
 #'
 #' `nom_card()` and `cardinal()` produce cardinal numbers.
 #' `nom_numer()` and `numerator()` produce numerators.
@@ -19,8 +19,8 @@
 #'     Defaults to `FALSE`.
 #'
 #' @return A character vector of the same length as `x`
+#' @family number names
 #' @export
-#'
 #' @example examples/cardinal.R
 
 cardinal <- function(
