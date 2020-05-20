@@ -31,10 +31,14 @@ denominator <- function(
   denom  <- ordinal(x, ...)
   plural <- abs(numerator) != 1
 
-  denom[abs(x) == 1] <- gsub("first$", "whole", denom[abs(x) == 1])
+  denom[abs(x) == 1] <- gsub("1st$|first$", "whole", denom[abs(x) == 1])
 
-  denom[abs(x) == 2 & !plural] <- gsub("second$", "half", denom[abs(x) == 2 & !plural])
-  denom[abs(x) == 2 & plural]  <- gsub("second$", "halves", denom[abs(x) == 2 & plural])
+  denom[abs(x) == 2 & !plural] <- gsub(
+    "2nd$|second$", "half", denom[abs(x) == 2 & !plural]
+  )
+  denom[abs(x) == 2 & plural] <- gsub(
+    "2nd$|second$", "halves", denom[abs(x) == 2 & plural]
+  )
 
   if (quarter)
     denom[abs(x) == 4] <- gsub("fourth$", "quarter", denom[abs(x) == 4])

@@ -31,10 +31,16 @@ test_that("quarter", {
   expect_equal(nom_denom(4, quarter = FALSE), "fourth")
 })
 
+test_that("denominator with cardinal = FALSE", {
+  expect_equal(
+    nom_denom(1:3, 2, cardinal = FALSE), c("wholes", "halves", "3rds")
+  )
+})
+
 test_that("denominator with max_n", {
-  expect_equal(nom_denom(2, 2, max_n = 10), "halves")
+  expect_equal(nom_denom(3, 2, max_n = 10), "thirds")
   expect_equal(nom_denom(20, 2, max_n = 10), "20ths")
-  expect_equal(nom_denom(c(2, 20), 2, max_n = 10), c("halves", "20ths"))
+  expect_equal(nom_denom(c(3, 20), 2, max_n = 10), c("thirds", "20ths"))
   expect_equal(
     nom_denom(c(20, 20), 2, max_n = c(10, 100)), c("20ths", "twentieths")
   )
