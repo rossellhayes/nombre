@@ -22,6 +22,13 @@ test_that("ordinal suffixes without cardinalizing", {
   expect_equal(nom_ord(100000000, cardinal = FALSE), "100000000th")
 })
 
+test_that("ordinal with max_n", {
+  expect_equal(nom_ord(2, max_n = 10), "second")
+  expect_equal(nom_ord(20, max_n = 10), "20th")
+  expect_equal(nom_ord(c(2, 20), max_n = 10), c("second", "20th"))
+  expect_equal(nom_ord(c(20, 20), max_n = c(10, 100)), c("20th", "twentieth"))
+})
+
 test_that("ordinal suffixes on character vector", {
   expect_equal(nom_ord("1"), "1st")
   expect_equal(nom_ord("2"), "2nd")

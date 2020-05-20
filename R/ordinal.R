@@ -11,9 +11,7 @@
 #'     When `TRUE`, 1 -> "first".
 #'     When `FALSE`, 1 -> "1st".
 #'     Defaults to `TRUE`.
-#' @param negative A character of length one to append to negative numbers.
-#'     Defaults to `"negative"`.
-#'     Default can be changed by setting `options("nombre.negative")`.
+#' @param ... Further arguments passed to [cardinal()]
 #'
 #' @return A character vector of the same length as `x`
 #' @export
@@ -21,19 +19,17 @@
 #' @example examples/ordinal.R
 
 ordinal <- function(
-  x, cardinal = TRUE, negative = getOption("nombre.negative", "negative")
+  x, cardinal = TRUE, ...
 ) {
   if (!length(x)) return(character(0))
   if (!is.numeric(x) & !is.character(x))
     stop("`x` must be a numeric or character vector")
-  if (!is.character(negative)) stop("`negative` must be of type character")
-  if (length(negative) != 1)   stop("`negative` must be length one")
 
-  ordinal <- rep("", length(x))
+  ordinal <- character(length(x))
 
   if (is.numeric(x)) {
     if (cardinal) {
-      x <- cardinal(x, negative = negative)
+      x <- cardinal(x, ...)
     } else {
       x <- format(x, scientific = FALSE)
     }
