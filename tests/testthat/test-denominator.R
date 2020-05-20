@@ -26,6 +26,11 @@ test_that("denominator vector", {
   )
 })
 
+test_that("quarter", {
+  expect_equal(nom_denom(4), "quarter")
+  expect_equal(nom_denom(4, quarter = FALSE), "fourth")
+})
+
 test_that("denominator with max_n", {
   expect_equal(nom_denom(2, 2, max_n = 10), "halves")
   expect_equal(nom_denom(20, 2, max_n = 10), "20ths")
