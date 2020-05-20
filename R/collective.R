@@ -13,6 +13,7 @@ collective <- function(x, ...) {
   if (!is.numeric(x)) stop("`x` must be a numeric vector")
 
   coll             <- character(length(x))
+  coll[x == 0]     <- "no"
   coll[x == 1]     <- "the"
   coll[x == 2]     <- "both"
   coll[coll == ""] <- paste("all", cardinal(x[coll == ""], ...))

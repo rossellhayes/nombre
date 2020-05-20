@@ -1,4 +1,5 @@
 test_that("simple collective", {
+  expect_equal(nom_coll(0), "no")
   expect_equal(nom_coll(1), "the")
   expect_equal(nom_coll(2), "both")
   expect_equal(nom_coll(4), "all four")
