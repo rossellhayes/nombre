@@ -41,7 +41,9 @@ nom_ord(c("n", "dozen", "umpteen", "eleventy", "one zillion"))
 }
 \seealso{
 Other number names: 
+\code{\link{adverbial}()},
 \code{\link{cardinal}()},
+\code{\link{collective}()},
 \code{\link{denominator}()}
 }
 \concept{number names}

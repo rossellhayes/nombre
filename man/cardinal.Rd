@@ -37,8 +37,10 @@ nom_numer(
 \item{x}{A numeric vector}
 
 \item{max_n}{A numeric vector.
-When \code{x} is greater than \code{max_n}, \code{x} remains numeric instead of
-being converted to words.
+When the absolute value of \code{x} is greater than \code{max_n}, \code{x} remains
+numeric instead of being converted to words.
+If \code{max_n} is negative, no \code{x}s will be converted to words.
+(This can be useful when \code{max_n} is passed by another function.)
 Defaults to \code{Inf}, which converts all \code{x}s to words.
 Default can be changed by setting \code{options("nombre.max_n")}.}
 
@@ -73,6 +75,8 @@ paste("There are", nom_card(3.72e13), "cells in the human body.")
 }
 \seealso{
 Other number names: 
+\code{\link{adverbial}()},
+\code{\link{collective}()},
 \code{\link{denominator}()},
 \code{\link{ordinal}()}
 }

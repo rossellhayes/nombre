@@ -44,7 +44,9 @@ nom_denom(5:15, numerator = 2, max_n = 10)
 }
 \seealso{
 Other number names: 
+\code{\link{adverbial}()},
 \code{\link{cardinal}()},
+\code{\link{collective}()},
 \code{\link{ordinal}()}
 }
 \concept{number names}
