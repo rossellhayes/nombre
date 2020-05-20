@@ -66,17 +66,8 @@ cardinal <- function(
   minus[x < 0 & unmaxed] <- paste0(negative, " ")
   x[unmaxed]             <- abs(x[unmaxed])
 
-  decimal          <- numeric(n)
-  decimal[unmaxed] <- x[unmaxed] %% 1
-  if (any(decimal != 0) & !requireNamespace("MASS", quietly = TRUE)) {
-    stop(
-      paste(
-        'The MASS package is required to use the nombre package with',
-        'non-integer inputs. Either run `install.packages("MASS")` or use only',
-        'inputs with no decimal or fractional component.'
-      )
-    )
-  }
+  decimal                <- numeric(n)
+  decimal[unmaxed]       <- x[unmaxed] %% 1
   fraction               <- character(n)
   fraction[decimal != 0] <- convert_fraction(decimal[decimal != 0])
   x[unmaxed]             <- x[unmaxed] %/% 1
