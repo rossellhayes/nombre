@@ -46,12 +46,11 @@ cardinal <- function(
     stop("`x` cannot have a decimal component when `numerator` is TRUE")
   if (any(x != as.integer(x) & !requireNamespace("MASS", quietly = TRUE))) {
     stop(
-      strwrap(
-        'The MASS package is required to use nombre with non-integer inputs.',
-        paste(
-          'Either run `install.packages("MASS")`',
-          'or use only inputs with no decimal component.'
-        )
+      paste(
+        "The MASS package is required to use nombre with non-integer inputs.",
+        "\n",
+        "Either run `install.packages(\"MASS\")`",
+        "or use only inputs with no decimal component."
       )
     )
   }
