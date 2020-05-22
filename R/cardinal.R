@@ -34,9 +34,9 @@ cardinal <- function(
 ) {
   n <- length(x)
 
-  if (!n)                      return(character(0))
-  if (!is.numeric(x))          stop("`x` must be numeric")
-  if (!is.numeric(max_n))      stop("`max_n` must be numeric")
+  if (!n)                 return(character(0))
+  if (!is.numeric(x))     stop("`x` must be numeric")
+  if (!is.numeric(max_n)) stop("`max_n` must be numeric")
   if (length(max_n) != 1 & length(max_n) != n)
     stop("`max_n` must be either length one or the same length as `x`")
   if (!is.character(negative)) stop("`negative` must be of type character")
