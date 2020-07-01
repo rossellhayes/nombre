@@ -27,6 +27,10 @@
   Previously, dashes would be appended to the start of the shorter numbers.
   `nom_ord(c(9, 10), cardinal = FALSE)` now produces "9th, 10th" as expected,
   instead of "-9th, 10th" as it did previously.
+  
+## Miscellaneous
+
+* Added package documentation page at `?nombre`
 
 # nombre 0.1.0
 
