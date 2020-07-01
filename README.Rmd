@@ -20,6 +20,7 @@ library(ipa)
 # nombre <img src="man/figures/logo.png?raw=TRUE" align="right" height="138" />
 
 <!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/nombre)](https://CRAN.R-project.org/package=nombre)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blueviolet.svg)](https://opensource.org/licenses/MIT)
 [![R build status](https://github.com/rossellhayes/nombre/workflows/R-CMD-check/badge.svg)](https://github.com/rossellhayes/nombre/actions)
@@ -35,9 +36,16 @@ You can use it to express numbers as cardinals (one, two, three) or ordinals (fi
 
 ## Installation
 
-You can install the development version of **nombre** from GitHub with:
+You can install the released version of **nombre** from [CRAN](https://CRAN.R-project.org) with:
 
-``` r
+``` {r eval = FALSE}
+install.packages("nombre")
+```
+
+or the development version from GitHub with:
+
+``` {r eval = FALSE}
+# install.packages("remotes")
 remotes::install_github("rossellhayes/nombre")
 ```
 

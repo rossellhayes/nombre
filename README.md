@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/nombre)](https://CRAN.R-project.org/package=nombre)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![License:
@@ -27,9 +29,17 @@ negatives and fractions.
 
 ## Installation
 
-You can install the development version of **nombre** from GitHub with:
+You can install the released version of **nombre** from
+[CRAN](https://CRAN.R-project.org) with:
 
 ``` r
+install.packages("nombre")
+```
+
+or the development version from GitHub with:
+
+``` r
+# install.packages("remotes")
 remotes::install_github("rossellhayes/nombre")
 ```
 
@@ -111,12 +121,11 @@ faster than options that implement their own object class, like
 
 ``` r
 bench::mark(nom_card(1:1000), as.character(english::english(1:1000)))
-#> Warning: Some expressions had a GC in every iteration; so filtering is disabled.
 #> # A tibble: 2 x 6
-#>   expression                                  min   median `itr/sec` mem_alloc
-#>   <bch:expr>                             <bch:tm> <bch:tm>     <dbl> <bch:byt>
-#> 1 nom_card(1:1000)                         7.31ms   9.89ms     97.5     1.04MB
-#> 2 as.character(english::english(1:1000)) 118.65ms 129.06ms      7.98  389.29KB
+#>   expression                                 min median `itr/sec` mem_alloc
+#>   <bch:expr>                             <bch:t> <bch:>     <dbl> <bch:byt>
+#> 1 nom_card(1:1000)                        13.6ms   17ms     58.6     1.03MB
+#> 2 as.character(english::english(1:1000)) 226.8ms  227ms      4.41  389.29KB
 #> # ... with 1 more variable: `gc/sec` <dbl>
 ```
 
