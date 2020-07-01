@@ -43,33 +43,25 @@ cardinal <- function(
   if (length(negative) != 1 & length(negative) != n)
     stop("`negative` must be length one or the same length as `x`")
   if (numerator & any(x != as.integer(x)))
-    stop("`x` cannot have a decimal component when `numerator` is TRUE")
-  if (any(x != as.integer(x) & !requireNamespace("MASS", quietly = TRUE))) {
-    stop(
-      paste(
-        "The MASS package is required to use nombre with non-integer inputs.",
-        "\n",
-        "Either run `install.packages(\"MASS\")`",
-        "or use only inputs with no decimal component."
-      )
-    )
-  }
+    stop("`x` cannot have a decimal component when producing a numerator")
 
   card                 <- character(n)
   card[abs(x) > max_n] <- as.character(x[abs(x) > max_n])
 
-  unmaxed <- card == ""
-  if (!any(unmaxed)) return(card)
+  unmaxed <- card == character(1)
+  if (!any(unmaxed)) {return(card)}
 
   minus                  <- character(n)
   minus[x < 0 & unmaxed] <- paste0(negative, " ")
   x[unmaxed]             <- abs(x[unmaxed])
 
-  decimal                <- numeric(n)
-  decimal[unmaxed]       <- x[unmaxed] %% 1
-  fraction               <- character(n)
-  fraction[decimal != 0] <- convert_fraction(decimal[decimal != 0])
-  x[unmaxed]             <- x[unmaxed] %/% 1
+  fraction <- character(n)
+  if (!numerator) {
+    decimal                <- numeric(n)
+    decimal[unmaxed]       <- x[unmaxed] %% 1
+    fraction[decimal != 0] <- convert_fraction(decimal[decimal != 0])
+    x[unmaxed]             <- x[unmaxed] %/% 1
+  }
 
   x[unmaxed] <- format(x[unmaxed], scientific = FALSE)
   nchar      <- ceiling(nchar(x[unmaxed][[1]]) / 3) * 3
