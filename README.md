@@ -8,7 +8,7 @@
 [![CRAN
 status](https://www.r-pkg.org/badges/version/nombre)](https://CRAN.R-project.org/package=nombre)
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![License:
 MIT](https://img.shields.io/badge/license-MIT-blueviolet.svg)](https://opensource.org/licenses/MIT)
 [![R build
@@ -122,10 +122,10 @@ faster than options that implement their own object class, like
 ``` r
 bench::mark(nom_card(1:1000), as.character(english::english(1:1000)))
 #> # A tibble: 2 x 6
-#>   expression                                 min median `itr/sec` mem_alloc
-#>   <bch:expr>                             <bch:t> <bch:>     <dbl> <bch:byt>
-#> 1 nom_card(1:1000)                        13.6ms   17ms     58.6     1.03MB
-#> 2 as.character(english::english(1:1000)) 226.8ms  227ms      4.41  389.29KB
+#>   expression                                  min   median `itr/sec` mem_alloc
+#>   <bch:expr>                             <bch:tm> <bch:tm>     <dbl> <bch:byt>
+#> 1 nom_card(1:1000)                         8.37ms   9.87ms     99.9     1.03MB
+#> 2 as.character(english::english(1:1000)) 108.42ms 108.42ms      9.22  389.29KB
 #> # ... with 1 more variable: `gc/sec` <dbl>
 ```
 

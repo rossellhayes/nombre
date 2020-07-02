@@ -21,7 +21,7 @@ library(ipa)
 
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/nombre)](https://CRAN.R-project.org/package=nombre)
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blueviolet.svg)](https://opensource.org/licenses/MIT)
 [![R build status](https://github.com/rossellhayes/nombre/workflows/R-CMD-check/badge.svg)](https://github.com/rossellhayes/nombre/actions)
 [![Codecov test coverage](https://codecov.io/gh/rossellhayes/nombre/branch/master/graph/badge.svg)](https://codecov.io/gh/rossellhayes/nombre?branch=master)
