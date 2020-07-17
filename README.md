@@ -122,18 +122,15 @@ faster than options that implement their own object class, like
 ``` r
 bench::mark(nom_card(1:1000), as.character(english::english(1:1000)))
 #> # A tibble: 2 x 6
-#>   expression                                  min   median `itr/sec` mem_alloc
-#>   <bch:expr>                             <bch:tm> <bch:tm>     <dbl> <bch:byt>
-#> 1 nom_card(1:1000)                         8.37ms   9.87ms     99.9     1.03MB
-#> 2 as.character(english::english(1:1000)) 108.42ms 108.42ms      9.22  389.29KB
+#>   expression                                  min  median `itr/sec` mem_alloc
+#>   <bch:expr>                             <bch:tm> <bch:t>     <dbl> <bch:byt>
+#> 1 nom_card(1:1000)                         8.56ms  12.2ms     82.4     1.03MB
+#> 2 as.character(english::english(1:1000)) 155.71ms 155.7ms      6.42  389.29KB
 #> # ... with 1 more variable: `gc/sec` <dbl>
 ```
 
-**nombre** also does not require dependencies for most of its
-functionality. The suggested package
-[**MASS**](https://CRAN.R-project.org/package=MASS) is only required for
-handling non-integers, a situation that should be rare for most packages
-considering implementing **nombre**.
+**nombre** does not depend on any other packages, making it lightweight
+to include in your package.
 
 -----
 

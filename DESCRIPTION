@@ -18,7 +18,6 @@ Depends:
     R (>= 2.10)
 Suggests: 
     covr,
-    MASS,
     testthat
 Encoding: UTF-8
 Language: en-US

@@ -106,8 +106,8 @@ This allows it to run faster than options that implement their own object class,
 bench::mark(nom_card(1:1000), as.character(english::english(1:1000)))
 ```
 
-**nombre** also does not require dependencies for most of its functionality.
-The suggested package [**MASS**](https://CRAN.R-project.org/package=MASS) is only required for handling non-integers, a situation that should be rare for most packages considering implementing **nombre**.
+**nombre** does not depend on any other packages, making it lightweight to
+include in your package.
 
 ---
 

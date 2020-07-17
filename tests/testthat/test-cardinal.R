@@ -56,13 +56,4 @@ test_that("errors", {
   expect_error(nom_card(numeric(1), max_n = character(1)))
   expect_error(nom_numer(character(1)))
   expect_error(nom_numer(0.5))
-  with_mock(
-    requireNamespace = function(...) FALSE,
-    expect_error(nom_card(0.5)),
-    expect_error(nom_card(1.5)),
-    expect_error(nom_card(-0.5)),
-    expect_error(nom_card(-1.5)),
-    expect_error(nom_card(1 / 3)),
-    expect_error(nom_card(pi))
-  )
 })

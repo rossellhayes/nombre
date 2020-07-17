@@ -30,6 +30,9 @@
   
 ## Miscellaneous
 
+* Implemented a custom function to convert decimals to fractions.
+  This removes the previous previous dependency on {MASS}.
+  
 * Added package documentation page at `?nombre`
 
 # nombre 0.1.0
