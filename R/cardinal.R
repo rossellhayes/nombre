@@ -102,9 +102,7 @@ nom_card <- cardinal
 #' @rdname cardinal
 #' @export
 
-numerator <- function(x, ...) {
-  cardinal(x, ..., numerator = TRUE)
-}
+numerator <- function(x, ...) {cardinal(x, ..., numerator = TRUE)}
 
 #' @rdname cardinal
 #' @export
