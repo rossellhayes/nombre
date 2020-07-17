@@ -1,4 +1,4 @@
-# nombre (development version)
+# nombre 0.2.0
 
 ## New features
 
