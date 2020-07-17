@@ -1,3 +1,9 @@
+# nombre (development version)
+
+* Refactor `decimal_to_fraction()` into an Rcpp function.
+  This allows `cardinal()` to generate fractional components in roughly one
+  tenth the time of the R implementation of `decimal_to_fraction()`.
+
 # nombre 0.2.0
 
 ## New features
