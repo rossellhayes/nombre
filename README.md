@@ -5,16 +5,14 @@
 
 <!-- badges: start -->
 
-[![CRAN
-status](https://www.r-pkg.org/badges/version/nombre)](https://CRAN.R-project.org/package=nombre)
-[![Lifecycle:
-maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+[![](https://www.r-pkg.org/badges/version/nombre?color=brightgreen)](https://cran.r-project.org/package=nombre)
+[![](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![License:
-MIT](https://img.shields.io/badge/license-MIT-blueviolet.svg)](https://opensource.org/licenses/MIT)
+MIT](https://img.shields.io/badge/license-MIT-blueviolet.svg)](https://cran.r-project.org/web/licenses/MIT)
 [![R build
 status](https://github.com/rossellhayes/nombre/workflows/R-CMD-check/badge.svg)](https://github.com/rossellhayes/nombre/actions)
-[![Codecov test
-coverage](https://codecov.io/gh/rossellhayes/nombre/branch/master/graph/badge.svg)](https://codecov.io/gh/rossellhayes/nombre?branch=master)
+[![](https://codecov.io/gh/rossellhayes/nombre/branch/master/graph/badge.svg)](https://codecov.io/gh/rossellhayes/nombre)
+[![Dependencies](https://tinyverse.netlify.com/badge/nombre)](https://cran.r-project.org/package=nombre)
 <!-- badges: end -->
 
 > *nombre* (French) /nɔ̃bʁ/: number  
@@ -121,11 +119,12 @@ faster than options that implement their own object class, like
 
 ``` r
 bench::mark(nom_card(1:1000), as.character(english::english(1:1000)))
+#> Warning: Some expressions had a GC in every iteration; so filtering is disabled.
 #> # A tibble: 2 x 6
-#>   expression                                  min  median `itr/sec` mem_alloc
-#>   <bch:expr>                             <bch:tm> <bch:t>     <dbl> <bch:byt>
-#> 1 nom_card(1:1000)                         8.56ms  12.2ms     82.4     1.03MB
-#> 2 as.character(english::english(1:1000)) 155.71ms 155.7ms      6.42  389.29KB
+#>   expression                                 min  median `itr/sec` mem_alloc
+#>   <bch:expr>                             <bch:t> <bch:t>     <dbl> <bch:byt>
+#> 1 nom_card(1:1000)                        17.4ms  27.2ms     35.5     1.03MB
+#> 2 as.character(english::english(1:1000)) 139.6ms 160.3ms      5.58  389.29KB
 #> # ... with 1 more variable: `gc/sec` <dbl>
 ```
 

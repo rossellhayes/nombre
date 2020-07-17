@@ -13,18 +13,20 @@ knitr::opts_chunk$set(
 )
 
 library(nombre)
-# remotes::install_github("rossellhayes/ipa")
 library(ipa)
+# remotes::install_github("GuangchuangYu/badger")
+library(badger)
 ```
 
 # nombre <img src="man/figures/logo.png?raw=TRUE" align="right" height="138" />
 
 <!-- badges: start -->
-[![CRAN status](https://www.r-pkg.org/badges/version/nombre)](https://CRAN.R-project.org/package=nombre)
-[![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blueviolet.svg)](https://opensource.org/licenses/MIT)
-[![R build status](https://github.com/rossellhayes/nombre/workflows/R-CMD-check/badge.svg)](https://github.com/rossellhayes/nombre/actions)
-[![Codecov test coverage](https://codecov.io/gh/rossellhayes/nombre/branch/master/graph/badge.svg)](https://codecov.io/gh/rossellhayes/nombre?branch=master)
+`r badge_cran_release(color = "brightgreen")`
+`r badge_lifecycle("maturing")`
+`r badge_license(color = "blueviolet")`
+`r badge_github_actions(action = "R-CMD-check")`
+`r badge_codecov()`
+`r badge_dependencies()`
 <!-- badges: end -->
 
 > *nombre* (French) `r sampa("/nO~bR/")`: number  
