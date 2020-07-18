@@ -1,6 +1,6 @@
 Package: nombre
 Title: Number Names
-Version: 0.2.0
+Version: 0.2.0.9001
 Authors@R: 
     person(given = "Alexander",
            family = "Rossell Hayes",
@@ -24,3 +24,7 @@ Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
+LinkingTo: 
+    Rcpp
+Imports: 
+    Rcpp
