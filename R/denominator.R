@@ -40,10 +40,13 @@ denominator <- function(
     "2nd$|second$", "halves", denom[abs(x) == 2 & plural]
   )
 
-  if (quarter)
+  if (quarter) {
     denom[abs(x) == 4] <- gsub("fourth$", "quarter", denom[abs(x) == 4])
+  }
 
   denom[plural & abs(x) != 2] <- paste0(denom[plural & abs(x) != 2], "s")
+
+  denom <- gsub("^one-", "", denom)
 
   denom
 }
