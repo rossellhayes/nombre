@@ -1,5 +1,11 @@
 # nombre (development version)
 
+* Terminating decimals with denominators greater than 10 now always produce a
+  power-of-ten denominator.
+  - `cardinal(1/20)` now produces "five hundredths", but:
+    - `cardinal(1/8)` still produces "one eighth" (denominator is less than 10) 
+    - `cardinal(1/30)` still produces "one thirtieth" (non-terminating decimal)
+
 * Refactor `decimal_to_fraction()` into an Rcpp function.
   This allows `cardinal()` to generate fractional components in roughly one
   tenth the time of the R implementation of `decimal_to_fraction()`.
