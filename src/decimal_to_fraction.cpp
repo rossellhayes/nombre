@@ -15,21 +15,22 @@ IntegerVector decimal_to_fraction(double x) {
   int i                 = 5;
   double fraction       = 0;
   double fraction_guess = 0;
+  double epsilon        = std::sqrt(DBL_EPSILON);
 
-  if (x - 0 < sqrt(DBL_EPSILON)) {
+  if (x - 0 < epsilon) {
     numerator   = 0;
     denominator = 1e7;
     fraction    = x;
-  } else if (1 - x < sqrt(DBL_EPSILON)) {
+  } else if (1 - x < epsilon) {
     numerator   = 1e7;
     denominator = 1e7;
     fraction    = x;
-  } else while ((i < 1e7) & (abs(x - fraction) > sqrt(DBL_EPSILON))) {
+  } else while ((i < 1e7) & (std::abs(x - fraction) > epsilon)) {
     denominator_guess = i;
-    numerator_guess   = (int) round(x * denominator_guess);
+    numerator_guess   = (int) R::fround(x * denominator_guess, 0);
     fraction_guess    = (double) numerator_guess / denominator_guess;
 
-    if (abs(x - fraction_guess) < abs(x - fraction)) {
+    if (std::abs(x - fraction_guess) < std::abs(x - fraction)) {
       numerator   = numerator_guess;
       denominator = denominator_guess;
       fraction    = (double) numerator / denominator;
@@ -40,7 +41,7 @@ IntegerVector decimal_to_fraction(double x) {
 
   denominator_guess = 1;
 
-  while (abs(x - fraction) > sqrt(DBL_EPSILON)) {
+  while (std::abs(x - fraction) > epsilon) {
     numerator_guess   = numerator_min   + numerator_max;
     denominator_guess = denominator_min + denominator_max;
     fraction_guess    = (double) numerator_guess / denominator_guess;
@@ -53,7 +54,7 @@ IntegerVector decimal_to_fraction(double x) {
       denominator_min = denominator_guess;
     }
 
-    if (abs(x - fraction_guess) < abs(x - fraction)) {
+    if (std::abs(x - fraction_guess) < std::abs(x - fraction)) {
       numerator   = numerator_guess;
       denominator = denominator_guess;
       fraction    = (double) numerator / denominator;
