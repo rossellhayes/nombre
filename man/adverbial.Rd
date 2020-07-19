@@ -18,7 +18,7 @@ nom_times(x, thrice = getOption("nombre.thrice", FALSE), ...)
 \item{thrice}{A logical of length one.
 If \code{TRUE}, the adverbial of \code{3} will be "thrice".
 If \code{FALSE}, the adverbial of \code{3} will be "three times".
-Defaults to \code{TRUE}.
+Defaults to \code{FALSE}.
 Default can be changed by setting \code{options("nombre.thrice")}.}
 
 \item{...}{Additional arguments passed to \code{\link[=cardinal]{cardinal()}}}
