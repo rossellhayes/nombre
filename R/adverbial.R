@@ -20,14 +20,15 @@ adverbial <- function(x, thrice = getOption("nombre.thrice", FALSE), ...) {
   if (!is.logical(thrice) | is.na(thrice))
     stop("`thrice` must be either `TRUE` or `FALSE`")
 
-  irregulars <- 1:2
-  if (thrice) {irregulars[[3]] <- 3}
+  adv              <- paste(cardinal(x, ...), "time")
+  adv[abs(x) != 1] <- paste0(adv[abs(x) != 1], "s")
 
-  adv                           <- cardinal(x, ...)
-  adv[!abs(x) %in% irregulars]  <- paste(adv[!abs(x) %in% irregulars], "times")
-  adv[abs(x) == 1]              <- gsub("one", "once", adv[abs(x) == 1])
-  adv[abs(x) == 2]              <- gsub("two", "twice", adv[abs(x) == 2])
-  if (thrice) {adv[abs(x) == 3] <- gsub("three$", "thrice", adv[abs(x) == 3])}
+  adv[abs(x) == 1] <- gsub("one time$", "once", adv[abs(x) == 1])
+  adv[abs(x) == 2] <- gsub("two times$", "twice", adv[abs(x) == 2])
+
+  if (thrice) {
+    adv[abs(x) == 3] <- gsub("three times$", "thrice", adv[abs(x) == 3])
+  }
 
   adv
 }
