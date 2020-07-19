@@ -39,6 +39,14 @@ test_that("negative cardinal", {
 
 test_that("decimal cardinal", {
   expect_equal(nom_card(2.9), "two and nine tenths")
+  expect_equal(nom_card(1/8), "one eighth")
+  expect_equal(nom_card(1/20), "five hundredths")
+  expect_equal(nom_card(1/1e20), "zero ten-millionths")
+  expect_equal(nom_card(1 - 1/1e20), "ten million ten-millionths")
+  expect_equal(
+    nom_card(3539/7079),
+    "three thousand five hundred thirty-nine seven-thousand-seventy-ninths"
+  )
 })
 
 test_that("early return", {
