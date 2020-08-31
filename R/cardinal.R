@@ -19,6 +19,8 @@
 #' @param numerator When `TRUE`, an error is produced if `x` has a decimal or
 #'     fractional component.
 #'     Defaults to `FALSE`.
+#' @param frac_args A list of arguments passed to [fracture::frac_mat()] when
+#'     converting decimals to fractions.
 #' @param ... Additional arguments of `numerator()` are passed to `cardinal()`
 #'
 #' @return A character vector of the same length as `x`
@@ -30,6 +32,7 @@ cardinal <- function(
   x,
   max_n     = getOption("nombre.max_n", Inf),
   negative  = getOption("nombre.negative", "negative"),
+  frac_args = list(),
   numerator = FALSE
 ) {
   n <- length(x)
@@ -59,7 +62,7 @@ cardinal <- function(
   if (!numerator) {
     decimal                <- numeric(n)
     decimal[unmaxed]       <- x[unmaxed] %% 1
-    fraction[decimal != 0] <- convert_fraction(decimal[decimal != 0])
+    fraction[decimal != 0] <- convert_fraction(decimal[decimal != 0], frac_args)
     x[unmaxed]             <- x[unmaxed] %/% 1
   }
 

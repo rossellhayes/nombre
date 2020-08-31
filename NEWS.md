@@ -1,49 +1,35 @@
 # nombre (development version)
 
 * Denominators that begin with "one" now omit the leading "one".
-  - `cardinal(3/100)` now produces "three hundredths" rather than
-    "three one-hundredths".
+  - `cardinal(3/100)` now produces "three hundredths" rather than "three one-hundredths".
   - `denominator(1)` still produces "whole".
 
-* Terminating decimals with denominators greater than 10 now always produce a
-  power-of-ten denominator.
-  - `cardinal(1/20)` now produces "five hundredths" rather than "one twentieth".
-  - `cardinal(1/8)` still produces "one eighth" (denominator is less than 10).
-  - `cardinal(1/30)` still produces "one thirtieth" (non-terminating decimal).
-
-* Refactor `decimal_to_fraction()` into an Rcpp function.
-  This allows `cardinal()` to generate fractional components in roughly one
-  tenth the time of the R implementation of `decimal_to_fraction()`.
+* Outsource conversion of decimals to fractions to [*fracture*](https://github.com/rossellhayes/fracture).
+  This allows `cardinal()` to generate fractional components in roughly one tenth the time of the R implementation of `decimal_to_fraction()`.
+  - Add `frac_args` to pass a list of arguments to `fracture::frac_mat()`.
 
 # nombre 0.2.0
 
 ## New features
 
-* `cardinal()` gains the argument `max_n`, which stops numbers greater that
-  `max_n` from being cardinalized.
-  This is useful when you want to print small numbers in words but larger
-  numbers numerically.
+* `cardinal()` gains the argument `max_n`, which stops numbers greater that `max_n` from being cardinalized.
+  This is useful when you want to print small numbers in words but larger numbers numerically.
   Refactorization means this argument can be used by all functions.
   - `options("nombre.max_n")` sets a default value.
   
-* `adverbial()` and `nom_adv()` generate adverbials, e.g. "once", "twice",
-  "three times".
-  - `thrice = TRUE` or `options("nombre.thrice" = TRUE)` convert `3` to "thrice"
-    instead of "three times".
+* `adverbial()` and `nom_adv()` generate adverbials, e.g. "once", "twice", "three times".
+  - `thrice = TRUE` or `options("nombre.thrice" = TRUE)` convert `3` to "thrice" instead of "three times".
   
 * All functions now pass `...` to lower level functions.
   `ordinal()` and `adverbial()` pass to `cardinal()`.
   `denominator()` passes to `ordinal()`.
-  This allows `cardinal()`'s `max_n` and `negative` to be used by all functions
-  and `ordinal()`'s `cardinal` to be used by `denominator()`.
+  This allows `cardinal()`'s `max_n` and `negative` to be used by all functions and `ordinal()`'s `cardinal` to be used by `denominator()`.
   
 ## Bug fixes
 
-* `ordinal()` now handles uncardinalized numeric vectors with different numbers
-  of digits correctly.
+* `ordinal()` now handles uncardinalized numeric vectors with different numbers of digits correctly.
   Previously, dashes would be appended to the start of the shorter numbers.
-  `nom_ord(c(9, 10), cardinal = FALSE)` now produces "9th, 10th" as expected,
-  instead of "-9th, 10th" as it did previously.
+  `nom_ord(c(9, 10), cardinal = FALSE)` now produces "9th, 10th" as expected, instead of "-9th, 10th" as it did previously.
   
 ## Miscellaneous
 

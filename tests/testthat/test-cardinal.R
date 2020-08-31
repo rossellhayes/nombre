@@ -40,12 +40,23 @@ test_that("negative cardinal", {
 test_that("decimal cardinal", {
   expect_equal(nom_card(2.9), "two and nine tenths")
   expect_equal(nom_card(1/8), "one eighth")
-  expect_equal(nom_card(1/20), "five hundredths")
+  expect_equal(nom_card(1/20), "one twentieth")
   expect_equal(nom_card(1/1e10), "zero ten-millionths")
   expect_equal(nom_card(1 - 1/1e10), "ten million ten-millionths")
   expect_equal(
     nom_card(3539/7079),
     "three thousand five hundred thirty-nine seven-thousand-seventy-ninths"
+  )
+})
+
+test_that("decimal cardinal with frac_args", {
+  expect_equal(nom_card(1/2, frac_args = list(base_10 = TRUE)), "five tenths")
+  expect_equal(
+    nom_card(c(1/2, 3/4), frac_args = list(common_denom = TRUE)),
+    c("two quarters", "three quarters")
+  )
+  expect_equal(
+    nom_card(499/1000, frac_args = list(max_denom = 100)), "one half"
   )
 })
 
