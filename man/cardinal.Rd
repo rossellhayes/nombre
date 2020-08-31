@@ -11,6 +11,7 @@ cardinal(
   x,
   max_n = getOption("nombre.max_n", Inf),
   negative = getOption("nombre.negative", "negative"),
+  frac_args = list(),
   numerator = FALSE
 )
 
@@ -18,6 +19,7 @@ nom_card(
   x,
   max_n = getOption("nombre.max_n", Inf),
   negative = getOption("nombre.negative", "negative"),
+  frac_args = list(),
   numerator = FALSE
 )
 
@@ -39,6 +41,9 @@ Default can be changed by setting \code{options("nombre.max_n")}.}
 \item{negative}{A character vector to append to negative numbers.
 Defaults to \code{"negative"}.
 Default can be changed by setting \code{options("nombre.negative")}.}
+
+\item{frac_args}{A list of arguments passed to \code{\link[fracture:frac_mat]{fracture::frac_mat()}} when
+converting decimals to fractions.}
 
 \item{numerator}{When \code{TRUE}, an error is produced if \code{x} has a decimal or
 fractional component.
