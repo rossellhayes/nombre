@@ -5,17 +5,31 @@
 \alias{nom_coll}
 \title{Convert numbers to collective character vectors (the, both, all three)}
 \usage{
-collective(x, ...)
+collective(
+  x,
+  all_n = get_config("nombre::all_n", TRUE),
+  of_the = get_config("nombre::of_the", FALSE),
+  ...
+)
 
-nom_coll(x, ...)
+nom_coll(
+  x,
+  all_n = get_config("nombre::all_n", TRUE),
+  of_the = get_config("nombre::of_the", FALSE),
+  ...
+)
 }
 \arguments{
-\item{x}{A numeric vector}
+\item{x}{A numeric vector.}
 
-\item{...}{Additional arguments passed to \code{\link[=cardinal]{cardinal()}}}
+\item{of_the}{Whether to include "of the" for collectives other than 1.
+Defaults to \code{FALSE}.
+Default can be changed with \link[=set_config]{set_config("nombre::of")}.}
+
+\item{...}{Additional arguments passed to \code{\link[=cardinal]{cardinal()}}.}
 }
 \value{
-A character vector of the same length as \code{x}
+A character vector of the same length as \code{x}.
 }
 \description{
 Convert numbers to collective character vectors (the, both, all three)
