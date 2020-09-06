@@ -96,20 +96,30 @@ It can also handle less common numerics, like negatives and fractions:
 
 ```{r}
 nom_card(-2)
-nom_card(99.9)
+nom_card(9.75)
 ```
+
+### Math with `nombre`s
+
+**nombre** implements an S3 class that seamlessly decides when to treat `nombre`s like `character`s and when to treat them like `numeric`s.
+
+```{r}
+x <- nom_card(25)
+x
+x + 2
+sqrt(x)
+x < 30
+x == "twenty-five"
+```
+
 
 ## Advantages `r emo::ji("rocket")`
 
-**nombre** is implemented using vectorized base R.
-This allows it to run faster than options that implement their own object class, like [**english**](https://CRAN.R-project.org/package=english):
+**nombre** is implemented using vectorized base R and runs faster than alternatives like [**english**](https://CRAN.R-project.org/package=english):
 
 ```{r}
-bench::mark(nom_card(1:1000), as.character(english::english(1:1000)))
+bench::mark(as.character(nom_card(1:1000)), as.character(english::english(1:1000)))
 ```
-
-**nombre** does not depend on any other packages, making it lightweight to
-include in your package.
 
 ---
 

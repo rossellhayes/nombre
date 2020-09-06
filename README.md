@@ -107,29 +107,45 @@ It can also handle less common numerics, like negatives and fractions:
 ``` r
 nom_card(-2)
 #> [1] "negative two"
-nom_card(99.9)
-#> [1] "ninety-nine and nine tenths"
+nom_card(9.75)
+#> [1] "nine and three quarters"
+```
+
+### Math with `nombre`s
+
+**nombre** implements an S3 class that seamlessly decides when to treat
+`nombre`s like `character`s and when to treat them like `numeric`s.
+
+``` r
+x <- nom_card(25)
+x
+#> [1] "twenty-five"
+x + 2
+#> [1] "twenty-seven"
+sqrt(x)
+#> [1] "five"
+x < 30
+#> [1] TRUE
+x == "twenty-five"
+#> [1] TRUE
 ```
 
 ## Advantages 🚀
 
-**nombre** is implemented using vectorized base R. This allows it to run
-faster than options that implement their own object class, like
+**nombre** is implemented using vectorized base R and runs faster than
+alternatives like
 [**english**](https://CRAN.R-project.org/package=english):
 
 ``` r
-bench::mark(nom_card(1:1000), as.character(english::english(1:1000)))
+bench::mark(as.character(nom_card(1:1000)), as.character(english::english(1:1000)))
 #> Warning: Some expressions had a GC in every iteration; so filtering is disabled.
 #> # A tibble: 2 x 6
-#>   expression                                 min  median `itr/sec` mem_alloc
-#>   <bch:expr>                             <bch:t> <bch:t>     <dbl> <bch:byt>
-#> 1 nom_card(1:1000)                        17.4ms  27.2ms     35.5     1.03MB
-#> 2 as.character(english::english(1:1000)) 139.6ms 160.3ms      5.58  389.29KB
+#>   expression                                  min  median `itr/sec` mem_alloc
+#>   <bch:expr>                             <bch:tm> <bch:t>     <dbl> <bch:byt>
+#> 1 as.character(nom_card(1:1000))           9.52ms  13.7ms     75.9     1.03MB
+#> 2 as.character(english::english(1:1000)) 146.33ms   154ms      6.51  389.29KB
 #> # ... with 1 more variable: `gc/sec` <dbl>
 ```
-
-**nombre** does not depend on any other packages, making it lightweight
-to include in your package.
 
 -----
 
