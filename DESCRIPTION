@@ -12,7 +12,7 @@ Description: Converts numeric vectors to character vectors of
     numerators, and denominators. Supports negative and non-integer
     numbers.
 License: MIT + file LICENSE
-URL: https://github.com/rossellhayes/nombre
+URL: http://nombre.rossellhayes.com, https://github.com/rossellhayes/nombre
 BugReports: https://github.com/rossellhayes/nombre/issues
 Depends: 
     R (>= 2.10)
