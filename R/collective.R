@@ -1,6 +1,10 @@
 #' Convert numbers to collective character vectors (the, both, all three)
 #'
 #' @param x A numeric vector.
+#' @param all_n Whether to include the cardinal number after "all" for
+#'     collectives of 3 or more.
+#'     Defaults to `TRUE`.
+#'     Default can be changed with [set_config("nombre::all_n")][set_config()].
 #' @param of_the Whether to include "of the" for collectives other than 1.
 #'     Defaults to `FALSE`.
 #'     Default can be changed with [set_config("nombre::of")][set_config()].

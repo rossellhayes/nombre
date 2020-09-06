@@ -22,6 +22,11 @@ nom_coll(
 \arguments{
 \item{x}{A numeric vector.}
 
+\item{all_n}{Whether to include the cardinal number after "all" for
+collectives of 3 or more.
+Defaults to \code{TRUE}.
+Default can be changed with \link[=set_config]{set_config("nombre::all_n")}.}
+
 \item{of_the}{Whether to include "of the" for collectives other than 1.
 Defaults to \code{FALSE}.
 Default can be changed with \link[=set_config]{set_config("nombre::of")}.}
