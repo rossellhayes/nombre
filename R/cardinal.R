@@ -23,7 +23,7 @@
 #' Decimal components of `x` are automatically converted to fractions by
 #' [fracture::frac_mat()].
 #' Named arguments of `cardinal()` and `nom_card()` are passed to
-#' [fracture::frac_mat()] through [`...`][dots].
+#' [fracture::frac_mat()] through `...`.
 #' Helpful arguments include:
 #' * `base_10 = TRUE`, which forces all fractions to use denominators that are
 #'   powers of ten

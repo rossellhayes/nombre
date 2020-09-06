@@ -54,7 +54,7 @@ Convert numbers to cardinal character vectors (one, two, three)
 Decimal components of \code{x} are automatically converted to fractions by
 \code{\link[fracture:frac_mat]{fracture::frac_mat()}}.
 Named arguments of \code{cardinal()} and \code{nom_card()} are passed to
-\code{\link[fracture:frac_mat]{fracture::frac_mat()}} through \code{\link[=dots]{...}}.
+\code{\link[fracture:frac_mat]{fracture::frac_mat()}} through \code{...}.
 Helpful arguments include:
 \itemize{
 \item \code{base_10 = TRUE}, which forces all fractions to use denominators that are
