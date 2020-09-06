@@ -35,3 +35,9 @@ test_that('set_config("nombre::of_the", "nombre::all_n")', {
   set_config(default_coll)
   expect_equal(collective(3), "all three")
 })
+
+test_that("set_config() errors", {
+  expect_error(set_config(TRUE))
+  expect_error(set_config("foo" = TRUE, TRUE))
+  expect_null(get_config("foo"))
+})

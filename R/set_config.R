@@ -19,7 +19,9 @@ set_config <- function(...) {
   input <- list(...)
   if (is.null(names(input))) {input <- unlist(input, recursive = FALSE)}
 
-  if (any(names(input) == "")) {stop("Some parameters are not named")}
+  if (is.null(names(input)) || any(names(input) == "")) {
+    stop("Some parameters are not named")
+  }
 
   values        <- lapply(names(input), pkgconfig::get_config)
   names(values) <- names(input)
