@@ -25,6 +25,7 @@ ordinal <- function(
   if (!is.numeric(x) & !is.character(x))
     stop("`x` must be a numeric or character vector")
 
+  numeric <- x
   ordinal <- character(length(x))
 
   if (is.numeric(x)) {
@@ -69,7 +70,12 @@ ordinal <- function(
 
   ordinal <- gsub(" ", "-", trimws(ordinal))
 
-  ordinal
+  structure(
+    ordinal,
+    nombre  = "ordinal",
+    numeric = numeric,
+    class   = c("nombre", "character")
+  )
 }
 
 #' @rdname ordinal

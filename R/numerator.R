@@ -10,7 +10,9 @@
 #' @family number names
 #' @export
 
-numerator <- function(x, ...) {cardinal(x, ..., numerator = TRUE)}
+numerator <- function(x, ...) {
+  structure(cardinal(x, ..., numerator = TRUE), nombre = "numerator")
+}
 
 #' @rdname numerator
 #' @export

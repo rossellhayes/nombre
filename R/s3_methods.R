@@ -1,0 +1,76 @@
+#' @export
+as.character.nombre <- function(x, ...) {
+  attributes(x) <- NULL
+  class(x)      <- "character"
+  x
+}
+
+#' @export
+as.double.nombre <- function(x, ...) {
+  x <- attr(x, "numeric")
+  NextMethod()
+}
+
+#' @export
+as.integer.nombre <- function(x, ...) {
+  x <- attr(x, "numeric")
+  NextMethod()
+}
+
+#' @export
+as.logical.nombre <- function(x, ...) {
+  x <- attr(x, "numeric")
+  NextMethod()
+}
+
+#' @export
+print.nombre <- function(x, ...) {
+  x <- as.character(x)
+  NextMethod()
+}
+
+#' @export
+Math.nombre <- function(x, ...) {
+  fun <- attr(x, "nombre")
+  x   <- as.numeric(x)
+
+  do.call(fun, list(NextMethod()))
+}
+
+#' @export
+Summary.nombre <- function(x, ...) {
+  if (.Generic %in% c("all", "any")) {
+    x <- as.logical(x)
+    return(NextMethod())
+  }
+
+  fun <- attr(x, "nombre")
+  x   <- as.numeric(x)
+
+  do.call(fun, list(NextMethod()))
+}
+
+#' @export
+Ops.nombre <- function(e1, e2 = NULL) {
+  if (.Generic %in% c("==", "!=") && is.character(e1) && is.character(e2)) {
+    return(NextMethod())
+  }
+
+  if (inherits(e2, "nombre")) {
+    fun <- attr(e2, "nombre")
+    e2  <- as.numeric(e2)
+  }
+
+  if (inherits(e1, "nombre")) {
+    fun <- attr(e1, "nombre")
+    e1  <- as.numeric(e1)
+  }
+
+  result <- NextMethod()
+
+  if (is.numeric(result)) {
+    result <- do.call(fun, list(result))
+  }
+
+  result
+}

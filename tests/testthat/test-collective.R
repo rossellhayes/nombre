@@ -14,6 +14,20 @@ test_that("collective max_n", {
   expect_equal(nom_coll(1:3, max_n = 1), c("the", "both", "all 3"))
 })
 
+test_that("collective of_the", {
+  expect_equal(collective(0:3), c("no", "the", "both", "all three"))
+  expect_equal(
+    collective(0:3, of_the = TRUE),
+    c("none of the", "the", "both of the", "all three of the")
+  )
+})
+
+test_that("collective all_n", {
+  expect_equal(collective(3),                               "all three")
+  expect_equal(collective(3, all_n = FALSE),                "all")
+  expect_equal(collective(3, all_n = FALSE, of_the = TRUE), "all of the")
+})
+
 test_that("early return", {
   expect_equal(nom_coll(numeric(0)), character(0))
 })

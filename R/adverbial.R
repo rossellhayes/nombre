@@ -30,7 +30,9 @@ adverbial <- function(x, thrice = get_config("nombre::thrice", FALSE), ...) {
     adv[abs(x) == 3] <- gsub("three times$", "thrice", adv[abs(x) == 3])
   }
 
-  adv
+  structure(
+    adv, nombre = "adverbial", numeric = x, class = c("nombre", "character")
+  )
 }
 
 #' @rdname adverbial

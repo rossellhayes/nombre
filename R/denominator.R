@@ -29,8 +29,9 @@ denominator <- function(
   if (!is.logical(quarter) | is.na(quarter))
     stop("`quarter` must be either `TRUE` or `FALSE`")
 
-  denom  <- ordinal(x, ...)
-  plural <- abs(numerator) != 1
+  numeric <- x
+  denom   <- ordinal(x, ...)
+  plural  <- abs(numerator) != 1
 
   denom[abs(x) == 1] <- gsub("1st$|first$", "whole", denom[abs(x) == 1])
 
@@ -49,7 +50,12 @@ denominator <- function(
 
   denom <- gsub("^one-", "", denom)
 
-  denom
+  structure(
+    denom,
+    nombre  = "denominator",
+    numeric = numeric,
+    class   = c("nombre", "character")
+  )
 }
 
 #' @rdname denominator

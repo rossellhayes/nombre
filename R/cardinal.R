@@ -44,7 +44,8 @@ cardinal <- function(
   ...,
   numerator = FALSE
 ) {
-  n <- length(x)
+  numeric <- x
+  n       <- length(x)
 
   if (!n)                 return(character(0))
   if (!is.numeric(x))     stop("`x` must be numeric")
@@ -103,7 +104,13 @@ cardinal <- function(
   and[card != "" & fraction != ""] <- " and "
 
   card <- paste0(minus, trimws(card), and, fraction)
-  card
+
+  structure(
+    card,
+    nombre  = "cardinal",
+    numeric = numeric,
+    class   = c("nombre", "character")
+  )
 }
 
 #' @rdname cardinal

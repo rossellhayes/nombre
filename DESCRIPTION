@@ -21,7 +21,8 @@ Imports:
     pkgconfig
 Suggests: 
     covr,
-    testthat
+    testthat,
+    waldo
 Remotes: 
     rossellhayes/fracture
 Encoding: UTF-8
