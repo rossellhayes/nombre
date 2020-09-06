@@ -6,3 +6,4 @@ nom_ord(1:10, cardinal = FALSE)
 nom_ord(5:15, max_n = 10)
 
 nom_ord(c("n", "dozen", "umpteen", "eleventy", "one zillion"))
+nom_ord(9 + 3/4)

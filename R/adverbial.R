@@ -5,7 +5,7 @@
 #'     If `TRUE`, the adverbial of `3` will be "thrice".
 #'     If `FALSE`, the adverbial of `3` will be "three times".
 #'     Defaults to `FALSE`.
-#'     Default can be changed by setting `options("nombre.thrice")`.
+#'     Default can be changed with [set_config("nombre::thrice")][set_config()].
 #' @param ... Additional arguments passed to [cardinal()]
 #'
 #' @return A character vector of the same length as `x`
@@ -13,7 +13,7 @@
 #' @export
 #' @example examples/adverbial.R
 
-adverbial <- function(x, thrice = getOption("nombre.thrice", FALSE), ...) {
+adverbial <- function(x, thrice = get_config("nombre::thrice", FALSE), ...) {
   if (!length(x))          return(character(0))
   if (!is.numeric(x))      stop("`x` must be a numeric vector")
   if (length(thrice) != 1) stop("`thrice` must be length one")

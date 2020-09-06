@@ -7,6 +7,10 @@ test_that("simple ordinal", {
   expect_equal(nom_ord(100000000), "one-hundred-millionth")
 })
 
+test_that("ordinal fraction", {
+  expect_equal(nom_ord(9 + 3/4), c("nine-and-three-quarterth"))
+})
+
 test_that("ordinal vector", {
   expect_equal(
     nom_ord(c(1, 2, 100000000)), c("first", "second", "one-hundred-millionth")

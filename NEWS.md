@@ -4,9 +4,12 @@
   - `cardinal(3/100)` now produces "three hundredths" rather than "three one-hundredths".
   - `denominator(1)` still produces "whole".
 
-* Outsource conversion of decimals to fractions to [*fracture*](https://github.com/rossellhayes/fracture).
+* Use [**fracture**](https://github.com/rossellhayes/fracture) to convert decimals to fractions.
   This allows `cardinal()` to generate fractional components in roughly one tenth the time of the R implementation of `decimal_to_fraction()`.
-  - Add `frac_args` to pass a list of arguments to `fracture::frac_mat()`.
+  - Pass arguments to `fracture::frac_mat()` with `...`.
+  
+* Use [**pkgconfig**](https://github.com/r-lib/pkgconfig) to handle default arguments.
+  - This allows packages that import **nombre** to set defaults without affecting the user or other packages.
 
 # nombre 0.2.0
 

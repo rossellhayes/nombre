@@ -49,15 +49,13 @@ test_that("decimal cardinal", {
   )
 })
 
-test_that("decimal cardinal with frac_args", {
-  expect_equal(nom_card(1/2, frac_args = list(base_10 = TRUE)), "five tenths")
+test_that("decimal cardinal with fracture ...", {
+  expect_equal(nom_card(1/2, base_10 = TRUE), "five tenths")
   expect_equal(
-    nom_card(c(1/2, 3/4), frac_args = list(common_denom = TRUE)),
+    nom_card(c(1/2, 3/4), common_denom = TRUE),
     c("two quarters", "three quarters")
   )
-  expect_equal(
-    nom_card(499/1000, frac_args = list(max_denom = 100)), "one half"
-  )
+  expect_equal(nom_card(499/1000, max_denom = 100), "one half")
 })
 
 test_that("early return", {

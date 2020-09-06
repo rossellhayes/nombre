@@ -8,7 +8,8 @@
 #'     If `TRUE`, the denominator of `4` will be "quarter(s)".
 #'     If `FALSE`, the denominator of `4` will be "fourth(s)".
 #'     Defaults to `TRUE`.
-#'     Default can be changed by setting `options("nombre.quarter")`.
+#'     Default can be changed with
+#'     [set_config("nombre::quarter")][set_config()].
 #' @param ... Additional arguments passed to [ordinal()]
 #'
 #' @return A character vector of the same length as `x`
@@ -17,7 +18,7 @@
 #' @example examples/denominator.R
 
 denominator <- function(
-  x, numerator = 1, quarter = getOption("nombre.quarter", TRUE), ...
+  x, numerator = 1, quarter = get_config("nombre::quarter", TRUE), ...
 ) {
   if (!length(x))              return(character(0))
   if (!is.numeric(x))          stop("`x` must be numeric")

@@ -29,6 +29,7 @@ Other number names:
 \code{\link{adverbial}()},
 \code{\link{cardinal}()},
 \code{\link{denominator}()},
+\code{\link{numerator}()},
 \code{\link{ordinal}()}
 }
 \concept{number names}

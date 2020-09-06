@@ -3,29 +3,23 @@
 \name{cardinal}
 \alias{cardinal}
 \alias{nom_card}
-\alias{numerator}
-\alias{nom_numer}
 \title{Convert numbers to cardinal character vectors (one, two, three)}
 \usage{
 cardinal(
   x,
-  max_n = getOption("nombre.max_n", Inf),
-  negative = getOption("nombre.negative", "negative"),
-  frac_args = list(),
+  max_n = get_config("nombre::max_n", Inf),
+  negative = get_config("nombre::negative", "negative"),
+  ...,
   numerator = FALSE
 )
 
 nom_card(
   x,
-  max_n = getOption("nombre.max_n", Inf),
-  negative = getOption("nombre.negative", "negative"),
-  frac_args = list(),
+  max_n = get_config("nombre::max_n", Inf),
+  negative = get_config("nombre::negative", "negative"),
+  ...,
   numerator = FALSE
 )
-
-numerator(x, ...)
-
-nom_numer(x, ...)
 }
 \arguments{
 \item{x}{A numeric vector}
@@ -36,30 +30,42 @@ numeric instead of being converted to words.
 If \code{max_n} is negative, no \code{x}s will be converted to words.
 (This can be useful when \code{max_n} is passed by another function.)
 Defaults to \code{Inf}, which converts all \code{x}s to words.
-Default can be changed by setting \code{options("nombre.max_n")}.}
+Default can be changed with \link[=set_config]{set_config("nombre::max_n")}.}
 
 \item{negative}{A character vector to append to negative numbers.
 Defaults to \code{"negative"}.
-Default can be changed by setting \code{options("nombre.negative")}.}
+Default can be changed with
+\link[=set_config]{set_config("nombre::negative")}.}
 
-\item{frac_args}{A list of arguments passed to \code{\link[fracture:frac_mat]{fracture::frac_mat()}} when
-converting decimals to fractions.}
+\item{...}{Additional arguments passed to \code{\link[fracture:frac_mat]{fracture::frac_mat()}}.
+See details.}
 
 \item{numerator}{When \code{TRUE}, an error is produced if \code{x} has a decimal or
 fractional component.
 Defaults to \code{FALSE}.}
-
-\item{...}{Additional arguments of \code{numerator()} are passed to \code{cardinal()}}
 }
 \value{
 A character vector of the same length as \code{x}
 }
 \description{
-\code{nom_card()} and \code{cardinal()} produce cardinal numbers.
-\code{nom_numer()} and \code{numerator()} produce numerators.
-The results are equivalent for integers, but \code{nom_card()} and \code{cardinal()}
-support fractional components while \code{nom_numer()} and \code{numerator()} do not.
+Convert numbers to cardinal character vectors (one, two, three)
 }
+\section{Fractions:}{
+Decimal components of \code{x} are automatically converted to fractions by
+\code{\link[fracture:frac_mat]{fracture::frac_mat()}}.
+Named arguments of \code{cardinal()} and \code{nom_card()} are passed to
+\code{\link[fracture:frac_mat]{fracture::frac_mat()}} through \code{\link[=dots]{...}}.
+Helpful arguments include:
+\itemize{
+\item \code{base_10 = TRUE}, which forces all fractions to use denominators that are
+powers of ten
+\item \code{common_denom = TRUE}, which forces all fractions to use the least common
+denominator when \code{x} is a vector
+\item \code{max_denom}, which sets the maximum allowable denominator.
+By default, the maximum denominator is "ten-millionths".
+}
+}
+
 \examples{
 nom_card(2)
 nom_card(1:10)
@@ -71,12 +77,22 @@ nom_card(5:15, max_n = 10)
 
 paste("There are", nom_card(525600), "minutes in a year.")
 paste("There are", nom_card(3.72e13), "cells in the human body.")
+
+nom_card(1 / 2^(1:4))
+nom_card(1 / 2^(1:4), common_denom = TRUE)
+nom_card(1 / 2^(1:4), base_10 = TRUE)
+nom_card(1 / 2^(1:4), base_10 = TRUE, common_denom = TRUE)
+
+nom_card(1 / 2:5)
+nom_card(1 / 2:5, base_10 = TRUE)
+nom_card(1 / 2:5, base_10 = TRUE, max_denom = 100)
 }
 \seealso{
 Other number names: 
 \code{\link{adverbial}()},
 \code{\link{collective}()},
 \code{\link{denominator}()},
+\code{\link{numerator}()},
 \code{\link{ordinal}()}
 }
 \concept{number names}

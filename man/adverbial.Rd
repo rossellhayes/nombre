@@ -6,11 +6,11 @@
 \alias{nom_times}
 \title{Convert numbers to adverbial character vectors (once, twice, three times)}
 \usage{
-adverbial(x, thrice = getOption("nombre.thrice", FALSE), ...)
+adverbial(x, thrice = get_config("nombre::thrice", FALSE), ...)
 
-nom_adv(x, thrice = getOption("nombre.thrice", FALSE), ...)
+nom_adv(x, thrice = get_config("nombre::thrice", FALSE), ...)
 
-nom_times(x, thrice = getOption("nombre.thrice", FALSE), ...)
+nom_times(x, thrice = get_config("nombre::thrice", FALSE), ...)
 }
 \arguments{
 \item{x}{A numeric vector}
@@ -19,7 +19,7 @@ nom_times(x, thrice = getOption("nombre.thrice", FALSE), ...)
 If \code{TRUE}, the adverbial of \code{3} will be "thrice".
 If \code{FALSE}, the adverbial of \code{3} will be "three times".
 Defaults to \code{FALSE}.
-Default can be changed by setting \code{options("nombre.thrice")}.}
+Default can be changed with \link[=set_config]{set_config("nombre::thrice")}.}
 
 \item{...}{Additional arguments passed to \code{\link[=cardinal]{cardinal()}}}
 }
@@ -38,6 +38,7 @@ Other number names:
 \code{\link{cardinal}()},
 \code{\link{collective}()},
 \code{\link{denominator}()},
+\code{\link{numerator}()},
 \code{\link{ordinal}()}
 }
 \concept{number names}

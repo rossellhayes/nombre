@@ -5,9 +5,14 @@
 \alias{nom_denom}
 \title{Convert numbers to denominator character vectors (whole, half, third)}
 \usage{
-denominator(x, numerator = 1, quarter = getOption("nombre.quarter", TRUE), ...)
+denominator(
+  x,
+  numerator = 1,
+  quarter = get_config("nombre::quarter", TRUE),
+  ...
+)
 
-nom_denom(x, numerator = 1, quarter = getOption("nombre.quarter", TRUE), ...)
+nom_denom(x, numerator = 1, quarter = get_config("nombre::quarter", TRUE), ...)
 }
 \arguments{
 \item{x}{A numeric vector}
@@ -20,7 +25,8 @@ When \code{numerator} is not \code{1} or \code{-1}, the denominator will be plur
 If \code{TRUE}, the denominator of \code{4} will be "quarter(s)".
 If \code{FALSE}, the denominator of \code{4} will be "fourth(s)".
 Defaults to \code{TRUE}.
-Default can be changed by setting \code{options("nombre.quarter")}.}
+Default can be changed with
+\link[=set_config]{set_config("nombre::quarter")}.}
 
 \item{...}{Additional arguments passed to \code{\link[=ordinal]{ordinal()}}}
 }
@@ -47,6 +53,7 @@ Other number names:
 \code{\link{adverbial}()},
 \code{\link{cardinal}()},
 \code{\link{collective}()},
+\code{\link{numerator}()},
 \code{\link{ordinal}()}
 }
 \concept{number names}
