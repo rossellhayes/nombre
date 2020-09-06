@@ -1,11 +1,11 @@
 expect_equal <- function(
   object, expected, ..., info = NULL, label = NULL, expected.label = NULL
 ) {
-  act <- testthat:::quasi_label(
+  act <- testthat::quasi_label(
     rlang::enquo(object), label, arg = "object"
   )
 
-  exp <- testthat:::quasi_label(
+  exp <- testthat::quasi_label(
     rlang::enquo(expected), expected.label, arg = "expected"
   )
 
@@ -14,7 +14,7 @@ expect_equal <- function(
     ..., ignore_attr = TRUE, x_arg = "actual", y_arg = "expected"
   )
 
-  expect(
+  testthat::expect(
     length(comp) == 0,
     sprintf(
       "%s (%s) not equal to %s (%s).\n\n%s",
