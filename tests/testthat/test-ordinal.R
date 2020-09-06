@@ -8,7 +8,7 @@ test_that("simple ordinal", {
 })
 
 test_that("ordinal fraction", {
-  expect_equal(nom_ord(9 + 3/4), c("nine-and-three-quarterth"))
+  expect_equal(nom_ord(9 + 3/4), c("nine-and-three-quartersth"))
 })
 
 test_that("ordinal vector", {
