@@ -132,6 +132,8 @@ test_that("Ops", {
   expect_true(cardinal(25) >= cardinal(25))
   expect_true(cardinal(25) >  cardinal(24))
 
+  expect_false(cardinal(25) < 25)
+
   expect_equal(ordinal(25) + 2,     "twenty-seventh")
   expect_equal(numerator(25) + 2,   "twenty-seven")
   expect_equal(denominator(25) + 2, "twenty-seventh")

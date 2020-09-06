@@ -52,7 +52,15 @@ Summary.nombre <- function(x, ...) {
 
 #' @export
 Ops.nombre <- function(e1, e2 = NULL) {
-  if (.Generic %in% c("==", "!=") && is.character(e1) && is.character(e2)) {
+
+
+  if (
+    is.character(e1) && is.character(e2) && (
+      .Generic %in% c("==", "!=") ||
+      !inherits(e2, "nombre") ||
+      !inherits(e1, "nombre")
+    )
+  ) {
     return(NextMethod())
   }
 
