@@ -146,22 +146,37 @@
 <p>It can also handle less common numerics, like negatives and fractions:</p>
 <div class="sourceCode" id="cb7"><pre class="r"><span class="fu"><a href="reference/cardinal.html">nom_card</a></span>(-<span class="fl">2</span>)
 <span class="co">#&gt; [1] "negative two"</span>
-<span class="fu"><a href="reference/cardinal.html">nom_card</a></span>(<span class="fl">99.9</span>)
-<span class="co">#&gt; [1] "ninety-nine and nine tenths"</span></pre></div>
+<span class="fu"><a href="reference/cardinal.html">nom_card</a></span>(<span class="fl">9.75</span>)
+<span class="co">#&gt; [1] "nine and three quarters"</span></pre></div>
+<div id="math-with-nombres" class="section level3">
+<h3 class="hasAnchor">
+<a href="#math-with-nombres" class="anchor"></a>Math with <code>nombre</code>s</h3>
+<p><strong>nombre</strong> implements an S3 class that seamlessly decides when to treat <code>nombre</code>s like <code>character</code>s and when to treat them like <code>numeric</code>s.</p>
+<div class="sourceCode" id="cb8"><pre class="r"><span class="no">x</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/cardinal.html">nom_card</a></span>(<span class="fl">25</span>)
+<span class="no">x</span>
+<span class="co">#&gt; [1] "twenty-five"</span>
+<span class="no">x</span> + <span class="fl">2</span>
+<span class="co">#&gt; [1] "twenty-seven"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span>(<span class="no">x</span>)
+<span class="co">#&gt; [1] "five"</span>
+<span class="no">x</span> <span class="kw">&lt;</span> <span class="fl">30</span>
+<span class="co">#&gt; [1] TRUE</span>
+<span class="no">x</span> <span class="kw">==</span> <span class="st">"twenty-five"</span>
+<span class="co">#&gt; [1] TRUE</span></pre></div>
+</div>
 </div>
 <div id="advantages-" class="section level2">
 <h2 class="hasAnchor">
 <a href="#advantages-" class="anchor"></a>Advantages 🚀</h2>
-<p><strong>nombre</strong> is implemented using vectorized base R. This allows it to run faster than options that implement their own object class, like <a href="https://CRAN.R-project.org/package=english"><strong>english</strong></a>:</p>
-<div class="sourceCode" id="cb8"><pre class="r"><span class="kw pkg">bench</span><span class="kw ns">::</span><span class="fu">mark</span>(<span class="fu"><a href="reference/cardinal.html">nom_card</a></span>(<span class="fl">1</span>:<span class="fl">1000</span>), <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span>(<span class="kw pkg">english</span><span class="kw ns">::</span><span class="fu">english</span>(<span class="fl">1</span>:<span class="fl">1000</span>)))
+<p><strong>nombre</strong> is implemented using vectorized base R and runs faster than alternatives like <a href="https://CRAN.R-project.org/package=english"><strong>english</strong></a>:</p>
+<div class="sourceCode" id="cb9"><pre class="r"><span class="kw pkg">bench</span><span class="kw ns">::</span><span class="fu">mark</span>(<span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span>(<span class="fu"><a href="reference/cardinal.html">nom_card</a></span>(<span class="fl">1</span>:<span class="fl">1000</span>)), <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span>(<span class="kw pkg">english</span><span class="kw ns">::</span><span class="fu">english</span>(<span class="fl">1</span>:<span class="fl">1000</span>)))
 <span class="co">#&gt; Warning: Some expressions had a GC in every iteration; so filtering is disabled.</span>
 <span class="co">#&gt; # A tibble: 2 x 6</span>
-<span class="co">#&gt;   expression                                 min  median `itr/sec` mem_alloc</span>
-<span class="co">#&gt;   &lt;bch:expr&gt;                             &lt;bch:t&gt; &lt;bch:t&gt;     &lt;dbl&gt; &lt;bch:byt&gt;</span>
-<span class="co">#&gt; 1 nom_card(1:1000)                        17.4ms  27.2ms     35.5     1.03MB</span>
-<span class="co">#&gt; 2 as.character(english::english(1:1000)) 139.6ms 160.3ms      5.58  389.29KB</span>
+<span class="co">#&gt;   expression                                  min  median `itr/sec` mem_alloc</span>
+<span class="co">#&gt;   &lt;bch:expr&gt;                             &lt;bch:tm&gt; &lt;bch:t&gt;     &lt;dbl&gt; &lt;bch:byt&gt;</span>
+<span class="co">#&gt; 1 as.character(nom_card(1:1000))           9.52ms  13.7ms     75.9     1.03MB</span>
+<span class="co">#&gt; 2 as.character(english::english(1:1000)) 146.33ms   154ms      6.51  389.29KB</span>
 <span class="co">#&gt; # ... with 1 more variable: `gc/sec` &lt;dbl&gt;</span></pre></div>
-<p><strong>nombre</strong> does not depend on any other packages, making it lightweight to include in your package.</p>
 <hr>
 <p>Hex sticker image adapted from artwork by @<a href="https://github.com/allisonhorst/stats-illustrations">allison_horst</a>.</p>
 <p>Hex sticker fonts are <a href="https://github.com/adobe-fonts/source-code-pro">Source Code Pro</a> by <a href="https://adobe.com">Adobe</a> and <a href="https://www.fontsquirrel.com/fonts/permanent-marker">Permanent Marker</a> by <a href="https://www.fontdiner.com/">Font Diner</a>.</p>

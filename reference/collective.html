@@ -128,26 +128,42 @@
     <p>Convert numbers to collective character vectors (the, both, all three)</p>
     </div>
 
-    <pre class="usage"><span class='fu'>collective</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'>collective</span>(
+  <span class='no'>x</span>,
+  <span class='kw'>all_n</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::all_n"</span>, <span class='fl'>TRUE</span>),
+  <span class='kw'>of_the</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::of_the"</span>, <span class='fl'>FALSE</span>),
+  <span class='no'>...</span>
+)
 
-<span class='fu'>nom_coll</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
+<span class='fu'>nom_coll</span>(
+  <span class='no'>x</span>,
+  <span class='kw'>all_n</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::all_n"</span>, <span class='fl'>TRUE</span>),
+  <span class='kw'>of_the</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::of_the"</span>, <span class='fl'>FALSE</span>),
+  <span class='no'>...</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>A numeric vector</p></td>
+      <td><p>A numeric vector.</p></td>
+    </tr>
+    <tr>
+      <th>of_the</th>
+      <td><p>Whether to include "of the" for collectives other than 1.
+Defaults to <code>FALSE</code>.
+Default can be changed with <a href='set_config.html'>set_config("nombre::of")</a>.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Additional arguments passed to <code><a href='cardinal.html'>cardinal()</a></code></p></td>
+      <td><p>Additional arguments passed to <code><a href='cardinal.html'>cardinal()</a></code>.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A character vector of the same length as <code>x</code></p>
+    <p>A character vector of the same length as <code>x</code>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other number names: 
