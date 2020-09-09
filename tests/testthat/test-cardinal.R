@@ -47,6 +47,7 @@ test_that("decimal cardinal", {
     nom_card(3539/7079),
     "three thousand five hundred thirty-nine seven-thousand-seventy-ninths"
   )
+  expect_equal(nom_card(16/113), "sixteen hundred-thirteenths")
 })
 
 test_that("decimal cardinal with fracture ...", {
@@ -56,6 +57,10 @@ test_that("decimal cardinal with fracture ...", {
     c("two quarters", "three quarters")
   )
   expect_equal(nom_card(499/1000, max_denom = 100), "one half")
+  expect_equal(
+    nom_card(1307.36, base_10 = TRUE),
+    "one thousand three hundred seven and thirty-six hundredths"
+  )
 })
 
 test_that("early return", {
