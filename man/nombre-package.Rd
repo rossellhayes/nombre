@@ -16,7 +16,7 @@ Converts numeric vectors to character vectors of
 \seealso{
 Useful links:
 \itemize{
-  \item \url{http://nombre.rossellhayes.com}
+  \item \url{https://nombre.rossellhayes.com}
   \item \url{https://github.com/rossellhayes/nombre}
   \item Report bugs at \url{https://github.com/rossellhayes/nombre/issues}
 }
