@@ -129,17 +129,17 @@
     </div>
 
     <pre class="usage"><span class='fu'>collective</span>(
-  <span class='no'>x</span>,
-  <span class='kw'>all_n</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::all_n"</span>, <span class='fl'>TRUE</span>),
-  <span class='kw'>of_the</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::of_the"</span>, <span class='fl'>FALSE</span>),
-  <span class='no'>...</span>
+  <span class='kw'>x</span>,
+  all_n = <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::all_n"</span>, <span class='fl'>TRUE</span>),
+  of_the = <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::of_the"</span>, <span class='fl'>FALSE</span>),
+  <span class='kw'>...</span>
 )
 
 <span class='fu'>nom_coll</span>(
-  <span class='no'>x</span>,
-  <span class='kw'>all_n</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::all_n"</span>, <span class='fl'>TRUE</span>),
-  <span class='kw'>of_the</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::of_the"</span>, <span class='fl'>FALSE</span>),
-  <span class='no'>...</span>
+  <span class='kw'>x</span>,
+  all_n = <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::all_n"</span>, <span class='fl'>TRUE</span>),
+  of_the = <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::of_the"</span>, <span class='fl'>FALSE</span>),
+  <span class='kw'>...</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -181,7 +181,9 @@ Default can be changed with <a href='set_config.html'>set_config("nombre::of")</
 <code><a href='ordinal.html'>ordinal</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='fu'>nom_coll</span>(<span class='fl'>0</span>:<span class='fl'>3</span>), <span class='st'>"fish"</span>)</div><div class='output co'>#&gt; [1] "no fish"        "the fish"       "both fish"      "all three fish"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='fu'>nom_coll</span>(<span class='fl'>9</span>:<span class='fl'>12</span>, <span class='kw'>max_n</span> <span class='kw'>=</span> <span class='fl'>10</span>), <span class='st'>"fish"</span>)</div><div class='output co'>#&gt; [1] "all nine fish" "all ten fish"  "all 11 fish"   "all 12 fish"  </div></pre>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='fu'>nom_coll</span>(<span class='fl'>0</span><span class='op'>:</span><span class='fl'>3</span>), <span class='st'>"fish"</span>)
+</div><div class='output co'>#&gt; [1] "no fish"        "the fish"       "both fish"      "all three fish"</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='fu'>nom_coll</span>(<span class='fl'>9</span><span class='op'>:</span><span class='fl'>12</span>, max_n = <span class='fl'>10</span>), <span class='st'>"fish"</span>)
+</div><div class='output co'>#&gt; [1] "all nine fish" "all ten fish"  "all 11 fish"   "all 12 fish"  </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -197,7 +199,7 @@ Default can be changed with <a href='set_config.html'>set_config("nombre::of")</
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

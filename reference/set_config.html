@@ -132,7 +132,7 @@ If called from the R prompt and not from a package, then it sets the
 parameter for global environment.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>set_config</span>(<span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>set_config</span>(<span class='kw'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -153,14 +153,23 @@ This allows previous values to be stored in a variable and restored later.</p>
     <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>pkgconfig::get_config()</a></code> and <code><a href='https://rdrr.io/pkg/pkgconfig/man/set_config.html'>pkgconfig::set_config()</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='adverbial.html'>nom_adv</a></span>(<span class='fl'>3</span>)</div><div class='output co'>#&gt; [1] "three times"</div><div class='input'><span class='no'>default_adv</span> <span class='kw'>&lt;-</span> <span class='fu'>set_config</span>(<span class='st'>"nombre::thrice"</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-<span class='fu'><a href='adverbial.html'>nom_adv</a></span>(<span class='fl'>3</span>)</div><div class='output co'>#&gt; [1] "thrice"</div><div class='input'>
-<span class='fu'><a href='cardinal.html'>nom_card</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(-<span class='fl'>1</span>, <span class='fl'>1e4</span>))</div><div class='output co'>#&gt; [1] "negative one" "ten thousand"</div><div class='input'><span class='no'>default_card</span> <span class='kw'>&lt;-</span> <span class='fu'>set_config</span>(<span class='st'>"nombre::max_n"</span> <span class='kw'>=</span> <span class='fl'>100</span>, <span class='st'>"nombre::negative"</span> <span class='kw'>=</span> <span class='st'>"minus"</span>)
-<span class='fu'><a href='cardinal.html'>nom_card</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(-<span class='fl'>1</span>, <span class='fl'>1e4</span>))</div><div class='output co'>#&gt; [1] "minus one" "10000"    </div><div class='input'>
-<span class='fu'><a href='denominator.html'>nom_denom</a></span>(<span class='fl'>4</span>)</div><div class='output co'>#&gt; [1] "quarter"</div><div class='input'><span class='no'>default_denom</span> <span class='kw'>&lt;-</span> <span class='fu'>set_config</span>(<span class='st'>"nombre::quarter"</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
-<span class='fu'><a href='denominator.html'>nom_denom</a></span>(<span class='fl'>4</span>)</div><div class='output co'>#&gt; [1] "fourth"</div><div class='input'>
-<span class='fu'>set_config</span>(<span class='no'>default_adv</span>, <span class='no'>default_card</span>, <span class='no'>default_denom</span>)
-<span class='fu'><a href='adverbial.html'>nom_adv</a></span>(<span class='fl'>3</span>)</div><div class='output co'>#&gt; [1] "three times"</div><div class='input'><span class='fu'><a href='cardinal.html'>nom_card</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(-<span class='fl'>1</span>, <span class='fl'>1e4</span>))</div><div class='output co'>#&gt; [1] "negative one" "ten thousand"</div><div class='input'><span class='fu'><a href='denominator.html'>nom_denom</a></span>(<span class='fl'>4</span>)</div><div class='output co'>#&gt; [1] "quarter"</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'><a href='adverbial.html'>nom_adv</a></span>(<span class='fl'>3</span>)
+</div><div class='output co'>#&gt; [1] "three times"</div><div class='input'><span class='kw'>default_adv</span> <span class='op'>&lt;-</span> <span class='fu'>set_config</span>(<span class='st'>"nombre::thrice"</span> = <span class='fl'>TRUE</span>)
+<span class='fu'><a href='adverbial.html'>nom_adv</a></span>(<span class='fl'>3</span>)
+</div><div class='output co'>#&gt; [1] "thrice"</div><div class='input'>
+<span class='fu'><a href='cardinal.html'>nom_card</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='op'>-</span><span class='fl'>1</span>, <span class='fl'>1e4</span>))
+</div><div class='output co'>#&gt; [1] "negative one" "ten thousand"</div><div class='input'><span class='kw'>default_card</span> <span class='op'>&lt;-</span> <span class='fu'>set_config</span>(<span class='st'>"nombre::max_n"</span> = <span class='fl'>100</span>, <span class='st'>"nombre::negative"</span> = <span class='st'>"minus"</span>)
+<span class='fu'><a href='cardinal.html'>nom_card</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='op'>-</span><span class='fl'>1</span>, <span class='fl'>1e4</span>))
+</div><div class='output co'>#&gt; [1] "minus one" "10000"    </div><div class='input'>
+<span class='fu'><a href='denominator.html'>nom_denom</a></span>(<span class='fl'>4</span>)
+</div><div class='output co'>#&gt; [1] "quarter"</div><div class='input'><span class='kw'>default_denom</span> <span class='op'>&lt;-</span> <span class='fu'>set_config</span>(<span class='st'>"nombre::quarter"</span> = <span class='fl'>FALSE</span>)
+<span class='fu'><a href='denominator.html'>nom_denom</a></span>(<span class='fl'>4</span>)
+</div><div class='output co'>#&gt; [1] "fourth"</div><div class='input'>
+<span class='fu'>set_config</span>(<span class='kw'>default_adv</span>, <span class='kw'>default_card</span>, <span class='kw'>default_denom</span>)
+<span class='fu'><a href='adverbial.html'>nom_adv</a></span>(<span class='fl'>3</span>)
+</div><div class='output co'>#&gt; [1] "three times"</div><div class='input'><span class='fu'><a href='cardinal.html'>nom_card</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='op'>-</span><span class='fl'>1</span>, <span class='fl'>1e4</span>))
+</div><div class='output co'>#&gt; [1] "negative one" "ten thousand"</div><div class='input'><span class='fu'><a href='denominator.html'>nom_denom</a></span>(<span class='fl'>4</span>)
+</div><div class='output co'>#&gt; [1] "quarter"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -176,7 +185,7 @@ This allows previous values to be stored in a variable and restored later.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

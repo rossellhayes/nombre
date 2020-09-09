@@ -129,13 +129,13 @@
     </div>
 
     <pre class="usage"><span class='fu'>denominator</span>(
-  <span class='no'>x</span>,
-  <span class='kw'>numerator</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>quarter</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::quarter"</span>, <span class='fl'>TRUE</span>),
-  <span class='no'>...</span>
+  <span class='kw'>x</span>,
+  numerator = <span class='fl'>1</span>,
+  quarter = <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::quarter"</span>, <span class='fl'>TRUE</span>),
+  <span class='kw'>...</span>
 )
 
-<span class='fu'>nom_denom</span>(<span class='no'>x</span>, <span class='kw'>numerator</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>quarter</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::quarter"</span>, <span class='fl'>TRUE</span>), <span class='no'>...</span>)</pre>
+<span class='fu'>nom_denom</span>(<span class='kw'>x</span>, numerator = <span class='fl'>1</span>, quarter = <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::quarter"</span>, <span class='fl'>TRUE</span>), <span class='kw'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -178,13 +178,21 @@ Default can be changed with
 <code><a href='ordinal.html'>ordinal</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>nom_denom</span>(<span class='fl'>2</span>)</div><div class='output co'>#&gt; [1] "half"</div><div class='input'><span class='fu'>nom_denom</span>(<span class='fl'>1</span>:<span class='fl'>10</span>)</div><div class='output co'>#&gt;  [1] "whole"   "half"    "third"   "quarter" "fifth"   "sixth"   "seventh"
-#&gt;  [8] "eighth"  "ninth"   "tenth"  </div><div class='input'><span class='fu'>nom_denom</span>(<span class='fl'>1</span>:<span class='fl'>10</span>, <span class='kw'>numerator</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt;  [1] "wholes"   "halves"   "thirds"   "quarters" "fifths"   "sixths"  
-#&gt;  [7] "sevenths" "eighths"  "ninths"   "tenths"  </div><div class='input'><span class='fu'>nom_denom</span>(<span class='fl'>1</span>:<span class='fl'>10</span>, <span class='kw'>numerator</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>10</span>)</div><div class='output co'>#&gt;  [1] "whole"    "halves"   "thirds"   "quarters" "fifths"   "sixths"  
+    <pre class="examples"><div class='input'><span class='fu'>nom_denom</span>(<span class='fl'>2</span>)
+</div><div class='output co'>#&gt; [1] "half"</div><div class='input'><span class='fu'>nom_denom</span>(<span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>)
+</div><div class='output co'>#&gt;  [1] "whole"   "half"    "third"   "quarter" "fifth"   "sixth"   "seventh"
+#&gt;  [8] "eighth"  "ninth"   "tenth"  </div><div class='input'><span class='fu'>nom_denom</span>(<span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, numerator = <span class='fl'>2</span>)
+</div><div class='output co'>#&gt;  [1] "wholes"   "halves"   "thirds"   "quarters" "fifths"   "sixths"  
+#&gt;  [7] "sevenths" "eighths"  "ninths"   "tenths"  </div><div class='input'><span class='fu'>nom_denom</span>(<span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, numerator = <span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>)
+</div><div class='output co'>#&gt;  [1] "whole"    "halves"   "thirds"   "quarters" "fifths"   "sixths"  
 #&gt;  [7] "sevenths" "eighths"  "ninths"   "tenths"  </div><div class='input'>
-<span class='fu'>nom_denom</span>(<span class='fl'>4</span>)</div><div class='output co'>#&gt; [1] "quarter"</div><div class='input'><span class='fu'>nom_denom</span>(<span class='fl'>4</span>, <span class='kw'>quarter</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] "fourth"</div><div class='input'>
-<span class='fu'>nom_denom</span>(<span class='fl'>1</span>:<span class='fl'>10</span>, <span class='kw'>numerator</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>cardinal</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt;  [1] "wholes" "halves" "3rds"   "4ths"   "5ths"   "6ths"   "7ths"   "8ths"  
-#&gt;  [9] "9ths"   "10ths" </div><div class='input'><span class='fu'>nom_denom</span>(<span class='fl'>5</span>:<span class='fl'>15</span>, <span class='kw'>numerator</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>max_n</span> <span class='kw'>=</span> <span class='fl'>10</span>)</div><div class='output co'>#&gt;  [1] "fifths"   "sixths"   "sevenths" "eighths"  "ninths"   "tenths"  
+<span class='fu'>nom_denom</span>(<span class='fl'>4</span>)
+</div><div class='output co'>#&gt; [1] "quarter"</div><div class='input'><span class='fu'>nom_denom</span>(<span class='fl'>4</span>, quarter = <span class='fl'>FALSE</span>)
+</div><div class='output co'>#&gt; [1] "fourth"</div><div class='input'>
+<span class='fu'>nom_denom</span>(<span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, numerator = <span class='fl'>2</span>, cardinal = <span class='fl'>FALSE</span>)
+</div><div class='output co'>#&gt;  [1] "wholes" "halves" "3rds"   "4ths"   "5ths"   "6ths"   "7ths"   "8ths"  
+#&gt;  [9] "9ths"   "10ths" </div><div class='input'><span class='fu'>nom_denom</span>(<span class='fl'>5</span><span class='op'>:</span><span class='fl'>15</span>, numerator = <span class='fl'>2</span>, max_n = <span class='fl'>10</span>)
+</div><div class='output co'>#&gt;  [1] "fifths"   "sixths"   "sevenths" "eighths"  "ninths"   "tenths"  
 #&gt;  [7] "11ths"    "12ths"    "13ths"    "14ths"    "15ths"   </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -201,7 +209,7 @@ Default can be changed with
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

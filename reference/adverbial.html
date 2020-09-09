@@ -128,11 +128,11 @@
     <p>Convert numbers to adverbial character vectors (once, twice, three times)</p>
     </div>
 
-    <pre class="usage"><span class='fu'>adverbial</span>(<span class='no'>x</span>, <span class='kw'>thrice</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::thrice"</span>, <span class='fl'>FALSE</span>), <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'>adverbial</span>(<span class='kw'>x</span>, thrice = <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::thrice"</span>, <span class='fl'>FALSE</span>), <span class='kw'>...</span>)
 
-<span class='fu'>nom_adv</span>(<span class='no'>x</span>, <span class='kw'>thrice</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::thrice"</span>, <span class='fl'>FALSE</span>), <span class='no'>...</span>)
+<span class='fu'>nom_adv</span>(<span class='kw'>x</span>, thrice = <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::thrice"</span>, <span class='fl'>FALSE</span>), <span class='kw'>...</span>)
 
-<span class='fu'>nom_times</span>(<span class='no'>x</span>, <span class='kw'>thrice</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::thrice"</span>, <span class='fl'>FALSE</span>), <span class='no'>...</span>)</pre>
+<span class='fu'>nom_times</span>(<span class='kw'>x</span>, thrice = <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::thrice"</span>, <span class='fl'>FALSE</span>), <span class='kw'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -168,7 +168,9 @@ Default can be changed with <a href='set_config.html'>set_config("nombre::thrice
 <code><a href='ordinal.html'>ordinal</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>nom_adv</span>(<span class='fl'>1</span>:<span class='fl'>4</span>)</div><div class='output co'>#&gt; [1] "once"        "twice"       "three times" "four times" </div><div class='input'><span class='fu'>nom_adv</span>(<span class='fl'>1</span>:<span class='fl'>4</span>, <span class='kw'>thrice</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "once"       "twice"      "thrice"     "four times"</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>nom_adv</span>(<span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>)
+</div><div class='output co'>#&gt; [1] "once"        "twice"       "three times" "four times" </div><div class='input'><span class='fu'>nom_adv</span>(<span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>, thrice = <span class='fl'>TRUE</span>)
+</div><div class='output co'>#&gt; [1] "once"       "twice"      "thrice"     "four times"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -184,7 +186,7 @@ Default can be changed with <a href='set_config.html'>set_config("nombre::thrice
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>
