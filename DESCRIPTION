@@ -18,15 +18,13 @@ BugReports: https://github.com/rossellhayes/nombre/issues
 Depends: 
     R (>= 2.10)
 Imports:
-    fracture (>= 0.1.0),
+    fracture (>= 0.1.2),
     pkgconfig
 Suggests: 
     covr,
     rlang,
     testthat,
     waldo
-Remotes: 
-    rossellhayes/fracture
 Encoding: UTF-8
 Language: en-US
 LazyData: true
