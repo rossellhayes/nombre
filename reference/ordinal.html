@@ -134,28 +134,31 @@ Converts numeric vectors to cardinal numbers before adding prefixes unless
 <code>cardinal</code> is <code>FALSE</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ordinal</span>(<span class='kw'>x</span>, cardinal = <span class='fl'>TRUE</span>, <span class='kw'>...</span>)
+    <pre class="usage"><span class='fu'>ordinal</span>(<span class='kw'>x</span>, cardinal = <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::ord_cardinal"</span>, <span class='fl'>TRUE</span>), <span class='kw'>...</span>)
 
-<span class='fu'>nom_ord</span>(<span class='kw'>x</span>, cardinal = <span class='fl'>TRUE</span>, <span class='kw'>...</span>)</pre>
+<span class='fu'>nom_ord</span>(<span class='kw'>x</span>, cardinal = <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::ord_cardinal"</span>, <span class='fl'>TRUE</span>), <span class='kw'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>A numeric or character vector</p></td>
+      <td><p>A numeric or character vector.</p></td>
     </tr>
     <tr>
       <th>cardinal</th>
-      <td><p>Whether to convert a numeric vector to cardinal numbers
+      <td><p>Whether to convert a numeric vector with <code><a href='cardinal.html'>cardinal()</a></code>
 before applying ordinal suffixes.
 When <code>TRUE</code>, 1 -&gt; "first".
 When <code>FALSE</code>, 1 -&gt; "1st".
-Defaults to <code>TRUE</code>.</p></td>
+Defaults to <code>TRUE</code>.
+Default can be changed with
+<a href='set_config.html'>set_config("nombre::ord_cardinal")</a>.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Further arguments passed to <code><a href='cardinal.html'>cardinal()</a></code></p></td>
+      <td><p>Further arguments passed to <code><a href='cardinal.html'>cardinal()</a></code> when <code>cardinal</code>
+is <code>TRUE</code>.</p></td>
     </tr>
     </table>
 

@@ -132,6 +132,7 @@
   <span class='kw'>x</span>,
   all_n = <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::all_n"</span>, <span class='fl'>TRUE</span>),
   of_the = <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::of_the"</span>, <span class='fl'>FALSE</span>),
+  cardinal = <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::coll_cardinal"</span>, <span class='fl'>TRUE</span>),
   <span class='kw'>...</span>
 )
 
@@ -139,6 +140,7 @@
   <span class='kw'>x</span>,
   all_n = <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::all_n"</span>, <span class='fl'>TRUE</span>),
   of_the = <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::of_the"</span>, <span class='fl'>FALSE</span>),
+  cardinal = <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::coll_cardinal"</span>, <span class='fl'>TRUE</span>),
   <span class='kw'>...</span>
 )</pre>
 
@@ -163,8 +165,17 @@ Defaults to <code>FALSE</code>.
 Default can be changed with <a href='set_config.html'>set_config("nombre::of")</a>.</p></td>
     </tr>
     <tr>
+      <th>cardinal</th>
+      <td><p>Whether to convert the number after "all" with <code><a href='cardinal.html'>cardinal()</a></code>
+when <code>all_n</code> is <code>TRUE</code>.
+Defaults to <code>TRUE</code>.
+Default can be changed with
+<a href='set_config.html'>set_config("nombre::coll_cardinal")</a>.</p></td>
+    </tr>
+    <tr>
       <th>...</th>
-      <td><p>Additional arguments passed to <code><a href='cardinal.html'>cardinal()</a></code>.</p></td>
+      <td><p>Additional arguments passed to <code><a href='cardinal.html'>cardinal()</a></code> when <code>cardinal</code>
+is <code>TRUE</code>.</p></td>
     </tr>
     </table>
 
