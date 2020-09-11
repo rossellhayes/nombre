@@ -201,7 +201,8 @@ By default, the maximum denominator is "ten-millionths".</p></li>
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other number names: 
+    <div class='dont-index'><p><code><a href='uncardinal.html'>uncardinal()</a></code> to convert character vectors to numbers</p>
+<p>Other number names: 
 <code><a href='adverbial.html'>adverbial</a>()</code>,
 <code><a href='collective.html'>collective</a>()</code>,
 <code><a href='denominator.html'>denominator</a>()</code>,
@@ -221,7 +222,7 @@ By default, the maximum denominator is "ten-millionths".</p></li>
 #&gt; [10] "14"    "15"   </div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='st'>"There are"</span>, <span class='fu'>nom_card</span>(<span class='fl'>525600</span>), <span class='st'>"minutes in a year."</span>)
 </div><div class='output co'>#&gt; [1] "There are five hundred twenty-five thousand six hundred minutes in a year."</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='st'>"There are"</span>, <span class='fu'>nom_card</span>(<span class='fl'>3.72e13</span>), <span class='st'>"cells in the human body."</span>)
-</div><div class='output co'>#&gt; <span class='warning'>Warning: NAs introduced by coercion to integer range</span></div><div class='output co'>#&gt; [1] "There are thirty-seven trillion two hundred billion cells in the human body."</div><div class='input'>
+</div><div class='output co'>#&gt; [1] "There are thirty-seven trillion two hundred billion cells in the human body."</div><div class='input'>
 <span class='fu'>nom_card</span>(<span class='fl'>1</span> <span class='op'>/</span> <span class='fl'>2</span><span class='op'>^</span>(<span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>))
 </div><div class='output co'>#&gt; [1] "one half"      "one quarter"   "one eighth"    "one sixteenth"</div><div class='input'><span class='fu'>nom_card</span>(<span class='fl'>1</span> <span class='op'>/</span> <span class='fl'>2</span><span class='op'>^</span>(<span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>), common_denom = <span class='fl'>TRUE</span>)
 </div><div class='output co'>#&gt; [1] "eight sixteenths" "four sixteenths"  "two sixteenths"   "one sixteenth"   </div><div class='input'><span class='fu'>nom_card</span>(<span class='fl'>1</span> <span class='op'>/</span> <span class='fl'>2</span><span class='op'>^</span>(<span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>), base_10 = <span class='fl'>TRUE</span>)

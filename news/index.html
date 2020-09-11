@@ -127,6 +127,13 @@
 <a href="#nombre-development-version" class="anchor"></a>nombre (development version)<small> Unreleased </small>
 </h1>
 <ul>
+<li>Added <code><a href="../reference/uncardinal.html">uncardinal()</a></code>, which takes a character vector and attempts to convert it to a numeric.
+<ul>
+<li>
+<code><a href="../reference/uncardinal.html">uncardinal("twenty-five")</a></code> produces 25.</li>
+<li>Currently, <code><a href="../reference/uncardinal.html">uncardinal()</a></code> only works with cardinal integers and the result of other <strong>nombre</strong> functions.</li>
+</ul>
+</li>
 <li>
 <strong>nombre</strong> outputs are now part of the S3 class <code>nombre</code>.
 <ul>
