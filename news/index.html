@@ -160,13 +160,21 @@
 </ul>
 </li>
 <li>
-<code><a href="../reference/collective.html">collective()</a></code> gains the arguments <code>all_n</code> and <code>of_the</code>.
+<code><a href="../reference/collective.html">collective()</a></code> gains the arguments <code>of_the</code>, <code>all_n</code>, and <code>cardinal</code>.
 <ul>
 <li>
-<code><a href="../reference/collective.html">collective(3, all_n = FALSE)</a></code> become <code>"all"</code> rather than <code>"all three"</code>.</li>
+<code><a href="../reference/collective.html">collective(3, all_n = FALSE)</a></code> becomes <code>"all"</code> rather than <code>"all three"</code>.</li>
 <li>
 <code><a href="../reference/collective.html">collective(0:3, of_the = TRUE)</a></code> becomes <code><a href="https://rdrr.io/r/base/c.html">c("none of the", "the", "both of the", "all three of the")</a></code> rather than <code><a href="https://rdrr.io/r/base/c.html">c("no", "the", "both", "all three")</a></code>.</li>
-<li>The default can be changed with <code><a href="../reference/set_config.html">set_config("nombre::of_the")</a></code>.</li>
+<li>
+<code><a href="../reference/collective.html">collective(3, cardinal = FALSE)</a></code> becomes <code>"all 3"</code> rather than <code>"all three"</code>.</li>
+<li>The defaults can be changed with <code><a href="../reference/set_config.html">set_config("nombre::all_n", "nombre::of_the", "nombre::coll_cardinal")</a></code>.</li>
+</ul>
+</li>
+<li>
+<code><a href="../reference/cardinal.html">cardinal()</a></code> loses the argument <code>numerator</code>.
+<ul>
+<li>Numerators should now be produced using <code><a href="../reference/numerator.html">numerator()</a></code>/<code><a href="../reference/numerator.html">nom_numer()</a></code>.</li>
 </ul>
 </li>
 <li>Decimals are now converted to fractions with <a href="https://github.com/rossellhayes/fracture"><strong>fracture</strong></a>. This allows <code><a href="../reference/cardinal.html">cardinal()</a></code> to generate fractional components in roughly one tenth the time of the R implementation of <code>decimal_to_fraction()</code>.
