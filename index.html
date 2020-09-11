@@ -41,7 +41,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">nombre</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0.9005</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
       </span>
     </div>
 
@@ -189,15 +189,15 @@
 <span class="kw">bench</span>::<span class="fu">mark</span>(<span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span>(<span class="fu"><a href="reference/cardinal.html">nom_card</a></span>(<span class="fl">1</span><span class="op">:</span><span class="fl">1000</span>)), <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span>(<span class="kw">english</span>::<span class="fu">english</span>(<span class="fl">1</span><span class="op">:</span><span class="fl">1000</span>)))
 <span class="co">#&gt; Warning: Some expressions had a GC in every iteration; so filtering is disabled.</span>
 <span class="co">#&gt; # A tibble: 2 x 6</span>
-<span class="co">#&gt;   expression                                  min  median `itr/sec` mem_alloc</span>
-<span class="co">#&gt;   &lt;bch:expr&gt;                             &lt;bch:tm&gt; &lt;bch:t&gt;     &lt;dbl&gt; &lt;bch:byt&gt;</span>
-<span class="co">#&gt; 1 as.character(nom_card(1:1000))           9.52ms  13.7ms     75.9     1.03MB</span>
-<span class="co">#&gt; 2 as.character(english::english(1:1000)) 146.33ms   154ms      6.51  389.29KB</span>
+<span class="co">#&gt;   expression                               min  median `itr/sec` mem_alloc</span>
+<span class="co">#&gt;   &lt;bch:expr&gt;                             &lt;bch&gt; &lt;bch:t&gt;     &lt;dbl&gt; &lt;bch:byt&gt;</span>
+<span class="co">#&gt; 1 as.character(nom_card(1:1000))          15ms  20.1ms     50.6     1.02MB</span>
+<span class="co">#&gt; 2 as.character(english::english(1:1000)) 198ms 206.4ms      4.84  389.29KB</span>
 <span class="co">#&gt; # ... with 1 more variable: `gc/sec` &lt;dbl&gt;</span>
 </pre></div>
 <hr>
 <p>Hex sticker image adapted from artwork by @<a href="https://github.com/allisonhorst/stats-illustrations">allison_horst</a>.</p>
-<p>Hex sticker fonts are <a href="https://github.com/adobe-fonts/source-code-pro">Source Code Pro</a> by <a href="https://adobe.com">Adobe</a> and <a href="https://www.fontsquirrel.com/fonts/permanent-marker">Permanent Marker</a> by <a href="https://www.fontdiner.com/">Font Diner</a>.</p>
+<p>Hex sticker fonts are <a href="https://github.com/adobe-fonts/source-code-pro">Source Code Pro</a> by <a href="https://www.adobe.com">Adobe</a> and <a href="https://www.fontsquirrel.com/fonts/permanent-marker">Permanent Marker</a> by <a href="https://www.fontdiner.com/">Font Diner</a>.</p>
 <p>Please note that <strong>nombre</strong> is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
 </div>
