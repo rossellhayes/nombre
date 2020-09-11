@@ -34,6 +34,7 @@
 #'
 #' @return A character vector of the same length as `x`
 #' @family number names
+#' @seealso [uncardinal()] to convert character vectors to numbers
 #' @export
 #' @example examples/cardinal.R
 

@@ -1,5 +1,10 @@
 # nombre (development version)
 
+* Added `uncardinal()`, which takes a character vector and attempts to convert it to a numeric.
+  - `uncardinal("twenty-five")` produces 25.
+  - Currently, `uncardinal()` only works with cardinal integers and the result
+  of other **nombre** functions.
+
 * **nombre** outputs are now part of the S3 class `nombre`.
   - This allows `nombre`s to go through mathematical transformations while preserving their characteristics.
   - `cardinal(25) + cardinal(2)` produces `"twenty-seven"`.

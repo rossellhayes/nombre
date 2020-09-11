@@ -88,6 +88,8 @@ nom_card(1 / 2:5, base_10 = TRUE)
 nom_card(1 / 2:5, base_10 = TRUE, max_denom = 100)
 }
 \seealso{
+\code{\link[=uncardinal]{uncardinal()}} to convert character vectors to numbers
+
 Other number names: 
 \code{\link{adverbial}()},
 \code{\link{collective}()},
