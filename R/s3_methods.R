@@ -31,10 +31,11 @@ print.nombre <- function(x, ...) {
 
 #' @export
 Math.nombre <- function(x, ...) {
-  fun <- attr(x, "nombre")
-  x   <- as.numeric(x)
+  fun  <- attr(x, "nombre")
+  args <- attr(x, "args")
+  x    <- as.numeric(x)
 
-  do.call(fun, list(NextMethod()))
+  do.call(fun, c(list(NextMethod()), args))
 }
 
 #' @export
@@ -44,16 +45,15 @@ Summary.nombre <- function(x, ...) {
     return(NextMethod())
   }
 
-  fun <- attr(x, "nombre")
-  x   <- as.numeric(x)
+  fun  <- attr(x, "nombre")
+  args <- attr(x, "args")
+  x    <- as.numeric(x)
 
-  do.call(fun, list(NextMethod()))
+  do.call(fun, c(list(NextMethod()), args))
 }
 
 #' @export
 Ops.nombre <- function(e1, e2 = NULL) {
-
-
   if (
     is.character(e1) && is.character(e2) && (
       .Generic %in% c("==", "!=") ||
@@ -65,19 +65,21 @@ Ops.nombre <- function(e1, e2 = NULL) {
   }
 
   if (inherits(e2, "nombre")) {
-    fun <- attr(e2, "nombre")
-    e2  <- as.numeric(e2)
+    fun  <- attr(e2, "nombre")
+    args <- attr(e2, "args")
+    e2   <- as.numeric(e2)
   }
 
   if (inherits(e1, "nombre")) {
-    fun <- attr(e1, "nombre")
-    e1  <- as.numeric(e1)
+    fun  <- attr(e1, "nombre")
+    args <- attr(e1, "args")
+    e1   <- as.numeric(e1)
   }
 
   result <- NextMethod()
 
   if (is.numeric(result)) {
-    result <- do.call(fun, list(result))
+    result <- do.call(fun, c(list(result), args))
   }
 
   result

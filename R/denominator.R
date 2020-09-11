@@ -50,10 +50,14 @@ denominator <- function(
 
   denom <- gsub("^one-", "", denom)
 
+  args        <- as.list(match.call()[-1])
+  args[["x"]] <- NULL
+
   structure(
     denom,
-    nombre  = "denominator",
     numeric = numeric,
+    nombre  = "denominator",
+    args    = args,
     class   = c("nombre", "character")
   )
 }

@@ -11,6 +11,10 @@
 #' @export
 
 numerator <- function(x, ...) {
+  if (any(x != x %/% 1)) {
+    stop("`x` must not have a decimal component when producing a numerator")
+  }
+
   structure(cardinal(x, ..., numerator = TRUE), nombre = "numerator")
 }
 

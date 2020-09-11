@@ -18,10 +18,14 @@
   - `cardinal(3/100)` now produces "three hundredths" rather than "three one-hundredths".
   - `denominator(1)` still produces "whole".
   
-* `collective()` gains the arguments `all_n` and `of_the`.
-  - `collective(3, all_n = FALSE)` become `"all"` rather than `"all three"`.
+* `collective()` gains the arguments `of_the`, `all_n`, and `cardinal`.
+  - `collective(3, all_n = FALSE)` becomes `"all"` rather than `"all three"`.
   - `collective(0:3, of_the = TRUE)` becomes `c("none of the", "the", "both of the", "all three of the")` rather than `c("no", "the", "both", "all three")`.
-  - The default can be changed with `set_config("nombre::of_the")`.
+  - `collective(3, cardinal = FALSE)` becomes `"all 3"` rather than `"all three"`.
+  - The defaults can be changed with `set_config("nombre::all_n", "nombre::of_the", "nombre::coll_cardinal")`.
+
+* `cardinal()` loses the argument `numerator`.
+  - Numerators should now be produced using `numerator()`/`nom_numer()`.
 
 * Decimals are now converted to fractions with [**fracture**](https://github.com/rossellhayes/fracture).
   This allows `cardinal()` to generate fractional components in roughly one tenth the time of the R implementation of `decimal_to_fraction()`.

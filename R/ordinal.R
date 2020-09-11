@@ -5,13 +5,16 @@
 #' Converts numeric vectors to cardinal numbers before adding prefixes unless
 #' `cardinal` is `FALSE`.
 #'
-#' @param x A numeric or character vector
-#' @param cardinal Whether to convert a numeric vector to cardinal numbers
+#' @param x A numeric or character vector.
+#' @param cardinal Whether to convert a numeric vector with [cardinal()]
 #'     before applying ordinal suffixes.
 #'     When `TRUE`, 1 -> "first".
 #'     When `FALSE`, 1 -> "1st".
 #'     Defaults to `TRUE`.
-#' @param ... Further arguments passed to [cardinal()]
+#'     Default can be changed with
+#'     [set_config("nombre::ord_cardinal")][set_config()].
+#' @param ... Further arguments passed to [cardinal()] when `cardinal`
+#'     is `TRUE`.
 #'
 #' @return A character vector of the same length as `x`
 #' @family number names
@@ -19,7 +22,7 @@
 #' @example examples/ordinal.R
 
 ordinal <- function(
-  x, cardinal = TRUE, ...
+  x, cardinal = get_config("nombre::ord_cardinal", TRUE), ...
 ) {
   if (!length(x)) return(character(0))
   if (!is.numeric(x) & !is.character(x))
@@ -70,10 +73,14 @@ ordinal <- function(
 
   ordinal <- gsub(" ", "-", trimws(ordinal))
 
+  args        <- as.list(match.call()[-1])
+  args[["x"]] <- NULL
+
   structure(
     ordinal,
-    nombre  = "ordinal",
     numeric = numeric,
+    nombre  = "ordinal",
+    args    = args,
     class   = c("nombre", "character")
   )
 }

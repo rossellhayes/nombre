@@ -9,16 +9,14 @@ cardinal(
   x,
   max_n = get_config("nombre::max_n", Inf),
   negative = get_config("nombre::negative", "negative"),
-  ...,
-  numerator = FALSE
+  ...
 )
 
 nom_card(
   x,
   max_n = get_config("nombre::max_n", Inf),
   negative = get_config("nombre::negative", "negative"),
-  ...,
-  numerator = FALSE
+  ...
 )
 }
 \arguments{
@@ -39,10 +37,6 @@ Default can be changed with
 
 \item{...}{Additional arguments passed to \code{\link[fracture:frac_mat]{fracture::frac_mat()}}.
 See details.}
-
-\item{numerator}{When \code{TRUE}, an error is produced if \code{x} has a decimal or
-fractional component.
-Defaults to \code{FALSE}.}
 }
 \value{
 A character vector of the same length as \code{x}

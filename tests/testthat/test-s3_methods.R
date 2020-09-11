@@ -140,3 +140,22 @@ test_that("Ops", {
   expect_equal(adverbial(25) + 2,   "twenty-seven times")
   expect_equal(collective(25) + 2,  "all twenty-seven")
 })
+
+test_that("nombres pass args", {
+  expect_equal(cardinal(100, max_n = 10) + 0,    "100")
+  expect_equal(cardinal(-1, negative = "minus"), "minus one")
+
+  expect_equal(ordinal(1, cardinal = FALSE), "1st")
+
+  expect_equal(numerator(-1, negative = "minus"), "minus one")
+
+  expect_equal(denominator(2, 2) + 0,               "halves")
+  expect_equal(denominator(4, quarter = FALSE) + 0, "fourth")
+
+  expect_equal(adverbial(3, thrice = TRUE) + 0, "thrice")
+
+  expect_equal(collective(3, all_n = FALSE),                "all")
+  expect_equal(collective(3, cardinal = FALSE),             "all 3")
+  expect_equal(collective(3, of_the = TRUE),                "all three of the")
+  expect_equal(collective(3, all_n = FALSE, of_the = TRUE), "all of the")
+})

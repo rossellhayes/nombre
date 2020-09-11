@@ -20,6 +20,8 @@ adverbial <- function(x, thrice = get_config("nombre::thrice", FALSE), ...) {
   if (!is.logical(thrice) | is.na(thrice))
     stop("`thrice` must be either `TRUE` or `FALSE`")
 
+  numeric <- x
+
   adv              <- paste(cardinal(x, ...), "time")
   adv[abs(x) != 1] <- paste0(adv[abs(x) != 1], "s")
 
@@ -30,8 +32,15 @@ adverbial <- function(x, thrice = get_config("nombre::thrice", FALSE), ...) {
     adv[abs(x) == 3] <- gsub("three times$", "thrice", adv[abs(x) == 3])
   }
 
+  args        <- as.list(match.call()[-1])
+  args[["x"]] <- NULL
+
   structure(
-    adv, nombre = "adverbial", numeric = x, class = c("nombre", "character")
+    adv,
+    numeric = numeric,
+    nombre  = "adverbial",
+    args    = args,
+    class   = c("nombre", "character")
   )
 }
 
