@@ -1,4 +1,4 @@
-# nombre (development version)
+# nombre 0.3.0
 
 * Added `uncardinal()`, which takes a character vector and attempts to convert it to a numeric.
   - `uncardinal("twenty-five")` produces 25.

@@ -1,6 +1,6 @@
 Package: nombre
 Title: Number Names
-Version: 0.2.0.9005
+Version: 0.3.0
 Authors@R: 
     person(given = "Alexander",
            family = "Rossell Hayes",
