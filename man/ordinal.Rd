@@ -5,20 +5,23 @@
 \alias{nom_ord}
 \title{Convert numbers to ordinal character vectors (first, second, third)}
 \usage{
-ordinal(x, cardinal = TRUE, ...)
+ordinal(x, cardinal = get_config("nombre::ord_cardinal", TRUE), ...)
 
-nom_ord(x, cardinal = TRUE, ...)
+nom_ord(x, cardinal = get_config("nombre::ord_cardinal", TRUE), ...)
 }
 \arguments{
-\item{x}{A numeric or character vector}
+\item{x}{A numeric or character vector.}
 
-\item{cardinal}{Whether to convert a numeric vector to cardinal numbers
+\item{cardinal}{Whether to convert a numeric vector with \code{\link[=cardinal]{cardinal()}}
 before applying ordinal suffixes.
 When \code{TRUE}, 1 -> "first".
 When \code{FALSE}, 1 -> "1st".
-Defaults to \code{TRUE}.}
+Defaults to \code{TRUE}.
+Default can be changed with
+\link[=set_config]{set_config("nombre::ord_cardinal")}.}
 
-\item{...}{Further arguments passed to \code{\link[=cardinal]{cardinal()}}}
+\item{...}{Further arguments passed to \code{\link[=cardinal]{cardinal()}} when \code{cardinal}
+is \code{TRUE}.}
 }
 \value{
 A character vector of the same length as \code{x}

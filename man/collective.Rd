@@ -9,6 +9,7 @@ collective(
   x,
   all_n = get_config("nombre::all_n", TRUE),
   of_the = get_config("nombre::of_the", FALSE),
+  cardinal = get_config("nombre::coll_cardinal", TRUE),
   ...
 )
 
@@ -16,6 +17,7 @@ nom_coll(
   x,
   all_n = get_config("nombre::all_n", TRUE),
   of_the = get_config("nombre::of_the", FALSE),
+  cardinal = get_config("nombre::coll_cardinal", TRUE),
   ...
 )
 }
@@ -31,7 +33,14 @@ Default can be changed with \link[=set_config]{set_config("nombre::all_n")}.}
 Defaults to \code{FALSE}.
 Default can be changed with \link[=set_config]{set_config("nombre::of")}.}
 
-\item{...}{Additional arguments passed to \code{\link[=cardinal]{cardinal()}}.}
+\item{cardinal}{Whether to convert the number after "all" with \code{\link[=cardinal]{cardinal()}}
+when \code{all_n} is \code{TRUE}.
+Defaults to \code{TRUE}.
+Default can be changed with
+\link[=set_config]{set_config("nombre::coll_cardinal")}.}
+
+\item{...}{Additional arguments passed to \code{\link[=cardinal]{cardinal()}} when \code{cardinal}
+is \code{TRUE}.}
 }
 \value{
 A character vector of the same length as \code{x}.
