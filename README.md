@@ -140,10 +140,10 @@ alternatives like
 bench::mark(as.character(nom_card(1:1000)), as.character(english::english(1:1000)))
 #> Warning: Some expressions had a GC in every iteration; so filtering is disabled.
 #> # A tibble: 2 x 6
-#>   expression                                  min  median `itr/sec` mem_alloc
-#>   <bch:expr>                             <bch:tm> <bch:t>     <dbl> <bch:byt>
-#> 1 as.character(nom_card(1:1000))           9.52ms  13.7ms     75.9     1.03MB
-#> 2 as.character(english::english(1:1000)) 146.33ms   154ms      6.51  389.29KB
+#>   expression                               min  median `itr/sec` mem_alloc
+#>   <bch:expr>                             <bch> <bch:t>     <dbl> <bch:byt>
+#> 1 as.character(nom_card(1:1000))          15ms  20.1ms     50.6     1.02MB
+#> 2 as.character(english::english(1:1000)) 198ms 206.4ms      4.84  389.29KB
 #> # ... with 1 more variable: `gc/sec` <dbl>
 ```
 
@@ -154,7 +154,7 @@ Hex sticker image adapted from artwork by
 
 Hex sticker fonts are [Source Code
 Pro](https://github.com/adobe-fonts/source-code-pro) by
-[Adobe](https://adobe.com) and [Permanent
+[Adobe](https://www.adobe.com) and [Permanent
 Marker](https://www.fontsquirrel.com/fonts/permanent-marker) by [Font
 Diner](https://www.fontdiner.com/).
 

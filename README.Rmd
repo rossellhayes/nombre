@@ -128,7 +128,7 @@ Hex sticker image adapted from artwork by
 
 Hex sticker fonts are 
 [Source Code Pro](https://github.com/adobe-fonts/source-code-pro) by
-[Adobe](https://adobe.com) and
+[Adobe](https://www.adobe.com) and
 [Permanent Marker](https://www.fontsquirrel.com/fonts/permanent-marker)
 by [Font Diner](https://www.fontdiner.com/).
 
