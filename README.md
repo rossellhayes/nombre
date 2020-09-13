@@ -111,10 +111,10 @@ nom_card(9.75)
 #> [1] "nine and three quarters"
 ```
 
-### Math with `nombre`s
+### Math with nombres
 
 **nombre** implements an S3 class that seamlessly decides when to treat
-`nombre`s like `character`s and when to treat them like `numeric`s.
+nombres like characters and when to treat them like numerics.
 
 ``` r
 x <- nom_card(25)
@@ -130,6 +130,16 @@ x == "twenty-five"
 #> [1] TRUE
 ```
 
+### Reverse it
+
+`uncardinal()` attempts to convert character vectors of cardinal number
+names to numerics.
+
+``` r
+uncardinal(c("twenty-five", "negative three", "infinity"))
+#> [1]  25  -3 Inf
+```
+
 ## Advantages 🚀
 
 **nombre** is implemented using vectorized base R and runs faster than
@@ -140,10 +150,10 @@ alternatives like
 bench::mark(as.character(nom_card(1:1000)), as.character(english::english(1:1000)))
 #> Warning: Some expressions had a GC in every iteration; so filtering is disabled.
 #> # A tibble: 2 x 6
-#>   expression                               min  median `itr/sec` mem_alloc
-#>   <bch:expr>                             <bch> <bch:t>     <dbl> <bch:byt>
-#> 1 as.character(nom_card(1:1000))          15ms  20.1ms     50.6     1.02MB
-#> 2 as.character(english::english(1:1000)) 198ms 206.4ms      4.84  389.29KB
+#>   expression                                  min  median `itr/sec` mem_alloc
+#>   <bch:expr>                             <bch:tm> <bch:t>     <dbl> <bch:byt>
+#> 1 as.character(nom_card(1:1000))           8.91ms  10.7ms     92.6     1.02MB
+#> 2 as.character(english::english(1:1000)) 145.06ms 156.4ms      6.32  389.29KB
 #> # ... with 1 more variable: `gc/sec` <dbl>
 ```
 
