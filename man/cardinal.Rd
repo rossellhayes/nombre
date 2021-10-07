@@ -9,6 +9,7 @@ cardinal(
   x,
   max_n = get_config("nombre::max_n", Inf),
   negative = get_config("nombre::negative", "negative"),
+  sep = get_config("nombre::sep", NULL),
   ...
 )
 
@@ -16,6 +17,7 @@ nom_card(
   x,
   max_n = get_config("nombre::max_n", Inf),
   negative = get_config("nombre::negative", "negative"),
+  sep = get_config("nombre::sep", NULL),
   ...
 )
 }
@@ -34,6 +36,13 @@ Default can be changed with \link[=set_config]{set_config("nombre::max_n")}.}
 Defaults to \code{"negative"}.
 Default can be changed with
 \link[=set_config]{set_config("nombre::negative")}.}
+
+\item{sep}{A character vector.
+If \code{x} is a decimal number and \code{sep} is provided, \code{x} will be converted
+to a ratio or proportion rather than a fraction. \code{sep} must be "in",
+"of", "to", or "out of".
+Defaults to \code{NULL}.
+Default can be changed with \link[=set_config]{set_config("nombre::sep")}.}
 
 \item{...}{Additional arguments passed to \code{\link[fracture:frac_mat]{fracture::frac_mat()}}.
 See details.}
