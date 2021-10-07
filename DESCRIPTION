@@ -2,15 +2,18 @@ Package: nombre
 Title: Number Names
 Version: 0.3.0.9000
 Authors@R: 
-    person(given = "Alexander",
-           family = "Rossell Hayes",
-           role = c("aut", "cre"),
-           email = "alexander@rossellhayes.com",
-           comment = c(ORCID = "0000-0001-9412-0457"))
-Description: Converts numeric vectors to character vectors of
-    English number names. Provides conversion to cardinals, ordinals,
-    numerators, and denominators. Supports negative and non-integer
-    numbers.
+    c(person(given = "Alexander",
+             family = "Rossell Hayes",
+             role = c("aut", "cre"),
+             email = "alexander@rossellhayes.com",
+             comment = c(ORCID = "0000-0001-9412-0457")),
+      person(given = "Eli",
+             family = "Pousson",
+             role = "ctb",
+             email = "eli.pousson@gmail.com"))
+Description: Converts numeric vectors to character vectors of English
+    number names. Provides conversion to cardinals, ordinals, numerators,
+    and denominators. Supports negative and non-integer numbers.
 License: MIT + file LICENSE
 URL: https://nombre.rossellhayes.com,
     https://github.com/rossellhayes/nombre
