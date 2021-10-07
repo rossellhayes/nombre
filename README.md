@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![](https://www.r-pkg.org/badges/version/nombre?color=brightgreen)](https://cran.r-project.org/package=nombre)
-[![](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+[![](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html#maturing)
 [![License:
 MIT](https://img.shields.io/badge/license-MIT-blueviolet.svg)](https://cran.r-project.org/web/licenses/MIT)
 [![R build
@@ -102,13 +102,16 @@ nom_ord(c("n", "dozen", "umpteen", "eleventy", "one zillion"))
 #> [5] "one-zillionth"
 ```
 
-It can also handle less common numerics, like negatives and fractions:
+It can also handle less common numerics, like negatives, fractions, and
+proportions:
 
 ``` r
 nom_card(-2)
 #> [1] "negative two"
 nom_card(9.75)
 #> [1] "nine and three quarters"
+nom_card(0.25, sep = "in")
+#> [1] "one in four"
 ```
 
 ### Math with nombres
@@ -149,21 +152,21 @@ alternatives like
 ``` r
 bench::mark(as.character(nom_card(1:1000)), as.character(english::english(1:1000)))
 #> Warning: Some expressions had a GC in every iteration; so filtering is disabled.
-#> # A tibble: 2 x 6
-#>   expression                                  min  median `itr/sec` mem_alloc
-#>   <bch:expr>                             <bch:tm> <bch:t>     <dbl> <bch:byt>
-#> 1 as.character(nom_card(1:1000))           8.91ms  10.7ms     92.6     1.02MB
-#> 2 as.character(english::english(1:1000)) 145.06ms 156.4ms      6.32  389.29KB
-#> # ... with 1 more variable: `gc/sec` <dbl>
+#> # A tibble: 2 × 6
+#>   expression                                  min   median `itr/sec` mem_alloc
+#>   <bch:expr>                             <bch:tm> <bch:tm>     <dbl> <bch:byt>
+#> 1 as.character(nom_card(1:1000))           5.17ms   7.36ms     119.     1.02MB
+#> 2 as.character(english::english(1:1000))     78ms  80.97ms      11.4  389.44KB
+#> # … with 1 more variable: gc/sec <dbl>
 ```
 
------
+------------------------------------------------------------------------
 
 Hex sticker image adapted from artwork by
 @[allison\_horst](https://github.com/allisonhorst/stats-illustrations).
 
-Hex sticker fonts are [Source Code
-Pro](https://github.com/adobe-fonts/source-code-pro) by
+Hex sticker fonts are [Source Sans
+Pro](https://github.com/adobe-fonts/source-sans-pro) by
 [Adobe](https://www.adobe.com) and [Permanent
 Marker](https://www.fontsquirrel.com/fonts/permanent-marker) by [Font
 Diner](https://www.fontdiner.com/).

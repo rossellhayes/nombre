@@ -92,11 +92,12 @@ nom_ord(1:5, cardinal = FALSE)
 nom_ord(c("n", "dozen", "umpteen", "eleventy", "one zillion"))
 ```
 
-It can also handle less common numerics, like negatives and fractions:
+It can also handle less common numerics, like negatives, fractions, and proportions:
 
 ```{r}
 nom_card(-2)
 nom_card(9.75)
+nom_card(0.25, sep = "in")
 ```
 
 ### Math with nombres

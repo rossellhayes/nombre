@@ -89,6 +89,9 @@ nom_card(1 / 2^(1:4), base_10 = TRUE, common_denom = TRUE)
 nom_card(1 / 2:5)
 nom_card(1 / 2:5, base_10 = TRUE)
 nom_card(1 / 2:5, base_10 = TRUE, max_denom = 100)
+
+nom_card(1 / 4, sep = "in")
+nom_card(6 / 25, sep = "in", max_denom = 10)
 }
 \seealso{
 \code{\link[=uncardinal]{uncardinal()}} to convert character vectors to numbers
