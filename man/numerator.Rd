@@ -25,6 +25,7 @@ Other number names:
 \code{\link{cardinal}()},
 \code{\link{collective}()},
 \code{\link{denominator}()},
-\code{\link{ordinal}()}
+\code{\link{ordinal}()},
+\code{\link{ratio}()}
 }
 \concept{number names}

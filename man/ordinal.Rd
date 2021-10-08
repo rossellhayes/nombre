@@ -49,6 +49,7 @@ Other number names:
 \code{\link{cardinal}()},
 \code{\link{collective}()},
 \code{\link{denominator}()},
-\code{\link{numerator}()}
+\code{\link{numerator}()},
+\code{\link{ratio}()}
 }
 \concept{number names}

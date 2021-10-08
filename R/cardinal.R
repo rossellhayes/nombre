@@ -12,12 +12,6 @@
 #'     Defaults to `"negative"`.
 #'     Default can be changed with
 #'     [set_config("nombre::negative")][set_config()].
-#' @param sep A character vector.
-#'     If `x` is a decimal number and `sep` is provided, `x` will be converted
-#'     to a ratio or proportion rather than a fraction. `sep` must be "in",
-#'     "of", "to", or "out of".
-#'     Defaults to `NULL`.
-#'     Default can be changed with [set_config("nombre::sep")][set_config()].
 #' @param ... Additional arguments passed to [fracture::frac_mat()].
 #'     See details.
 #'
@@ -45,7 +39,6 @@ cardinal <- function(
   x,
   max_n     = get_config("nombre::max_n", Inf),
   negative  = get_config("nombre::negative", "negative"),
-  sep       = get_config("nombre::sep", NULL),
   ...
 ) {
   numeric <- x
@@ -59,8 +52,6 @@ cardinal <- function(
   if (!is.character(negative)) stop("`negative` must be of type character")
   if (length(negative) != 1 && length(negative) != n)
     stop("`negative` must be length one or the same length as `x`")
-  if (!is.null(sep) && !(sep %in% c("in", "of", "to", "out of")))
-    stop('`sep` must be either "in", "of", "to", or "out of".')
 
   card                 <- character(n)
   card[abs(x) > max_n] <- as.character(x[abs(x) > max_n])
@@ -75,7 +66,7 @@ cardinal <- function(
     decimal                <- numeric(n)
     decimal[unmaxed]       <- x[unmaxed] %% 1
     fraction               <- character(n)
-    fraction[decimal != 0] <- convert_fraction(decimal[decimal != 0], sep, ...)
+    fraction[decimal != 0] <- convert_fraction(decimal[decimal != 0], sep = NULL, ...)
     x[unmaxed]             <- x[unmaxed] %/% 1
 
     x[unmaxed] <- format(x[unmaxed], scientific = FALSE)

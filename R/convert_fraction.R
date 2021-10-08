@@ -1,4 +1,4 @@
-convert_fraction <- function(x, sep, ...) {
+convert_fraction <- function(x, sep = NULL, ...) {
   if (!length(x)) return(character(0))
 
   x           <- fracture::frac_mat(x, ...)

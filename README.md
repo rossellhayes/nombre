@@ -23,7 +23,7 @@ status](https://github.com/rossellhayes/nombre/workflows/R-CMD-check/badge.svg)]
 words. You can use it to express numbers as cardinals (one, two, three)
 or ordinals (first, second, third), as well as numerators and
 denominators. **nombre** supports not just whole numbers, but also
-negatives and fractions.
+negatives, fractions, and ratios.
 
 ## Installation
 
@@ -103,15 +103,17 @@ nom_ord(c("n", "dozen", "umpteen", "eleventy", "one zillion"))
 ```
 
 It can also handle less common numerics, like negatives, fractions, and
-proportions:
+ratios:
 
 ``` r
 nom_card(-2)
 #> [1] "negative two"
 nom_card(9.75)
 #> [1] "nine and three quarters"
-nom_card(0.25, sep = "in")
-#> [1] "one in four"
+nom_ratio(0.25)
+#> [1] "one to four"
+nom_ratio(3)
+#> [1] "three to one"
 ```
 
 ### Math with nombres
@@ -155,8 +157,8 @@ bench::mark(as.character(nom_card(1:1000)), as.character(english::english(1:1000
 #> # A tibble: 2 × 6
 #>   expression                                  min   median `itr/sec` mem_alloc
 #>   <bch:expr>                             <bch:tm> <bch:tm>     <dbl> <bch:byt>
-#> 1 as.character(nom_card(1:1000))           5.17ms   7.36ms     119.     1.02MB
-#> 2 as.character(english::english(1:1000))     78ms  80.97ms      11.4  389.44KB
+#> 1 as.character(nom_card(1:1000))           4.28ms   4.45ms     207.     1.02MB
+#> 2 as.character(english::english(1:1000))  79.25ms  81.58ms      12.2  389.44KB
 #> # … with 1 more variable: gc/sec <dbl>
 ```
 

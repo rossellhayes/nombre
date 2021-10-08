@@ -9,7 +9,6 @@ cardinal(
   x,
   max_n = get_config("nombre::max_n", Inf),
   negative = get_config("nombre::negative", "negative"),
-  sep = get_config("nombre::sep", NULL),
   ...
 )
 
@@ -17,7 +16,6 @@ nom_card(
   x,
   max_n = get_config("nombre::max_n", Inf),
   negative = get_config("nombre::negative", "negative"),
-  sep = get_config("nombre::sep", NULL),
   ...
 )
 }
@@ -36,13 +34,6 @@ Default can be changed with \link[=set_config]{set_config("nombre::max_n")}.}
 Defaults to \code{"negative"}.
 Default can be changed with
 \link[=set_config]{set_config("nombre::negative")}.}
-
-\item{sep}{A character vector.
-If \code{x} is a decimal number and \code{sep} is provided, \code{x} will be converted
-to a ratio or proportion rather than a fraction. \code{sep} must be "in",
-"of", "to", or "out of".
-Defaults to \code{NULL}.
-Default can be changed with \link[=set_config]{set_config("nombre::sep")}.}
 
 \item{...}{Additional arguments passed to \code{\link[fracture:frac_mat]{fracture::frac_mat()}}.
 See details.}
@@ -89,9 +80,6 @@ nom_card(1 / 2^(1:4), base_10 = TRUE, common_denom = TRUE)
 nom_card(1 / 2:5)
 nom_card(1 / 2:5, base_10 = TRUE)
 nom_card(1 / 2:5, base_10 = TRUE, max_denom = 100)
-
-nom_card(1 / 4, sep = "in")
-nom_card(6 / 25, sep = "in", max_denom = 10)
 }
 \seealso{
 \code{\link[=uncardinal]{uncardinal()}} to convert character vectors to numbers
@@ -101,6 +89,7 @@ Other number names:
 \code{\link{collective}()},
 \code{\link{denominator}()},
 \code{\link{numerator}()},
-\code{\link{ordinal}()}
+\code{\link{ordinal}()},
+\code{\link{ratio}()}
 }
 \concept{number names}

@@ -34,7 +34,7 @@ library(badger)
 > `nombre`: package to convert numbers to their names in R
 
 **nombre** converts numeric vectors to character vectors of English words.
-You can use it to express numbers as cardinals (one, two, three) or ordinals (first, second, third), as well as numerators and denominators. **nombre** supports not just whole numbers, but also negatives and fractions.
+You can use it to express numbers as cardinals (one, two, three) or ordinals (first, second, third), as well as numerators and denominators. **nombre** supports not just whole numbers, but also negatives, fractions, and ratios.
 
 ## Installation
 
@@ -92,12 +92,13 @@ nom_ord(1:5, cardinal = FALSE)
 nom_ord(c("n", "dozen", "umpteen", "eleventy", "one zillion"))
 ```
 
-It can also handle less common numerics, like negatives, fractions, and proportions:
+It can also handle less common numerics, like negatives, fractions, and ratios:
 
 ```{r}
 nom_card(-2)
 nom_card(9.75)
-nom_card(0.25, sep = "in")
+nom_ratio(0.25)
+nom_ratio(3)
 ```
 
 ### Math with nombres
