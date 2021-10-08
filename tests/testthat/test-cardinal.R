@@ -57,7 +57,6 @@ test_that("decimal cardinal with fracture ...", {
     c("two quarters", "three quarters")
   )
   expect_equal(nom_card(499/1000, max_denom = 100), "one half")
-  expect_equal(nom_card(15/100, sep = "in", max_denom = 15), "one in seven")
   expect_equal(
     nom_card(1307.36, base_10 = TRUE),
     "one thousand three hundred seven and thirty-six hundredths"
@@ -77,7 +76,6 @@ test_that("errors", {
   expect_error(nom_card(numeric(1), negative = character(2)))
   expect_error(nom_card(numeric(1), max_n = numeric(0)))
   expect_error(nom_card(numeric(1), max_n = character(1)))
-  expect_error(nom_card(numeric(1), sep = character(1)))
   expect_error(nom_numer(character(1)))
   expect_error(nom_numer(0.5))
 })

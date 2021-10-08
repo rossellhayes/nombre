@@ -66,7 +66,7 @@ cardinal <- function(
     decimal                <- numeric(n)
     decimal[unmaxed]       <- x[unmaxed] %% 1
     fraction               <- character(n)
-    fraction[decimal != 0] <- convert_fraction(decimal[decimal != 0], sep = NULL, ...)
+    fraction[decimal != 0] <- convert_fraction(decimal[decimal != 0], ...)
     x[unmaxed]             <- x[unmaxed] %/% 1
 
     x[unmaxed] <- format(x[unmaxed], scientific = FALSE)
