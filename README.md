@@ -111,9 +111,9 @@ nom_card(-2)
 nom_card(9.75)
 #> [1] "nine and three quarters"
 nom_ratio(0.25)
-#> [1] "one to four"
+#> [1] "one in four"
 nom_ratio(3)
-#> [1] "three to one"
+#> [1] "three in one"
 ```
 
 ### Math with nombres
@@ -153,19 +153,18 @@ alternatives like
 
 ``` r
 bench::mark(as.character(nom_card(1:1000)), as.character(english::english(1:1000)))
-#> Warning: Some expressions had a GC in every iteration; so filtering is disabled.
 #> # A tibble: 2 × 6
 #>   expression                                  min   median `itr/sec` mem_alloc
 #>   <bch:expr>                             <bch:tm> <bch:tm>     <dbl> <bch:byt>
-#> 1 as.character(nom_card(1:1000))           4.28ms   4.45ms     207.     1.02MB
-#> 2 as.character(english::english(1:1000))  79.25ms  81.58ms      12.2  389.44KB
+#> 1 as.character(nom_card(1:1000))           7.54ms   8.06ms    123.      1.06MB
+#> 2 as.character(english::english(1:1000)) 122.95ms 123.41ms      8.10   413.8KB
 #> # … with 1 more variable: gc/sec <dbl>
 ```
 
 ------------------------------------------------------------------------
 
 Hex sticker image adapted from artwork by
-@[allison\_horst](https://github.com/allisonhorst/stats-illustrations).
+@[allison_horst](https://github.com/allisonhorst/stats-illustrations).
 
 Hex sticker fonts are [Source Sans
 Pro](https://github.com/adobe-fonts/source-sans-pro) by
