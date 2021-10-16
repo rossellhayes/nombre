@@ -4,25 +4,11 @@
 #' @param sep A character vector separating components of the ratio.
 #'     Defaults to `"in"`.
 #'     Default can be changed with [set_config("nombre::sep")][set_config()].
-#' @param common_denom Logical. If TRUE, all ratios use a common denominator
-#'     value. If FALSE, a denominator of 1 is used when `x` is 0. Default can be
-#'     changed with [set_config("nombre::common_denom")][set_config()].
-#' @param ... Additional arguments passed to [fracture::frac_mat()].
-#'     See details.
+#' @inheritDotParams fracture::frac_mat -mixed
 #' @inheritParams cardinal
 #'
 #' @details
-#'
 #' `x` is converted to a fraction by [fracture::frac_mat()].
-#' Named arguments of `ratio()` and `nom_ratio()` are passed to
-#' [fracture::frac_mat()] through `...`.
-#' Helpful arguments include:
-#' * `base_10 = TRUE`, which forces all fractions to use denominators that are
-#'   powers of ten.
-#' * `max_denom`, which sets the maximum allowable denominator.
-#'   By default, the maximum denominator is "ten-millionths".
-#'
-#' The [fracture::frac_mat()]  argument `mixed` is set to TRUE.
 #'
 #' @return A character vector of the same length as `x`
 #' @family number names
@@ -34,7 +20,6 @@ ratio <- function(
   sep       = get_config("nombre::sep", "in"),
   max_n     = get_config("nombre::max_n", Inf),
   negative  = get_config("nombre::negative", "negative"),
-  common_denom = get_config("nombre::common_denom", FALSE),
   ...
 ) {
   numeric <- x

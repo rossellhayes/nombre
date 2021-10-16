@@ -8,9 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
-Converts numeric vectors to character vectors of English
-    number names. Provides conversion to cardinals, ordinals, numerators,
-    and denominators. Supports negative and non-integer numbers.
+Converts numeric vectors to character vectors of English number names. Provides conversion to cardinals, ordinals, numerators, and denominators. Supports negative and non-integer numbers.
 }
 \seealso{
 Useful links:

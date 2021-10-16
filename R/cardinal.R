@@ -12,22 +12,12 @@
 #'     Defaults to `"negative"`.
 #'     Default can be changed with
 #'     [set_config("nombre::negative")][set_config()].
-#' @param ... Additional arguments passed to [fracture::frac_mat()].
-#'     See details.
+#' @inheritDotParams fracture::frac_mat -mixed
 #'
-#' @details # Fractions:
+#' @details # Fractions
 #'
 #' Decimal components of `x` are automatically converted to fractions by
 #' [fracture::frac_mat()].
-#' Named arguments of `cardinal()` and `nom_card()` are passed to
-#' [fracture::frac_mat()] through `...`.
-#' Helpful arguments include:
-#' * `base_10 = TRUE`, which forces all fractions to use denominators that are
-#'   powers of ten
-#' * `common_denom = TRUE`, which forces all fractions to use the least common
-#'   denominator when `x` is a vector
-#' * `max_denom`, which sets the maximum allowable denominator.
-#'   By default, the maximum denominator is "ten-millionths".
 #'
 #' @return A character vector of the same length as `x`
 #' @family number names

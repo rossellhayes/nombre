@@ -35,8 +35,27 @@ Defaults to \code{"negative"}.
 Default can be changed with
 \link[=set_config]{set_config("nombre::negative")}.}
 
-\item{...}{Additional arguments passed to \code{\link[fracture:frac_mat]{fracture::frac_mat()}}.
-See details.}
+\item{...}{
+  Arguments passed on to \code{\link[fracture:frac_mat]{fracture::frac_mat}}
+  \describe{
+    \item{\code{denom}}{If \code{denom} is not \code{\link{NULL}}, all fractions will have a
+denominator of \code{denom}. This will ignore all other arguments that affect
+the denominator.}
+    \item{\code{base_10}}{If \code{TRUE}, all denominators will be a power of 10.}
+    \item{\code{common_denom}}{If \code{TRUE}, all fractions will have the same denominator.
+
+If the least common denominator is greater than \code{max_denom},
+\code{max_denom} is used.}
+    \item{\code{max_denom}}{All denominators will be less than or equal to
+\code{max_denom}.
+
+If \code{base_10} is \code{TRUE}, the maximum denominator will be the largest power
+of 10 less than \code{max_denom}.
+
+A \code{max_denom} greater than the inverse square root of
+\link[=.Machine]{machine double epsilon} will produce a warning because floating
+point rounding errors can occur when denominators grow too large.}
+  }}
 }
 \value{
 A character vector of the same length as \code{x}
@@ -44,20 +63,9 @@ A character vector of the same length as \code{x}
 \description{
 Convert numbers to cardinal character vectors (one, two, three)
 }
-\section{Fractions:}{
+\section{Fractions}{
 Decimal components of \code{x} are automatically converted to fractions by
 \code{\link[fracture:frac_mat]{fracture::frac_mat()}}.
-Named arguments of \code{cardinal()} and \code{nom_card()} are passed to
-\code{\link[fracture:frac_mat]{fracture::frac_mat()}} through \code{...}.
-Helpful arguments include:
-\itemize{
-\item \code{base_10 = TRUE}, which forces all fractions to use denominators that are
-powers of ten
-\item \code{common_denom = TRUE}, which forces all fractions to use the least common
-denominator when \code{x} is a vector
-\item \code{max_denom}, which sets the maximum allowable denominator.
-By default, the maximum denominator is "ten-millionths".
-}
 }
 
 \examples{

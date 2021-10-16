@@ -7,28 +7,25 @@
 \usage{
 ratio(
   x,
-  sep = get_config("nombre::sep", "to"),
+  sep = get_config("nombre::sep", "in"),
   max_n = get_config("nombre::max_n", Inf),
   negative = get_config("nombre::negative", "negative"),
-  common_denom = get_config("nombre::common_denom", FALSE),
   ...
 )
 
 nom_ratio(
   x,
-  sep = get_config("nombre::sep", "to"),
+  sep = get_config("nombre::sep", "in"),
   max_n = get_config("nombre::max_n", Inf),
   negative = get_config("nombre::negative", "negative"),
-  common_denom = get_config("nombre::common_denom", FALSE),
   ...
 )
 }
 \arguments{
 \item{x}{A numeric vector}
 
-\item{sep}{A character vector separating components of the ratio. \code{sep} must
-be "in", "of", "to", or "out of".
-Defaults to \code{"to"}.
+\item{sep}{A character vector separating components of the ratio.
+Defaults to \code{"in"}.
 Default can be changed with \link[=set_config]{set_config("nombre::sep")}.}
 
 \item{max_n}{A numeric vector.
@@ -44,12 +41,27 @@ Defaults to \code{"negative"}.
 Default can be changed with
 \link[=set_config]{set_config("nombre::negative")}.}
 
-\item{common_denom}{Logical. If TRUE, all ratios use a common denominator
-value. If FALSE, a denominator of 1 is used when \code{x} is 0. Default can be
-changed with \link[=set_config]{set_config("nombre::common_denom")}.}
+\item{...}{
+  Arguments passed on to \code{\link[fracture:frac_mat]{fracture::frac_mat}}
+  \describe{
+    \item{\code{denom}}{If \code{denom} is not \code{\link{NULL}}, all fractions will have a
+denominator of \code{denom}. This will ignore all other arguments that affect
+the denominator.}
+    \item{\code{base_10}}{If \code{TRUE}, all denominators will be a power of 10.}
+    \item{\code{common_denom}}{If \code{TRUE}, all fractions will have the same denominator.
 
-\item{...}{Additional arguments passed to \code{\link[fracture:frac_mat]{fracture::frac_mat()}}.
-See details.}
+If the least common denominator is greater than \code{max_denom},
+\code{max_denom} is used.}
+    \item{\code{max_denom}}{All denominators will be less than or equal to
+\code{max_denom}.
+
+If \code{base_10} is \code{TRUE}, the maximum denominator will be the largest power
+of 10 less than \code{max_denom}.
+
+A \code{max_denom} greater than the inverse square root of
+\link[=.Machine]{machine double epsilon} will produce a warning because floating
+point rounding errors can occur when denominators grow too large.}
+  }}
 }
 \value{
 A character vector of the same length as \code{x}
@@ -59,17 +71,6 @@ Convert numbers to ratio character vectors (two to one, one in three, five out o
 }
 \details{
 \code{x} is converted to a fraction by \code{\link[fracture:frac_mat]{fracture::frac_mat()}}.
-Named arguments of \code{ratio()} and \code{nom_ratio()} are passed to
-\code{\link[fracture:frac_mat]{fracture::frac_mat()}} through \code{...}.
-Helpful arguments include:
-\itemize{
-\item \code{base_10 = TRUE}, which forces all fractions to use denominators that are
-powers of ten.
-\item \code{max_denom}, which sets the maximum allowable denominator.
-By default, the maximum denominator is "ten-millionths".
-}
-
-The \code{\link[fracture:frac_mat]{fracture::frac_mat()}}  argument \code{mixed} is set to TRUE.
 }
 \examples{
 paste0("Our team is outnumbered ", nom_ratio(10), ".")
