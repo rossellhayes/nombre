@@ -54,7 +54,9 @@ cardinal <- function(
     stop("`negative` must be length one or the same length as `x`")
 
   card                 <- character(n)
-  card[abs(x) > max_n] <- as.character(x[abs(x) > max_n])
+  card[abs(x) > max_n] <- gsub(
+    " ", "", format(x[abs(x) > max_n], scientific = FALSE)
+  )
 
   unmaxed <- card == character(1)
 
