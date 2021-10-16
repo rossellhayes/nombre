@@ -1,5 +1,9 @@
 # nombre (development version)
 
+* Added `ratio()`, which generates ratios.
+  - `ratio("0.5")` generates "one in two".
+  - `ratio("1.5", sep = "to")` generates "three to two".
+
 # nombre 0.3.0
 
 * Added `uncardinal()`, which takes a character vector and attempts to convert it to a numeric.
