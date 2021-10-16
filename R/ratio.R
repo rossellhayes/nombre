@@ -49,19 +49,9 @@ ratio <- function(
   if (length(negative) != 1 && length(negative) != n)
     stop("`negative` must be length one or the same length as `x`")
 
-  ratio                 <- character(n)
-  ratio[abs(x) > max_n] <- as.character(x[abs(x) > max_n])
-
-  unmaxed <- ratio == character(1)
-
-  minus                  <- character(n)
-  minus[x < 0 & unmaxed] <- paste0(negative, " ")
-  x[unmaxed]             <- abs(x[unmaxed])
-
-  if (any(unmaxed)) {
-    ratio[unmaxed] <- convert_fraction(x[unmaxed], sep, mixed = FALSE, common_denom = common_denom, ...)
-    ratio <- paste0(minus, ratio)
-  }
+  ratio <- convert_fraction(
+    x, sep, max_n = max_n, negative = negative, mixed = FALSE, ...
+  )
 
   args        <- as.list(match.call()[-1])
   args[["x"]] <- NULL
