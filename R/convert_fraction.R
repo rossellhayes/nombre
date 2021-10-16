@@ -22,7 +22,7 @@ convert_fraction <- function(
       negative
     } else {
       rep(negative, each = length(x) / 2)
-    },
+    }
   )
   paste(x[1, ], sep, x[2, ])
 }

@@ -40,7 +40,11 @@ cardinal <- function(
   if (length(max_n) != 1 && length(max_n) != n)
     stop("`max_n` must be either length one or the same length as `x`")
   if (!is.character(negative)) stop("`negative` must be of type character")
-  if (length(negative) != 1 && length(negative) != n)
+
+  if (length(negative) == 1) {
+    negative <- rep_len(negative, length(x))
+  }
+  if (length(negative) != n)
     stop("`negative` must be length one or the same length as `x`")
 
   card                 <- character(n)
@@ -51,7 +55,7 @@ cardinal <- function(
   unmaxed <- card == character(1)
 
   minus                  <- character(n)
-  minus[x < 0 & unmaxed] <- paste0(negative, " ")
+  minus[x < 0 & unmaxed] <- paste0(negative[x < 0 & unmaxed], " ")
   x[unmaxed]             <- abs(x[unmaxed])
 
   if (any(unmaxed)) {
