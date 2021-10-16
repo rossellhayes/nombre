@@ -1,9 +1,8 @@
 #' Convert numbers to ratio character vectors (two to one, one in three, five out of ten)
 #'
 #' @param x A numeric vector
-#' @param sep A character vector separating components of the ratio. `sep` must
-#'     be "in", "of", "to", or "out of".
 #'     Defaults to `"to"`.
+#' @param sep A character vector separating components of the ratio.
 #'     Default can be changed with [set_config("nombre::sep")][set_config()].
 #' @param common_denom Logical. If TRUE, all ratios use a common denominator
 #'     value. If FALSE, a denominator of 1 is used when `x` is 0. Default can be
@@ -41,7 +40,6 @@ ratio <- function(
   numeric <- x
   n       <- length(x)
 
-
   if (!n)                 return(character(0))
   if (!is.numeric(x))     stop("`x` must be numeric")
   if (!is.numeric(max_n)) stop("`max_n` must be numeric")
@@ -50,8 +48,6 @@ ratio <- function(
   if (!is.character(negative)) stop("`negative` must be of type character")
   if (length(negative) != 1 && length(negative) != n)
     stop("`negative` must be length one or the same length as `x`")
-  if (!is.null(sep) && !(sep %in% c("in", "of", "to", "out of")))
-    stop('`sep` must be "in", "of", "to", or "out of".')
 
   ratio                 <- character(n)
   ratio[abs(x) > max_n] <- as.character(x[abs(x) > max_n])
