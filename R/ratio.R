@@ -1,8 +1,8 @@
 #' Convert numbers to ratio character vectors (two to one, one in three, five out of ten)
 #'
 #' @param x A numeric vector
-#'     Defaults to `"to"`.
 #' @param sep A character vector separating components of the ratio.
+#'     Defaults to `"in"`.
 #'     Default can be changed with [set_config("nombre::sep")][set_config()].
 #' @param common_denom Logical. If TRUE, all ratios use a common denominator
 #'     value. If FALSE, a denominator of 1 is used when `x` is 0. Default can be
@@ -31,7 +31,7 @@
 
 ratio <- function(
   x,
-  sep       = get_config("nombre::sep", "to"),
+  sep       = get_config("nombre::sep", "in"),
   max_n     = get_config("nombre::max_n", Inf),
   negative  = get_config("nombre::negative", "negative"),
   common_denom = get_config("nombre::common_denom", FALSE),
