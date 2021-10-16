@@ -65,11 +65,6 @@ ratio <- function(
   if (any(unmaxed)) {
     ratio[unmaxed] <- convert_fraction(x[unmaxed], sep, mixed = FALSE, common_denom = common_denom, ...)
     ratio <- paste0(minus, ratio)
-
-    if (!common_denom) {
-      zero <- x == 0
-      ratio[zero & max_n != 0] <- paste("zero", sep, "one")
-    }
   }
 
   args        <- as.list(match.call()[-1])
