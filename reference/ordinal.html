@@ -91,7 +91,7 @@ cardinal is FALSE." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -105,7 +105,7 @@ cardinal is FALSE." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rossellhayes/nombre/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -134,9 +134,9 @@ Converts numeric vectors to cardinal numbers before adding prefixes unless
 <code>cardinal</code> is <code>FALSE</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ordinal</span>(<span class='kw'>x</span>, cardinal = <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::ord_cardinal"</span>, <span class='fl'>TRUE</span>), <span class='kw'>...</span>)
+    <pre class="usage"><span class='fu'>ordinal</span><span class='op'>(</span><span class='va'>x</span>, cardinal <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span><span class='op'>(</span><span class='st'>"nombre::ord_cardinal"</span>, <span class='cn'>TRUE</span><span class='op'>)</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>nom_ord</span>(<span class='kw'>x</span>, cardinal = <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::ord_cardinal"</span>, <span class='fl'>TRUE</span>), <span class='kw'>...</span>)</pre>
+<span class='fu'>nom_ord</span><span class='op'>(</span><span class='va'>x</span>, cardinal <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span><span class='op'>(</span><span class='st'>"nombre::ord_cardinal"</span>, <span class='cn'>TRUE</span><span class='op'>)</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -172,21 +172,22 @@ is <code>TRUE</code>.</p></td>
 <code><a href='cardinal.html'>cardinal</a>()</code>,
 <code><a href='collective.html'>collective</a>()</code>,
 <code><a href='denominator.html'>denominator</a>()</code>,
-<code><a href='numerator.html'>numerator</a>()</code></p></div>
+<code><a href='numerator.html'>numerator</a>()</code>,
+<code><a href='ratio.html'>ratio</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>nom_ord</span>(<span class='fl'>2</span>)
-</div><div class='output co'>#&gt; [1] "second"</div><div class='input'><span class='fu'>nom_ord</span>(<span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>)
+    <pre class="examples"><div class='input'><span class='fu'>nom_ord</span><span class='op'>(</span><span class='fl'>2</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "second"</div><div class='input'><span class='fu'>nom_ord</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;  [1] "first"   "second"  "third"   "fourth"  "fifth"   "sixth"   "seventh"
-#&gt;  [8] "eighth"  "ninth"   "tenth"  </div><div class='input'><span class='fu'>nom_ord</span>(<span class='fl'>525600</span>)
+#&gt;  [8] "eighth"  "ninth"   "tenth"  </div><div class='input'><span class='fu'>nom_ord</span><span class='op'>(</span><span class='fl'>525600</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "five-hundred-twenty-five-thousand-six-hundredth"</div><div class='input'>
-<span class='fu'>nom_ord</span>(<span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, cardinal = <span class='fl'>FALSE</span>)
-</div><div class='output co'>#&gt;  [1] "1st"  "2nd"  "3rd"  "4th"  "5th"  "6th"  "7th"  "8th"  "9th"  "10th"</div><div class='input'><span class='fu'>nom_ord</span>(<span class='fl'>5</span><span class='op'>:</span><span class='fl'>15</span>, max_n = <span class='fl'>10</span>)
+<span class='fu'>nom_ord</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, cardinal <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;  [1] "1st"  "2nd"  "3rd"  "4th"  "5th"  "6th"  "7th"  "8th"  "9th"  "10th"</div><div class='input'><span class='fu'>nom_ord</span><span class='op'>(</span><span class='fl'>5</span><span class='op'>:</span><span class='fl'>15</span>, max_n <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;  [1] "fifth"   "sixth"   "seventh" "eighth"  "ninth"   "tenth"   "11th"   
 #&gt;  [8] "12th"    "13th"    "14th"    "15th"   </div><div class='input'>
-<span class='fu'>nom_ord</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"n"</span>, <span class='st'>"dozen"</span>, <span class='st'>"umpteen"</span>, <span class='st'>"eleventy"</span>, <span class='st'>"one zillion"</span>))
+<span class='fu'>nom_ord</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"n"</span>, <span class='st'>"dozen"</span>, <span class='st'>"umpteen"</span>, <span class='st'>"eleventy"</span>, <span class='st'>"one zillion"</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "nth"           "dozenth"       "umpteenth"     "eleventieth"  
-#&gt; [5] "one-zillionth"</div><div class='input'><span class='fu'>nom_ord</span>(<span class='fl'>9</span> <span class='op'>+</span> <span class='fl'>3</span><span class='op'>/</span><span class='fl'>4</span>)
+#&gt; [5] "one-zillionth"</div><div class='input'><span class='fu'>nom_ord</span><span class='op'>(</span><span class='fl'>9</span> <span class='op'>+</span> <span class='fl'>3</span><span class='op'>/</span><span class='fl'>4</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "nine-and-three-quartersth"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

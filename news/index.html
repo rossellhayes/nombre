@@ -87,7 +87,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -101,7 +101,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rossellhayes/nombre/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -126,6 +126,16 @@
 <h1 class="page-header" data-toc-text="development version">
 <a href="#nombre-development-version" class="anchor"></a>nombre (development version)<small> Unreleased </small>
 </h1>
+<ul>
+<li>Added <code><a href="../reference/ratio.html">ratio()</a></code>, which generates ratios.
+<ul>
+<li>
+<code><a href="../reference/ratio.html">ratio("0.5")</a></code> generates “one in two”.</li>
+<li>
+<code><a href="../reference/ratio.html">ratio("1.5", sep = "to")</a></code> generates “three to two”.</li>
+</ul>
+</li>
+</ul>
 </div>
     <div id="nombre-030" class="section level1">
 <h1 class="page-header" data-toc-text="0.3.0">
@@ -184,7 +194,7 @@
 </li>
 <li>Decimals are now converted to fractions with <a href="https://github.com/rossellhayes/fracture"><strong>fracture</strong></a>. This allows <code><a href="../reference/cardinal.html">cardinal()</a></code> to generate fractional components in roughly one tenth the time of the R implementation of <code>decimal_to_fraction()</code>.
 <ul>
-<li>Arguments are passed to <code><a href="https://rdrr.io/pkg/fracture/man/frac_mat.html">fracture::frac_mat()</a></code> with <code>...</code>.</li>
+<li>Arguments are passed to <code><a href="https://fracture.rossellhayes.com/reference/frac_mat.html">fracture::frac_mat()</a></code> with <code>...</code>.</li>
 </ul>
 </li>
 <li>Added a <code>pkgdown</code> site.</li>

@@ -90,7 +90,7 @@ produced by one of nombre's functions." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -104,7 +104,7 @@ produced by one of nombre's functions." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rossellhayes/nombre/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -132,9 +132,9 @@ It currently only supports English cardinal integers or character vectors
 produced by one of <a href='nombre-package.html'>nombre</a>'s functions.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>uncardinal</span>(<span class='kw'>x</span>)
+    <pre class="usage"><span class='fu'>uncardinal</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
 
-<span class='fu'>nom_uncard</span>(<span class='kw'>x</span>)</pre>
+<span class='fu'>nom_uncard</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -155,20 +155,20 @@ numbers (e.g. ordinals).</p>
     <div class='dont-index'><p><code><a href='cardinal.html'>cardinal()</a></code> to convert numeric vectors to number names</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>uncardinal</span>(<span class='st'>"one"</span>)
-</div><div class='output co'>#&gt; [1] 1</div><div class='input'><span class='fu'>uncardinal</span>(<span class='st'>"negative one hundred fifty-seven"</span>)
-</div><div class='output co'>#&gt; [1] -157</div><div class='input'><span class='fu'>uncardinal</span>(
-  <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(
+    <pre class="examples"><div class='input'><span class='fu'>uncardinal</span><span class='op'>(</span><span class='st'>"one"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] 1</div><div class='input'><span class='fu'>uncardinal</span><span class='op'>(</span><span class='st'>"negative one hundred fifty-seven"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] -157</div><div class='input'><span class='fu'>uncardinal</span><span class='op'>(</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
     <span class='st'>"twenty-five"</span>,
     <span class='st'>"one million two hundred thirty-four thousand five hundred sixty-seven"</span>
-  )
-)
-</div><div class='output co'>#&gt; [1]      25 1234567</div><div class='input'><span class='fu'>uncardinal</span>(<span class='st'>"infinity"</span>)
+  <span class='op'>)</span>
+<span class='op'>)</span>
+</div><div class='output co'>#&gt; [1]      25 1234567</div><div class='input'><span class='fu'>uncardinal</span><span class='op'>(</span><span class='st'>"infinity"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] Inf</div><div class='input'>
-<span class='kw'>card</span> <span class='op'>&lt;-</span> <span class='fu'><a href='cardinal.html'>cardinal</a></span>(<span class='fl'>25</span>)
-<span class='fu'>uncardinal</span>(<span class='kw'>card</span>)
-</div><div class='output co'>#&gt; [1] 25</div><div class='input'><span class='kw'>ord</span> <span class='op'>&lt;-</span> <span class='fu'><a href='ordinal.html'>ordinal</a></span>(<span class='fl'>25</span>)
-<span class='fu'>uncardinal</span>(<span class='kw'>ord</span>)
+<span class='va'>card</span> <span class='op'>&lt;-</span> <span class='fu'><a href='cardinal.html'>cardinal</a></span><span class='op'>(</span><span class='fl'>25</span><span class='op'>)</span>
+<span class='fu'>uncardinal</span><span class='op'>(</span><span class='va'>card</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] 25</div><div class='input'><span class='va'>ord</span> <span class='op'>&lt;-</span> <span class='fu'><a href='ordinal.html'>ordinal</a></span><span class='op'>(</span><span class='fl'>25</span><span class='op'>)</span>
+<span class='fu'>uncardinal</span><span class='op'>(</span><span class='va'>ord</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] 25</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

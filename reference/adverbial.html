@@ -88,7 +88,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -102,7 +102,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/rossellhayes/nombre/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -128,11 +128,11 @@
     <p>Convert numbers to adverbial character vectors (once, twice, three times)</p>
     </div>
 
-    <pre class="usage"><span class='fu'>adverbial</span>(<span class='kw'>x</span>, thrice = <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::thrice"</span>, <span class='fl'>FALSE</span>), <span class='kw'>...</span>)
+    <pre class="usage"><span class='fu'>adverbial</span><span class='op'>(</span><span class='va'>x</span>, thrice <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span><span class='op'>(</span><span class='st'>"nombre::thrice"</span>, <span class='cn'>FALSE</span><span class='op'>)</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>nom_adv</span>(<span class='kw'>x</span>, thrice = <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::thrice"</span>, <span class='fl'>FALSE</span>), <span class='kw'>...</span>)
+<span class='fu'>nom_adv</span><span class='op'>(</span><span class='va'>x</span>, thrice <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span><span class='op'>(</span><span class='st'>"nombre::thrice"</span>, <span class='cn'>FALSE</span><span class='op'>)</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>nom_times</span>(<span class='kw'>x</span>, thrice = <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span>(<span class='st'>"nombre::thrice"</span>, <span class='fl'>FALSE</span>), <span class='kw'>...</span>)</pre>
+<span class='fu'>nom_times</span><span class='op'>(</span><span class='va'>x</span>, thrice <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span><span class='op'>(</span><span class='st'>"nombre::thrice"</span>, <span class='cn'>FALSE</span><span class='op'>)</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -165,11 +165,12 @@ Default can be changed with <a href='set_config.html'>set_config("nombre::thrice
 <code><a href='collective.html'>collective</a>()</code>,
 <code><a href='denominator.html'>denominator</a>()</code>,
 <code><a href='numerator.html'>numerator</a>()</code>,
-<code><a href='ordinal.html'>ordinal</a>()</code></p></div>
+<code><a href='ordinal.html'>ordinal</a>()</code>,
+<code><a href='ratio.html'>ratio</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>nom_adv</span>(<span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>)
-</div><div class='output co'>#&gt; [1] "once"        "twice"       "three times" "four times" </div><div class='input'><span class='fu'>nom_adv</span>(<span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>, thrice = <span class='fl'>TRUE</span>)
+    <pre class="examples"><div class='input'><span class='fu'>nom_adv</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "once"        "twice"       "three times" "four times" </div><div class='input'><span class='fu'>nom_adv</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>, thrice <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "once"       "twice"      "thrice"     "four times"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
