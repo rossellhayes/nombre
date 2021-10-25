@@ -3,13 +3,14 @@
 * Added `ratio()`, which generates ratios.
   - `ratio("0.5")` generates "one in two".
   - `ratio("1.5", sep = "to")` generates "three to two".
+* Removed `pkgconfig` interface for setting default options. 
+  - Options should now be set within function calls or by creating helper functions with different defaults.
 
 # nombre 0.3.0
 
 * Added `uncardinal()`, which takes a character vector and attempts to convert it to a numeric.
   - `uncardinal("twenty-five")` produces 25.
-  - Currently, `uncardinal()` only works with cardinal integers and the result
-  of other **nombre** functions.
+  - Currently, `uncardinal()` only works with cardinal integers and the result of other **nombre** functions.
 
 * **nombre** outputs are now part of the S3 class `nombre`.
   - This allows `nombre`s to go through mathematical transformations while preserving their characteristics.
