@@ -5,39 +5,23 @@
 \alias{nom_coll}
 \title{Convert numbers to collective character vectors (the, both, all three)}
 \usage{
-collective(
-  x,
-  all_n = get_config("nombre::all_n", TRUE),
-  of_the = get_config("nombre::of_the", FALSE),
-  cardinal = get_config("nombre::coll_cardinal", TRUE),
-  ...
-)
+collective(x, all_n = TRUE, of_the = FALSE, cardinal = TRUE, ...)
 
-nom_coll(
-  x,
-  all_n = get_config("nombre::all_n", TRUE),
-  of_the = get_config("nombre::of_the", FALSE),
-  cardinal = get_config("nombre::coll_cardinal", TRUE),
-  ...
-)
+nom_coll(x, all_n = TRUE, of_the = FALSE, cardinal = TRUE, ...)
 }
 \arguments{
 \item{x}{A numeric vector.}
 
 \item{all_n}{Whether to include the cardinal number after "all" for
 collectives of 3 or more.
-Defaults to \code{TRUE}.
-Default can be changed with \link[=set_config]{set_config("nombre::all_n")}.}
+Defaults to \code{TRUE}.}
 
 \item{of_the}{Whether to include "of the" for collectives other than 1.
-Defaults to \code{FALSE}.
-Default can be changed with \link[=set_config]{set_config("nombre::of")}.}
+Defaults to \code{FALSE}.}
 
 \item{cardinal}{Whether to convert the number after "all" with \code{\link[=cardinal]{cardinal()}}
 when \code{all_n} is \code{TRUE}.
-Defaults to \code{TRUE}.
-Default can be changed with
-\link[=set_config]{set_config("nombre::coll_cardinal")}.}
+Defaults to \code{TRUE}.}
 
 \item{...}{Additional arguments passed to \code{\link[=cardinal]{cardinal()}} when \code{cardinal}
 is \code{TRUE}.}

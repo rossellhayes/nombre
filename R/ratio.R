@@ -3,7 +3,6 @@
 #' @param x A numeric vector
 #' @param sep A character vector separating components of the ratio.
 #'     Defaults to `"in"`.
-#'     Default can be changed with [set_config("nombre::sep")][set_config()].
 #' @inheritDotParams fracture::frac_mat -mixed
 #' @inheritParams cardinal
 #'
@@ -15,13 +14,7 @@
 #' @export
 #' @example examples/ratio.R
 
-ratio <- function(
-  x,
-  sep       = get_config("nombre::sep", "in"),
-  max_n     = get_config("nombre::max_n", Inf),
-  negative  = get_config("nombre::negative", "negative"),
-  ...
-) {
+ratio <- function(x, sep = "in", max_n = Inf, negative = "negative", ...) {
   numeric <- x
   n       <- length(x)
 

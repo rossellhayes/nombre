@@ -7,11 +7,8 @@
 #'     If `max_n` is negative, no `x`s will be converted to words.
 #'     (This can be useful when `max_n` is passed by another function.)
 #'     Defaults to `Inf`, which converts all `x`s to words.
-#'     Default can be changed with [set_config("nombre::max_n")][set_config()].
 #' @param negative A character vector to append to negative numbers.
 #'     Defaults to `"negative"`.
-#'     Default can be changed with
-#'     [set_config("nombre::negative")][set_config()].
 #' @inheritDotParams fracture::frac_mat -mixed
 #'
 #' @details # Fractions
@@ -25,12 +22,7 @@
 #' @export
 #' @example examples/cardinal.R
 
-cardinal <- function(
-  x,
-  max_n     = get_config("nombre::max_n", Inf),
-  negative  = get_config("nombre::negative", "negative"),
-  ...
-) {
+cardinal <- function(x, max_n = Inf, negative = "negative", ...) {
   numeric <- x
   n       <- length(x)
 
