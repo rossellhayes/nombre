@@ -1,4 +1,4 @@
-# nombre (development version)
+# nombre 0.4.0
 
 * Added `ratio()`, which generates ratios.
   - `ratio("0.5")` generates "one in two".
