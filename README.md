@@ -156,8 +156,8 @@ bench::mark(as.character(nom_card(1:1000)), as.character(english::english(1:1000
 #> # A tibble: 2 × 6
 #>   expression                                  min   median `itr/sec` mem_alloc
 #>   <bch:expr>                             <bch:tm> <bch:tm>     <dbl> <bch:byt>
-#> 1 as.character(nom_card(1:1000))           8.31ms   10.5ms     93.4     1.06MB
-#> 2 as.character(english::english(1:1000)) 126.82ms  140.6ms      7.11  414.38KB
+#> 1 as.character(nom_card(1:1000))           9.26ms   10.7ms     92.5     1.06MB
+#> 2 as.character(english::english(1:1000)) 132.24ms  136.9ms      7.27  414.38KB
 #> # … with 1 more variable: gc/sec <dbl>
 ```
 
@@ -166,11 +166,10 @@ bench::mark(as.character(nom_card(1:1000)), as.character(english::english(1:1000
 Hex sticker image adapted from artwork by
 @[allison_horst](https://github.com/allisonhorst/stats-illustrations).
 
-Hex sticker fonts are [Source Sans
-Pro](https://github.com/adobe-fonts/source-sans-pro) by
-[Adobe](https://www.adobe.com) and [Permanent
+Hex sticker fonts are [Source Sans by
+Adobe](https://github.com/adobe-fonts/source-sans) and [Permanent
 Marker](https://www.fontsquirrel.com/fonts/permanent-marker) by [Font
-Diner](https://www.fontdiner.com/).
+Diner](https://fontdiner.com/).
 
 Please note that **nombre** is released with a [Contributor Code of
 Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).

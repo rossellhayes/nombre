@@ -136,10 +136,9 @@ Hex sticker image adapted from artwork by
 @[allison_horst](https://github.com/allisonhorst/stats-illustrations).
 
 Hex sticker fonts are 
-[Source Sans Pro](https://github.com/adobe-fonts/source-sans-pro) by
-[Adobe](https://www.adobe.com) and
+[Source Sans by Adobe](https://github.com/adobe-fonts/source-sans) and
 [Permanent Marker](https://www.fontsquirrel.com/fonts/permanent-marker)
-by [Font Diner](https://www.fontdiner.com/).
+by [Font Diner](https://fontdiner.com/).
 
 Please note that **nombre** is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
 By contributing to this project, you agree to abide by its terms.
