@@ -135,6 +135,11 @@
 <code><a href="../reference/ratio.html">ratio("1.5", sep = "to")</a></code> generates “three to two”.</li>
 </ul>
 </li>
+<li>Removed <code>pkgconfig</code> interface for setting default options.
+<ul>
+<li>Options should now be set within function calls or by creating helper functions with different defaults.</li>
+</ul>
+</li>
 </ul>
 </div>
     <div id="nombre-030" class="section level1">
@@ -183,7 +188,7 @@
 <code><a href="../reference/collective.html">collective(0:3, of_the = TRUE)</a></code> becomes <code><a href="https://rdrr.io/r/base/c.html">c("none of the", "the", "both of the", "all three of the")</a></code> rather than <code><a href="https://rdrr.io/r/base/c.html">c("no", "the", "both", "all three")</a></code>.</li>
 <li>
 <code><a href="../reference/collective.html">collective(3, cardinal = FALSE)</a></code> becomes <code>"all 3"</code> rather than <code>"all three"</code>.</li>
-<li>The defaults can be changed with <code><a href="../reference/set_config.html">set_config("nombre::all_n", "nombre::of_the", "nombre::coll_cardinal")</a></code>.</li>
+<li>The defaults can be changed with <code>set_config("nombre::all_n", "nombre::of_the", "nombre::coll_cardinal")</code>.</li>
 </ul>
 </li>
 <li>

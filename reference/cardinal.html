@@ -128,19 +128,9 @@
     <p>Convert numbers to cardinal character vectors (one, two, three)</p>
     </div>
 
-    <pre class="usage"><span class='fu'>cardinal</span><span class='op'>(</span>
-  <span class='va'>x</span>,
-  max_n <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span><span class='op'>(</span><span class='st'>"nombre::max_n"</span>, <span class='cn'>Inf</span><span class='op'>)</span>,
-  negative <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span><span class='op'>(</span><span class='st'>"nombre::negative"</span>, <span class='st'>"negative"</span><span class='op'>)</span>,
-  <span class='va'>...</span>
-<span class='op'>)</span>
+    <pre class="usage"><span class='fu'>cardinal</span><span class='op'>(</span><span class='va'>x</span>, max_n <span class='op'>=</span> <span class='cn'>Inf</span>, negative <span class='op'>=</span> <span class='st'>"negative"</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>nom_card</span><span class='op'>(</span>
-  <span class='va'>x</span>,
-  max_n <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span><span class='op'>(</span><span class='st'>"nombre::max_n"</span>, <span class='cn'>Inf</span><span class='op'>)</span>,
-  negative <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span><span class='op'>(</span><span class='st'>"nombre::negative"</span>, <span class='st'>"negative"</span><span class='op'>)</span>,
-  <span class='va'>...</span>
-<span class='op'>)</span></pre>
+<span class='fu'>nom_card</span><span class='op'>(</span><span class='va'>x</span>, max_n <span class='op'>=</span> <span class='cn'>Inf</span>, negative <span class='op'>=</span> <span class='st'>"negative"</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -156,15 +146,12 @@ When the absolute value of <code>x</code> is greater than <code>max_n</code>, <c
 numeric instead of being converted to words.
 If <code>max_n</code> is negative, no <code>x</code>s will be converted to words.
 (This can be useful when <code>max_n</code> is passed by another function.)
-Defaults to <code>Inf</code>, which converts all <code>x</code>s to words.
-Default can be changed with <a href='set_config.html'>set_config("nombre::max_n")</a>.</p></td>
+Defaults to <code>Inf</code>, which converts all <code>x</code>s to words.</p></td>
     </tr>
     <tr>
       <th>negative</th>
       <td><p>A character vector to append to negative numbers.
-Defaults to <code>"negative"</code>.
-Default can be changed with
-<a href='set_config.html'>set_config("nombre::negative")</a>.</p></td>
+Defaults to <code>"negative"</code>.</p></td>
     </tr>
     <tr>
       <th>...</th>

@@ -134,9 +134,9 @@ Converts numeric vectors to cardinal numbers before adding prefixes unless
 <code>cardinal</code> is <code>FALSE</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ordinal</span><span class='op'>(</span><span class='va'>x</span>, cardinal <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span><span class='op'>(</span><span class='st'>"nombre::ord_cardinal"</span>, <span class='cn'>TRUE</span><span class='op'>)</span>, <span class='va'>...</span><span class='op'>)</span>
+    <pre class="usage"><span class='fu'>ordinal</span><span class='op'>(</span><span class='va'>x</span>, cardinal <span class='op'>=</span> <span class='cn'>TRUE</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>nom_ord</span><span class='op'>(</span><span class='va'>x</span>, cardinal <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/pkgconfig/man/get_config.html'>get_config</a></span><span class='op'>(</span><span class='st'>"nombre::ord_cardinal"</span>, <span class='cn'>TRUE</span><span class='op'>)</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+<span class='fu'>nom_ord</span><span class='op'>(</span><span class='va'>x</span>, cardinal <span class='op'>=</span> <span class='cn'>TRUE</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -151,9 +151,7 @@ Converts numeric vectors to cardinal numbers before adding prefixes unless
 before applying ordinal suffixes.
 When <code>TRUE</code>, 1 -&gt; "first".
 When <code>FALSE</code>, 1 -&gt; "1st".
-Defaults to <code>TRUE</code>.
-Default can be changed with
-<a href='set_config.html'>set_config("nombre::ord_cardinal")</a>.</p></td>
+Defaults to <code>TRUE</code>.</p></td>
     </tr>
     <tr>
       <th>...</th>
