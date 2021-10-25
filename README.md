@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![](https://www.r-pkg.org/badges/version/nombre?color=brightgreen)](https://cran.r-project.org/package=nombre)
-[![](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+[![](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![License:
 MIT](https://img.shields.io/badge/license-MIT-blueviolet.svg)](https://cran.r-project.org/web/licenses/MIT)
 [![R build
@@ -23,7 +23,7 @@ status](https://github.com/rossellhayes/nombre/workflows/R-CMD-check/badge.svg)]
 words. You can use it to express numbers as cardinals (one, two, three)
 or ordinals (first, second, third), as well as numerators and
 denominators. **nombre** supports not just whole numbers, but also
-negatives and fractions.
+negatives, fractions, and ratios.
 
 ## Installation
 
@@ -102,13 +102,18 @@ nom_ord(c("n", "dozen", "umpteen", "eleventy", "one zillion"))
 #> [5] "one-zillionth"
 ```
 
-It can also handle less common numerics, like negatives and fractions:
+It can also handle less common numerics, like negatives, fractions, and
+ratios:
 
 ``` r
 nom_card(-2)
 #> [1] "negative two"
 nom_card(9.75)
 #> [1] "nine and three quarters"
+nom_ratio(0.25)
+#> [1] "one in four"
+nom_ratio(3)
+#> [1] "three in one"
 ```
 
 ### Math with nombres
@@ -148,22 +153,21 @@ alternatives like
 
 ``` r
 bench::mark(as.character(nom_card(1:1000)), as.character(english::english(1:1000)))
-#> Warning: Some expressions had a GC in every iteration; so filtering is disabled.
-#> # A tibble: 2 x 6
-#>   expression                                  min  median `itr/sec` mem_alloc
-#>   <bch:expr>                             <bch:tm> <bch:t>     <dbl> <bch:byt>
-#> 1 as.character(nom_card(1:1000))           8.91ms  10.7ms     92.6     1.02MB
-#> 2 as.character(english::english(1:1000)) 145.06ms 156.4ms      6.32  389.29KB
-#> # ... with 1 more variable: `gc/sec` <dbl>
+#> # A tibble: 2 × 6
+#>   expression                                  min   median `itr/sec` mem_alloc
+#>   <bch:expr>                             <bch:tm> <bch:tm>     <dbl> <bch:byt>
+#> 1 as.character(nom_card(1:1000))           7.54ms   8.06ms    123.      1.06MB
+#> 2 as.character(english::english(1:1000)) 122.95ms 123.41ms      8.10   413.8KB
+#> # … with 1 more variable: gc/sec <dbl>
 ```
 
------
+------------------------------------------------------------------------
 
 Hex sticker image adapted from artwork by
-@[allison\_horst](https://github.com/allisonhorst/stats-illustrations).
+@[allison_horst](https://github.com/allisonhorst/stats-illustrations).
 
-Hex sticker fonts are [Source Code
-Pro](https://github.com/adobe-fonts/source-code-pro) by
+Hex sticker fonts are [Source Sans
+Pro](https://github.com/adobe-fonts/source-sans-pro) by
 [Adobe](https://www.adobe.com) and [Permanent
 Marker](https://www.fontsquirrel.com/fonts/permanent-marker) by [Font
 Diner](https://www.fontdiner.com/).
