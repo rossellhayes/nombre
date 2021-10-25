@@ -11,7 +11,7 @@
 MIT](https://img.shields.io/badge/license-MIT-blueviolet.svg)](https://cran.r-project.org/web/licenses/MIT)
 [![R build
 status](https://github.com/rossellhayes/nombre/workflows/R-CMD-check/badge.svg)](https://github.com/rossellhayes/nombre/actions)
-[![](https://codecov.io/gh/rossellhayes/nombre/branch/master/graph/badge.svg)](https://codecov.io/gh/rossellhayes/nombre)
+[![](https://codecov.io/gh/rossellhayes/nombre/branch/main/graph/badge.svg)](https://app.codecov.io/gh/rossellhayes/nombre)
 [![Dependencies](https://tinyverse.netlify.com/badge/nombre)](https://cran.r-project.org/package=nombre)
 <!-- badges: end -->
 
@@ -156,8 +156,8 @@ bench::mark(as.character(nom_card(1:1000)), as.character(english::english(1:1000
 #> # A tibble: 2 × 6
 #>   expression                                  min   median `itr/sec` mem_alloc
 #>   <bch:expr>                             <bch:tm> <bch:tm>     <dbl> <bch:byt>
-#> 1 as.character(nom_card(1:1000))           7.54ms   8.06ms    123.      1.06MB
-#> 2 as.character(english::english(1:1000)) 122.95ms 123.41ms      8.10   413.8KB
+#> 1 as.character(nom_card(1:1000))           8.31ms   10.5ms     93.4     1.06MB
+#> 2 as.character(english::english(1:1000)) 126.82ms  140.6ms      7.11  414.38KB
 #> # … with 1 more variable: gc/sec <dbl>
 ```
 
