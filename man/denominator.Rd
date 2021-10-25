@@ -5,14 +5,9 @@
 \alias{nom_denom}
 \title{Convert numbers to denominator character vectors (whole, half, third)}
 \usage{
-denominator(
-  x,
-  numerator = 1,
-  quarter = get_config("nombre::quarter", TRUE),
-  ...
-)
+denominator(x, numerator = 1, quarter = TRUE, ...)
 
-nom_denom(x, numerator = 1, quarter = get_config("nombre::quarter", TRUE), ...)
+nom_denom(x, numerator = 1, quarter = TRUE, ...)
 }
 \arguments{
 \item{x}{A numeric vector}
@@ -24,9 +19,7 @@ When \code{numerator} is not \code{1} or \code{-1}, the denominator will be plur
 \item{quarter}{A logical of length one.
 If \code{TRUE}, the denominator of \code{4} will be "quarter(s)".
 If \code{FALSE}, the denominator of \code{4} will be "fourth(s)".
-Defaults to \code{TRUE}.
-Default can be changed with
-\link[=set_config]{set_config("nombre::quarter")}.}
+Defaults to \code{TRUE}.}
 
 \item{...}{Additional arguments passed to \code{\link[=ordinal]{ordinal()}}}
 }

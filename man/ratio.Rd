@@ -5,41 +5,25 @@
 \alias{nom_ratio}
 \title{Convert numbers to ratio character vectors (two to one, one in three, five out of ten)}
 \usage{
-ratio(
-  x,
-  sep = get_config("nombre::sep", "in"),
-  max_n = get_config("nombre::max_n", Inf),
-  negative = get_config("nombre::negative", "negative"),
-  ...
-)
+ratio(x, sep = "in", max_n = Inf, negative = "negative", ...)
 
-nom_ratio(
-  x,
-  sep = get_config("nombre::sep", "in"),
-  max_n = get_config("nombre::max_n", Inf),
-  negative = get_config("nombre::negative", "negative"),
-  ...
-)
+nom_ratio(x, sep = "in", max_n = Inf, negative = "negative", ...)
 }
 \arguments{
 \item{x}{A numeric vector}
 
 \item{sep}{A character vector separating components of the ratio.
-Defaults to \code{"in"}.
-Default can be changed with \link[=set_config]{set_config("nombre::sep")}.}
+Defaults to \code{"in"}.}
 
 \item{max_n}{A numeric vector.
 When the absolute value of \code{x} is greater than \code{max_n}, \code{x} remains
 numeric instead of being converted to words.
 If \code{max_n} is negative, no \code{x}s will be converted to words.
 (This can be useful when \code{max_n} is passed by another function.)
-Defaults to \code{Inf}, which converts all \code{x}s to words.
-Default can be changed with \link[=set_config]{set_config("nombre::max_n")}.}
+Defaults to \code{Inf}, which converts all \code{x}s to words.}
 
 \item{negative}{A character vector to append to negative numbers.
-Defaults to \code{"negative"}.
-Default can be changed with
-\link[=set_config]{set_config("nombre::negative")}.}
+Defaults to \code{"negative"}.}
 
 \item{...}{
   Arguments passed on to \code{\link[fracture:frac_mat]{fracture::frac_mat}}

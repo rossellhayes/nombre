@@ -5,19 +5,9 @@
 \alias{nom_card}
 \title{Convert numbers to cardinal character vectors (one, two, three)}
 \usage{
-cardinal(
-  x,
-  max_n = get_config("nombre::max_n", Inf),
-  negative = get_config("nombre::negative", "negative"),
-  ...
-)
+cardinal(x, max_n = Inf, negative = "negative", ...)
 
-nom_card(
-  x,
-  max_n = get_config("nombre::max_n", Inf),
-  negative = get_config("nombre::negative", "negative"),
-  ...
-)
+nom_card(x, max_n = Inf, negative = "negative", ...)
 }
 \arguments{
 \item{x}{A numeric vector}
@@ -27,13 +17,10 @@ When the absolute value of \code{x} is greater than \code{max_n}, \code{x} remai
 numeric instead of being converted to words.
 If \code{max_n} is negative, no \code{x}s will be converted to words.
 (This can be useful when \code{max_n} is passed by another function.)
-Defaults to \code{Inf}, which converts all \code{x}s to words.
-Default can be changed with \link[=set_config]{set_config("nombre::max_n")}.}
+Defaults to \code{Inf}, which converts all \code{x}s to words.}
 
 \item{negative}{A character vector to append to negative numbers.
-Defaults to \code{"negative"}.
-Default can be changed with
-\link[=set_config]{set_config("nombre::negative")}.}
+Defaults to \code{"negative"}.}
 
 \item{...}{
   Arguments passed on to \code{\link[fracture:frac_mat]{fracture::frac_mat}}

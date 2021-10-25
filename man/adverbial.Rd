@@ -6,11 +6,11 @@
 \alias{nom_times}
 \title{Convert numbers to adverbial character vectors (once, twice, three times)}
 \usage{
-adverbial(x, thrice = get_config("nombre::thrice", FALSE), ...)
+adverbial(x, thrice = FALSE, ...)
 
-nom_adv(x, thrice = get_config("nombre::thrice", FALSE), ...)
+nom_adv(x, thrice = FALSE, ...)
 
-nom_times(x, thrice = get_config("nombre::thrice", FALSE), ...)
+nom_times(x, thrice = FALSE, ...)
 }
 \arguments{
 \item{x}{A numeric vector}
@@ -18,8 +18,7 @@ nom_times(x, thrice = get_config("nombre::thrice", FALSE), ...)
 \item{thrice}{A logical of length one.
 If \code{TRUE}, the adverbial of \code{3} will be "thrice".
 If \code{FALSE}, the adverbial of \code{3} will be "three times".
-Defaults to \code{FALSE}.
-Default can be changed with \link[=set_config]{set_config("nombre::thrice")}.}
+Defaults to \code{FALSE}.}
 
 \item{...}{Additional arguments passed to \code{\link[=cardinal]{cardinal()}}}
 }

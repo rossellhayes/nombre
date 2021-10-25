@@ -5,9 +5,9 @@
 \alias{nom_ord}
 \title{Convert numbers to ordinal character vectors (first, second, third)}
 \usage{
-ordinal(x, cardinal = get_config("nombre::ord_cardinal", TRUE), ...)
+ordinal(x, cardinal = TRUE, ...)
 
-nom_ord(x, cardinal = get_config("nombre::ord_cardinal", TRUE), ...)
+nom_ord(x, cardinal = TRUE, ...)
 }
 \arguments{
 \item{x}{A numeric or character vector.}
@@ -16,9 +16,7 @@ nom_ord(x, cardinal = get_config("nombre::ord_cardinal", TRUE), ...)
 before applying ordinal suffixes.
 When \code{TRUE}, 1 -> "first".
 When \code{FALSE}, 1 -> "1st".
-Defaults to \code{TRUE}.
-Default can be changed with
-\link[=set_config]{set_config("nombre::ord_cardinal")}.}
+Defaults to \code{TRUE}.}
 
 \item{...}{Further arguments passed to \code{\link[=cardinal]{cardinal()}} when \code{cardinal}
 is \code{TRUE}.}

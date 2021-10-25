@@ -11,8 +11,6 @@
 #'     When `TRUE`, 1 -> "first".
 #'     When `FALSE`, 1 -> "1st".
 #'     Defaults to `TRUE`.
-#'     Default can be changed with
-#'     [set_config("nombre::ord_cardinal")][set_config()].
 #' @param ... Further arguments passed to [cardinal()] when `cardinal`
 #'     is `TRUE`.
 #'
@@ -22,7 +20,7 @@
 #' @example examples/ordinal.R
 
 ordinal <- function(
-  x, cardinal = get_config("nombre::ord_cardinal", TRUE), ...
+  x, cardinal = TRUE, ...
 ) {
   if (!length(x)) return(character(0))
   if (!is.numeric(x) & !is.character(x))
