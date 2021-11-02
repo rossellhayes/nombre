@@ -13,23 +13,30 @@
 #' @example examples/adverbial.R
 
 adverbial <- function(x, thrice = FALSE, ...) {
-  if (!length(x))          return(character(0))
-  if (!is.numeric(x))      stop("`x` must be a numeric vector")
-  if (length(thrice) != 1) stop("`thrice` must be length one")
+  if (!length(x))                 return(character(0))
+  if (all(is.na(x) & !is.nan(x))) return(as.character(x))
+  if (!is.numeric(x))             stop("`x` must be a numeric vector")
+  if (length(thrice) != 1)        stop("`thrice` must be length one")
   if (!is.logical(thrice) | is.na(thrice))
     stop("`thrice` must be either `TRUE` or `FALSE`")
 
   numeric <- x
+  na      <- is.na(x)
 
-  adv              <- paste(cardinal(x, ...), "time")
-  adv[abs(x) != 1] <- paste0(adv[abs(x) != 1], "s")
+  adv                    <- paste(cardinal(x, ...), "time")
+  adv[!na & abs(x) != 1] <- paste0(adv[!na & abs(x) != 1], "s")
 
-  adv[abs(x) == 1] <- gsub("one time$", "once", adv[abs(x) == 1])
-  adv[abs(x) == 2] <- gsub("two times$", "twice", adv[abs(x) == 2])
+  adv[!na & abs(x) == 1] <- gsub("one time$", "once", adv[!na & abs(x) == 1])
+  adv[!na & abs(x) == 2] <- gsub("two times$", "twice", adv[!na & abs(x) == 2])
 
   if (thrice) {
-    adv[abs(x) == 3] <- gsub("three times$", "thrice", adv[abs(x) == 3])
+    adv[!na & abs(x) == 3] <- gsub(
+      "three times$", "thrice", adv[!na & abs(x) == 3]
+    )
   }
+
+  adv[is.na(x)]  <- NA
+  adv[is.nan(x)] <- NaN
 
   args        <- as.list(match.call()[-1])
   args[["x"]] <- NULL
