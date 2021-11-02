@@ -46,7 +46,15 @@ test_that("denominator with max_n", {
   )
 })
 
+test_that("non-finite", {
+  expect_equal(
+    nom_denom(c(NA, 2, Inf, NaN, NA)),
+    c(NA, "half", "infinitieth", NaN, NA)
+  )
+})
+
 test_that("early return", {
+  expect_equal(nom_denom(NA), NA_character_)
   expect_equal(nom_denom(numeric(0)), character(0))
 })
 

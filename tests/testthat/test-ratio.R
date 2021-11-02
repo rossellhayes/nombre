@@ -51,6 +51,7 @@ test_that("ratio with fracture ...", {
 })
 
 test_that("early return", {
+  expect_equal(nom_ratio(NA), NA_character_)
   expect_equal(nom_ratio(numeric(0)), character(0))
 })
 
