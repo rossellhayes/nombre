@@ -51,8 +51,6 @@ test_that("ratio with fracture ...", {
 })
 
 test_that("non-finite", {
-  expect_equal(nom_ratio(c(NA, 2)), c(NA, "two in one"))
-
   skip_if_not_installed("fracture", "0.2.0.9001")
 
   expect_equal(
