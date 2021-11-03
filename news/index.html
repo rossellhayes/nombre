@@ -79,7 +79,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nombre</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0.9000</span>
       </span>
     </div>
 
@@ -122,6 +122,21 @@
       <small>Source: <a href='https://github.com/rossellhayes/nombre/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="nombre-development-version" class="section level1">
+<h1 class="page-header" data-toc-text="development version">
+<a href="#nombre-development-version" class="anchor"></a>nombre (development version)<small> Unreleased </small>
+</h1>
+<ul>
+<li>Non-finite inputs (<code>NA</code>, <code>Inf</code>, and <code>NaN</code>) no longer produce an error.
+<ul>
+<li>
+<code>Inf</code> is handled like a normal number. <code>nom_card(Inf)</code> produces <code>"infinity"</code> and <code>nom_ord(Inf)</code> produces <code>"infinitieth"</code>.</li>
+<li>
+<code>NA</code> and <code>NaN</code> propagate through functions. All functions return <code>NA</code> for <code>NA</code> and <code>"NaN"</code> for <code>NaN</code>.</li>
+</ul>
+</li>
+</ul>
+</div>
     <div id="nombre-040" class="section level1">
 <h1 class="page-header" data-toc-text="0.4.0">
 <a href="#nombre-040" class="anchor"></a>nombre 0.4.0<small> 2021-10-25 </small>
@@ -130,9 +145,9 @@
 <li>Added <code><a href="../reference/ratio.html">ratio()</a></code>, which generates ratios.
 <ul>
 <li>
-<code><a href="../reference/ratio.html">ratio("0.5")</a></code> generates “one in two”.</li>
+<code>ratio("0.5")</code> generates “one in two”.</li>
 <li>
-<code><a href="../reference/ratio.html">ratio("1.5", sep = "to")</a></code> generates “three to two”.</li>
+<code>ratio("1.5", sep = "to")</code> generates “three to two”.</li>
 </ul>
 </li>
 <li>Removed <code>pkgconfig</code> interface for setting default options.
@@ -150,7 +165,7 @@
 <li>Added <code><a href="../reference/uncardinal.html">uncardinal()</a></code>, which takes a character vector and attempts to convert it to a numeric.
 <ul>
 <li>
-<code><a href="../reference/uncardinal.html">uncardinal("twenty-five")</a></code> produces 25.</li>
+<code>uncardinal("twenty-five")</code> produces 25.</li>
 <li>Currently, <code><a href="../reference/uncardinal.html">uncardinal()</a></code> only works with cardinal integers and the result of other <strong>nombre</strong> functions.</li>
 </ul>
 </li>
@@ -163,7 +178,7 @@
 <li>
 <code>adverbial(3) / 3</code> produces <code>"once"</code>.</li>
 <li>
-<code><a href="https://rdrr.io/r/base/numeric.html">as.numeric(ordinal(9))</a></code> produces <code>9</code>.</li>
+<code>as.numeric(ordinal(9))</code> produces <code>9</code>.</li>
 </ul>
 </li>
 <li>Default arguments are now handled with <a href="https://github.com/r-lib/pkgconfig"><strong>pkgconfig</strong></a> rather than <code><a href="https://rdrr.io/r/base/options.html">options()</a></code>.
@@ -174,20 +189,20 @@
 <li>Denominators that begin with “one” now omit the leading “one”.
 <ul>
 <li>
-<code><a href="../reference/cardinal.html">cardinal(3/100)</a></code> now produces “three hundredths” rather than “three one-hundredths”.</li>
+<code>cardinal(3/100)</code> now produces “three hundredths” rather than “three one-hundredths”.</li>
 <li>
-<code><a href="../reference/denominator.html">denominator(1)</a></code> still produces “whole”.</li>
+<code>denominator(1)</code> still produces “whole”.</li>
 </ul>
 </li>
 <li>
 <code><a href="../reference/collective.html">collective()</a></code> gains the arguments <code>of_the</code>, <code>all_n</code>, and <code>cardinal</code>.
 <ul>
 <li>
-<code><a href="../reference/collective.html">collective(3, all_n = FALSE)</a></code> becomes <code>"all"</code> rather than <code>"all three"</code>.</li>
+<code>collective(3, all_n = FALSE)</code> becomes <code>"all"</code> rather than <code>"all three"</code>.</li>
 <li>
-<code><a href="../reference/collective.html">collective(0:3, of_the = TRUE)</a></code> becomes <code><a href="https://rdrr.io/r/base/c.html">c("none of the", "the", "both of the", "all three of the")</a></code> rather than <code><a href="https://rdrr.io/r/base/c.html">c("no", "the", "both", "all three")</a></code>.</li>
+<code>collective(0:3, of_the = TRUE)</code> becomes <code>c("none of the", "the", "both of the", "all three of the")</code> rather than <code>c("no", "the", "both", "all three")</code>.</li>
 <li>
-<code><a href="../reference/collective.html">collective(3, cardinal = FALSE)</a></code> becomes <code>"all 3"</code> rather than <code>"all three"</code>.</li>
+<code>collective(3, cardinal = FALSE)</code> becomes <code>"all 3"</code> rather than <code>"all three"</code>.</li>
 <li>The defaults can be changed with <code>set_config("nombre::all_n", "nombre::of_the", "nombre::coll_cardinal")</code>.</li>
 </ul>
 </li>
@@ -217,14 +232,14 @@
 <code><a href="../reference/cardinal.html">cardinal()</a></code> gains the argument <code>max_n</code>, which stops numbers greater that <code>max_n</code> from being cardinalized. This is useful when you want to print small numbers in words but larger numbers numerically. Refactorization means this argument can be used by all functions.
 <ul>
 <li>
-<code><a href="https://rdrr.io/r/base/options.html">options("nombre.max_n")</a></code> sets a default value.</li>
+<code>options("nombre.max_n")</code> sets a default value.</li>
 </ul>
 </li>
 <li>
 <code><a href="../reference/adverbial.html">adverbial()</a></code> and <code><a href="../reference/adverbial.html">nom_adv()</a></code> generate adverbials, e.g. “once”, “twice”, “three times”.
 <ul>
 <li>
-<code>thrice = TRUE</code> or <code><a href="https://rdrr.io/r/base/options.html">options("nombre.thrice" = TRUE)</a></code> convert <code>3</code> to “thrice” instead of “three times”.</li>
+<code>thrice = TRUE</code> or <code>options("nombre.thrice" = TRUE)</code> convert <code>3</code> to “thrice” instead of “three times”.</li>
 </ul>
 </li>
 <li>All functions now pass <code>...</code> to lower level functions. <code><a href="../reference/ordinal.html">ordinal()</a></code> and <code><a href="../reference/adverbial.html">adverbial()</a></code> pass to <code><a href="../reference/cardinal.html">cardinal()</a></code>. <code><a href="../reference/denominator.html">denominator()</a></code> passes to <code><a href="../reference/ordinal.html">ordinal()</a></code>. This allows <code><a href="../reference/cardinal.html">cardinal()</a></code>’s <code>max_n</code> and <code>negative</code> to be used by all functions and <code><a href="../reference/ordinal.html">ordinal()</a></code>’s <code>cardinal</code> to be used by <code><a href="../reference/denominator.html">denominator()</a></code>.</li>
@@ -235,7 +250,7 @@
 <a href="#bug-fixes" class="anchor"></a>Bug fixes</h2>
 <ul>
 <li>
-<code><a href="../reference/ordinal.html">ordinal()</a></code> now handles uncardinalized numeric vectors with different numbers of digits correctly. Previously, dashes would be appended to the start of the shorter numbers. <code><a href="../reference/ordinal.html">nom_ord(c(9, 10), cardinal = FALSE)</a></code> now produces “9th, 10th” as expected, instead of “-9th, 10th” as it did previously.</li>
+<code><a href="../reference/ordinal.html">ordinal()</a></code> now handles uncardinalized numeric vectors with different numbers of digits correctly. Previously, dashes would be appended to the start of the shorter numbers. <code>nom_ord(c(9, 10), cardinal = FALSE)</code> now produces “9th, 10th” as expected, instead of “-9th, 10th” as it did previously.</li>
 </ul>
 </div>
 <div id="miscellaneous" class="section level2">

@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nombre</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0.9000</span>
       </span>
     </div>
 
@@ -172,22 +172,30 @@ Defaults to <code>TRUE</code>.</p></td>
 <code><a href='ratio.html'>ratio</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>nom_denom</span><span class='op'>(</span><span class='fl'>2</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "half"</div><div class='input'><span class='fu'>nom_denom</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "whole"   "half"    "third"   "quarter" "fifth"   "sixth"   "seventh"
-#&gt;  [8] "eighth"  "ninth"   "tenth"  </div><div class='input'><span class='fu'>nom_denom</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, numerator <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "wholes"   "halves"   "thirds"   "quarters" "fifths"   "sixths"  
-#&gt;  [7] "sevenths" "eighths"  "ninths"   "tenths"  </div><div class='input'><span class='fu'>nom_denom</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, numerator <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "whole"    "halves"   "thirds"   "quarters" "fifths"   "sixths"  
-#&gt;  [7] "sevenths" "eighths"  "ninths"   "tenths"  </div><div class='input'>
-<span class='fu'>nom_denom</span><span class='op'>(</span><span class='fl'>4</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "quarter"</div><div class='input'><span class='fu'>nom_denom</span><span class='op'>(</span><span class='fl'>4</span>, quarter <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "fourth"</div><div class='input'>
-<span class='fu'>nom_denom</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, numerator <span class='op'>=</span> <span class='fl'>2</span>, cardinal <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "wholes" "halves" "3rds"   "4ths"   "5ths"   "6ths"   "7ths"   "8ths"  
-#&gt;  [9] "9ths"   "10ths" </div><div class='input'><span class='fu'>nom_denom</span><span class='op'>(</span><span class='fl'>5</span><span class='op'>:</span><span class='fl'>15</span>, numerator <span class='op'>=</span> <span class='fl'>2</span>, max_n <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "fifths"   "sixths"   "sevenths" "eighths"  "ninths"   "tenths"  
-#&gt;  [7] "11ths"    "12ths"    "13ths"    "14ths"    "15ths"   </div></pre>
+    <pre class="examples"><span class='r-in'><span class='fu'>nom_denom</span><span class='op'>(</span><span class='fl'>2</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "half"</span>
+<span class='r-in'><span class='fu'>nom_denom</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] "whole"   "half"    "third"   "quarter" "fifth"   "sixth"   "seventh"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [8] "eighth"  "ninth"   "tenth"  </span>
+<span class='r-in'><span class='fu'>nom_denom</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, numerator <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] "wholes"   "halves"   "thirds"   "quarters" "fifths"   "sixths"  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [7] "sevenths" "eighths"  "ninths"   "tenths"  </span>
+<span class='r-in'><span class='fu'>nom_denom</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, numerator <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] "whole"    "halves"   "thirds"   "quarters" "fifths"   "sixths"  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [7] "sevenths" "eighths"  "ninths"   "tenths"  </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>nom_denom</span><span class='op'>(</span><span class='fl'>4</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "quarter"</span>
+<span class='r-in'><span class='fu'>nom_denom</span><span class='op'>(</span><span class='fl'>4</span>, quarter <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "fourth"</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>nom_denom</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, numerator <span class='op'>=</span> <span class='fl'>2</span>, cardinal <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] "wholes" "halves" "3rds"   "4ths"   "5ths"   "6ths"   "7ths"   "8ths"  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [9] "9ths"   "10ths" </span>
+<span class='r-in'><span class='fu'>nom_denom</span><span class='op'>(</span><span class='fl'>5</span><span class='op'>:</span><span class='fl'>15</span>, numerator <span class='op'>=</span> <span class='fl'>2</span>, max_n <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] "fifths"   "sixths"   "sevenths" "eighths"  "ninths"   "tenths"  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [7] "11ths"    "12ths"    "13ths"    "14ths"    "15ths"   </span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

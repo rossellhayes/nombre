@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">nombre</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0.9000</span>
       </span>
     </div>
 
@@ -191,38 +191,53 @@ point rounding errors can occur when denominators grow too large.</p></dd>
 <code><a href='ratio.html'>ratio</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>nom_card</span><span class='op'>(</span><span class='fl'>2</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "two"</div><div class='input'><span class='fu'>nom_card</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "one"   "two"   "three" "four"  "five"  "six"   "seven" "eight" "nine" 
-#&gt; [10] "ten"  </div><div class='input'><span class='fu'>nom_card</span><span class='op'>(</span><span class='fl'>2</span> <span class='op'>+</span> <span class='fl'>4</span><span class='op'>/</span><span class='fl'>9</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "two and four ninths"</div><div class='input'><span class='fu'>nom_card</span><span class='op'>(</span><span class='op'>-</span><span class='fl'>2</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "negative two"</div><div class='input'><span class='fu'>nom_card</span><span class='op'>(</span><span class='op'>-</span><span class='fl'>2</span>, negative <span class='op'>=</span> <span class='st'>"minus"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "minus two"</div><div class='input'>
-<span class='fu'>nom_card</span><span class='op'>(</span><span class='fl'>5</span><span class='op'>:</span><span class='fl'>15</span>, max_n <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "five"  "six"   "seven" "eight" "nine"  "ten"   "11"    "12"    "13"   
-#&gt; [10] "14"    "15"   </div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"There are"</span>, <span class='fu'>nom_card</span><span class='op'>(</span><span class='fl'>525600</span><span class='op'>)</span>, <span class='st'>"minutes in a year."</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "There are five hundred twenty-five thousand six hundred minutes in a year."</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"There are"</span>, <span class='fu'>nom_card</span><span class='op'>(</span><span class='fl'>3.72e13</span><span class='op'>)</span>, <span class='st'>"cells in the human body."</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "There are thirty-seven trillion two hundred billion cells in the human body."</div><div class='input'>
-<span class='fu'>nom_card</span><span class='op'>(</span><span class='fl'>1</span> <span class='op'>/</span> <span class='fl'>2</span><span class='op'>^</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "one half"      "one quarter"   "one eighth"    "one sixteenth"</div><div class='input'><span class='fu'>nom_card</span><span class='op'>(</span><span class='fl'>1</span> <span class='op'>/</span> <span class='fl'>2</span><span class='op'>^</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span><span class='op'>)</span>, common_denom <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "eight sixteenths" "four sixteenths"  "two sixteenths"   "one sixteenth"   </div><div class='input'><span class='fu'>nom_card</span><span class='op'>(</span><span class='fl'>1</span> <span class='op'>/</span> <span class='fl'>2</span><span class='op'>^</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span><span class='op'>)</span>, base_10 <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "five tenths"                            
-#&gt; [2] "twenty-five hundredths"                 
-#&gt; [3] "one hundred twenty-five thousandths"    
-#&gt; [4] "six hundred twenty-five ten-thousandths"</div><div class='input'><span class='fu'>nom_card</span><span class='op'>(</span><span class='fl'>1</span> <span class='op'>/</span> <span class='fl'>2</span><span class='op'>^</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span><span class='op'>)</span>, base_10 <span class='op'>=</span> <span class='cn'>TRUE</span>, common_denom <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "five thousand ten-thousandths"                 
-#&gt; [2] "two thousand five hundred ten-thousandths"     
-#&gt; [3] "one thousand two hundred fifty ten-thousandths"
-#&gt; [4] "six hundred twenty-five ten-thousandths"       </div><div class='input'>
-<span class='fu'>nom_card</span><span class='op'>(</span><span class='fl'>1</span> <span class='op'>/</span> <span class='fl'>2</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "one half"    "one third"   "one quarter" "one fifth"  </div><div class='input'><span class='fu'>nom_card</span><span class='op'>(</span><span class='fl'>1</span> <span class='op'>/</span> <span class='fl'>2</span><span class='op'>:</span><span class='fl'>5</span>, base_10 <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "five tenths"                                                                                
-#&gt; [2] "three million three hundred thirty-three thousand three hundred thirty-three ten-millionths"
-#&gt; [3] "twenty-five hundredths"                                                                     
-#&gt; [4] "two tenths"                                                                                 </div><div class='input'><span class='fu'>nom_card</span><span class='op'>(</span><span class='fl'>1</span> <span class='op'>/</span> <span class='fl'>2</span><span class='op'>:</span><span class='fl'>5</span>, base_10 <span class='op'>=</span> <span class='cn'>TRUE</span>, max_denom <span class='op'>=</span> <span class='fl'>100</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "five tenths"             "thirty-three hundredths"
-#&gt; [3] "twenty-five hundredths"  "two tenths"             </div></pre>
+    <pre class="examples"><span class='r-in'><span class='fu'>nom_card</span><span class='op'>(</span><span class='fl'>2</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "two"</span>
+<span class='r-in'><span class='fu'>nom_card</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] "one"   "two"   "three" "four"  "five"  "six"   "seven" "eight" "nine" </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [10] "ten"  </span>
+<span class='r-in'><span class='fu'>nom_card</span><span class='op'>(</span><span class='fl'>2</span> <span class='op'>+</span> <span class='fl'>4</span><span class='op'>/</span><span class='fl'>9</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "two and four ninths"</span>
+<span class='r-in'><span class='fu'>nom_card</span><span class='op'>(</span><span class='op'>-</span><span class='fl'>2</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "negative two"</span>
+<span class='r-in'><span class='fu'>nom_card</span><span class='op'>(</span><span class='op'>-</span><span class='fl'>2</span>, negative <span class='op'>=</span> <span class='st'>"minus"</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "minus two"</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>nom_card</span><span class='op'>(</span><span class='fl'>5</span><span class='op'>:</span><span class='fl'>15</span>, max_n <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] "five"  "six"   "seven" "eight" "nine"  "ten"   "11"    "12"    "13"   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [10] "14"    "15"   </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"There are"</span>, <span class='fu'>nom_card</span><span class='op'>(</span><span class='fl'>525600</span><span class='op'>)</span>, <span class='st'>"minutes in a year."</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "There are five hundred twenty-five thousand six hundred minutes in a year."</span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"There are"</span>, <span class='fu'>nom_card</span><span class='op'>(</span><span class='fl'>3.72e13</span><span class='op'>)</span>, <span class='st'>"cells in the human body."</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "There are thirty-seven trillion two hundred billion cells in the human body."</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>nom_card</span><span class='op'>(</span><span class='fl'>1</span> <span class='op'>/</span> <span class='fl'>2</span><span class='op'>^</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "one half"      "one quarter"   "one eighth"    "one sixteenth"</span>
+<span class='r-in'><span class='fu'>nom_card</span><span class='op'>(</span><span class='fl'>1</span> <span class='op'>/</span> <span class='fl'>2</span><span class='op'>^</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span><span class='op'>)</span>, common_denom <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "eight sixteenths" "four sixteenths"  "two sixteenths"   "one sixteenth"   </span>
+<span class='r-in'><span class='fu'>nom_card</span><span class='op'>(</span><span class='fl'>1</span> <span class='op'>/</span> <span class='fl'>2</span><span class='op'>^</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span><span class='op'>)</span>, base_10 <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "five tenths"                            </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [2] "twenty-five hundredths"                 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [3] "one hundred twenty-five thousandths"    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [4] "six hundred twenty-five ten-thousandths"</span>
+<span class='r-in'><span class='fu'>nom_card</span><span class='op'>(</span><span class='fl'>1</span> <span class='op'>/</span> <span class='fl'>2</span><span class='op'>^</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span><span class='op'>)</span>, base_10 <span class='op'>=</span> <span class='cn'>TRUE</span>, common_denom <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "five thousand ten-thousandths"                 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [2] "two thousand five hundred ten-thousandths"     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [3] "one thousand two hundred fifty ten-thousandths"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [4] "six hundred twenty-five ten-thousandths"       </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>nom_card</span><span class='op'>(</span><span class='fl'>1</span> <span class='op'>/</span> <span class='fl'>2</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "one half"    "one third"   "one quarter" "one fifth"  </span>
+<span class='r-in'><span class='fu'>nom_card</span><span class='op'>(</span><span class='fl'>1</span> <span class='op'>/</span> <span class='fl'>2</span><span class='op'>:</span><span class='fl'>5</span>, base_10 <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "five tenths"                                                                                </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [2] "three million three hundred thirty-three thousand three hundred thirty-three ten-millionths"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [3] "twenty-five hundredths"                                                                     </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [4] "two tenths"                                                                                 </span>
+<span class='r-in'><span class='fu'>nom_card</span><span class='op'>(</span><span class='fl'>1</span> <span class='op'>/</span> <span class='fl'>2</span><span class='op'>:</span><span class='fl'>5</span>, base_10 <span class='op'>=</span> <span class='cn'>TRUE</span>, max_denom <span class='op'>=</span> <span class='fl'>100</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "five tenths"             "thirty-three hundredths"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [3] "twenty-five hundredths"  "two tenths"             </span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
