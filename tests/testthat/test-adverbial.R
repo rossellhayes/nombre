@@ -19,7 +19,15 @@ test_that("adverbial max_n", {
   expect_equal(nom_adv(1:2, max_n = 1), c("once", "2 times"))
 })
 
+test_that("non-finite", {
+  expect_equal(
+    nom_adv(c(NA, 2, Inf, NaN, NA)),
+    c(NA, "twice", "infinity times", NaN, NA)
+  )
+})
+
 test_that("early return", {
+  expect_equal(nom_adv(NA), NA_character_)
   expect_equal(nom_adv(numeric(0)), character(0))
 })
 

@@ -28,7 +28,15 @@ test_that("collective all_n", {
   expect_equal(collective(3, all_n = FALSE, of_the = TRUE), "all of the")
 })
 
+test_that("non-finite", {
+  expect_equal(
+    nom_coll(c(NA, 2, Inf, NaN, NA)),
+    c(NA, "both", "all infinity", NaN, NA)
+  )
+})
+
 test_that("early return", {
+  expect_equal(nom_coll(NA), NA_character_)
   expect_equal(nom_coll(numeric(0)), character(0))
 })
 

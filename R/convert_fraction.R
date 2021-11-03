@@ -11,8 +11,10 @@ convert_fraction <- function(
     return(paste(numerator, denominator))
   }
 
-  x[] <- cardinal(
-    x,
+  na <- apply(x, 2, function(x) all(is.na(x)))
+
+  x[, !na] <- cardinal(
+    x[, !na],
     max_n = if (length(max_n) == 1) {
       max_n
     } else {
@@ -24,5 +26,13 @@ convert_fraction <- function(
       rep(negative, each = length(x) / 2)
     }
   )
-  paste(x[1, ], sep, x[2, ])
+
+  result      <- character(ncol(x))
+  result[!na] <- paste(x[1, !na], sep, x[2, !na])
+  result[na]  <- x[1, na]
+  result
+}
+
+is_NAish <- function(x) {
+  is.na(x) | x == "NaN"
 }

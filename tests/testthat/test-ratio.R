@@ -50,7 +50,17 @@ test_that("ratio with fracture ...", {
   expect_equal(nom_ratio(15/100, sep = "to", max_denom = 15), "one to seven")
 })
 
+test_that("non-finite", {
+  skip_if_not_installed("fracture", "0.2.0.9001")
+
+  expect_equal(
+    nom_ratio(c(NA, 2, Inf, NaN, NA)),
+    c(NA, "two in one", "infinity in one", NaN, NA)
+  )
+})
+
 test_that("early return", {
+  expect_equal(nom_ratio(NA), NA_character_)
   expect_equal(nom_ratio(numeric(0)), character(0))
 })
 

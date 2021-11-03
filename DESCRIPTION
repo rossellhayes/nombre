@@ -1,6 +1,6 @@
 Package: nombre
 Title: Number Names
-Version: 0.4.0
+Version: 0.4.0.9000
 Authors@R: 
     c(person(given = "Alexander",
              family = "Rossell Hayes",

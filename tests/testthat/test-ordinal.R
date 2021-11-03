@@ -54,7 +54,15 @@ test_that("ordinal suffixes on character vector", {
   expect_equal(nom_ord("one zillion"), "one-zillionth")
 })
 
+test_that("non-finite", {
+  expect_equal(
+    nom_ord(c(NA, 2, Inf, NaN, NA)),
+    c(NA, "second", "infinitieth", NaN, NA)
+  )
+})
+
 test_that("early return", {
+  expect_equal(nom_ord(NA), NA_character_)
   expect_equal(nom_ord(numeric(0)), character(0))
 })
 

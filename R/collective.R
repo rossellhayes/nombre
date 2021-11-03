@@ -18,8 +18,9 @@
 #' @example examples/collective.R
 
 collective <- function(x, all_n = TRUE, of_the = FALSE, cardinal = TRUE, ...) {
-  if (!length(x))     return(character(0))
-  if (!is.numeric(x)) stop("`x` must be a numeric vector")
+  if (!length(x))                 return(character(0))
+  if (all(is.na(x) & !is.nan(x))) return(as.character(x))
+  if (!is.numeric(x))             stop("`x` must be a numeric vector")
 
   numeric <- x
 
@@ -48,6 +49,9 @@ collective <- function(x, all_n = TRUE, of_the = FALSE, cardinal = TRUE, ...) {
   coll[coll == ""] <- "all"
 
   coll <- paste0(coll, n, of)
+
+  coll[is.na(x)]  <- NA
+  coll[is.nan(x)] <- NaN
 
   args        <- as.list(match.call()[-1])
   args[["x"]] <- NULL

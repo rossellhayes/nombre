@@ -22,7 +22,8 @@
 ordinal <- function(
   x, cardinal = TRUE, ...
 ) {
-  if (!length(x)) return(character(0))
+  if (!length(x))                 return(character(0))
+  if (all(is.na(x) & !is.nan(x))) return(as.character(x))
   if (!is.numeric(x) & !is.character(x))
     stop("`x` must be a numeric or character vector")
 
@@ -70,6 +71,9 @@ ordinal <- function(
   ordinal[ordinal == ""] <- paste0(x[ordinal == ""], "th")
 
   ordinal <- gsub(" ", "-", trimws(ordinal))
+
+  ordinal[!is.na(x) & x == "NaN"] <- NaN
+  ordinal[is.na(x)]               <- NA
 
   args        <- as.list(match.call()[-1])
   args[["x"]] <- NULL
