@@ -32,7 +32,3 @@ convert_fraction <- function(
   result[na]  <- x[1, na]
   result
 }
-
-is_NAish <- function(x) {
-  is.na(x) | x == "NaN"
-}
