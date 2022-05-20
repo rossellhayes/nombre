@@ -20,7 +20,7 @@
 #' @example examples/ordinal.R
 
 ordinal <- function(
-  x, cardinal = TRUE, ...
+    x, cardinal = TRUE, ...
 ) {
   if (!length(x))                 return(character(0))
   if (all(is.na(x) & !is.nan(x))) return(as.character(x))
@@ -28,7 +28,6 @@ ordinal <- function(
     stop("`x` must be a numeric or character vector")
 
   numeric <- x
-  ordinal <- character(length(x))
 
   if (is.numeric(x)) {
     if (cardinal) {
@@ -38,39 +37,25 @@ ordinal <- function(
     }
   }
 
-  one_num <- ordinal == "" & grepl("(?<!1)1$", x, perl = TRUE)
-  ordinal[one_num] <- paste0(x[one_num], "st")
+  x <- trimws(x)
 
-  two_num <- ordinal == "" & grepl("(?<!1)2$", x, perl = TRUE)
-  ordinal[two_num] <- paste0(x[two_num], "nd")
+  suffix <- rep("th", length(x))
+  suffix[str_detect(x, "((?<!1)1|one)$")] <- "st"
+  suffix[str_detect(x, "((?<!1)2|two)$")] <- "nd"
+  suffix[str_detect(x, "((?<!1)3|three)$")] <- "rd"
 
-  three_num <- ordinal == "" & grepl("(?<!1)3$", x, perl = TRUE)
-  ordinal[three_num] <- paste0(x[three_num], "rd")
+  # Convert numeric roots to combining forms
+  x <- str_replace_all(x, c(
+    "one$" = "fir",
+    "two$" = "seco",
+    "three$" = "thi",
+    "ve$" = "f", # "five" -> "fifth", "twelve" -> "twelfth"
+    "[et]$" = "", # "eight" -> "eighth", "nine" -> "ninth"
+    "y$" = "ie" # "twenty" -> "twentieth"
+  ))
 
-  one <- ordinal == "" & grepl("one$", x)
-  ordinal[one] <- gsub("one$", "first", x[one])
-
-  two <- ordinal == "" & grepl("two$", x)
-  ordinal[two] <- gsub("two$", "second", x[two])
-
-  three <- ordinal == "" & grepl("three$", x)
-  ordinal[three] <- gsub("three$", "third", x[three])
-
-  nine <- ordinal == "" & grepl("nine$", x)
-  ordinal[nine] <- gsub("nine$", "ninth", x[nine])
-
-  ve <- ordinal == "" & grepl("ve$", x)
-  ordinal[ve] <- gsub("ve$", "fth", x[ve])
-
-  y <- ordinal == "" & grepl("y$", x)
-  ordinal[y] <- gsub("y$", "ieth", x[y])
-
-  t <- ordinal == "" & grepl("t$", x)
-  ordinal[t] <- paste0(x[t], "h")
-
-  ordinal[ordinal == ""] <- paste0(x[ordinal == ""], "th")
-
-  ordinal <- gsub(" ", "-", trimws(ordinal))
+  ordinal <- paste0(x, suffix)
+  ordinal <- gsub(" ", "-", ordinal)
 
   ordinal[!is.na(x) & x == "NaN"] <- NaN
   ordinal[is.na(x)]               <- NA
