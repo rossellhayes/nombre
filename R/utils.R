@@ -1,20 +1,24 @@
-str_detect <- function(text, pattern) {
-  grepl(pattern = pattern, x = text, perl = TRUE)
+str_detect <- function(string, pattern) {
+  grepl(pattern = pattern, x = string, perl = TRUE)
 }
 
-str_replace_all <- function(text, pattern, replacement) {
+str_replace_all <- function(string, pattern, replacement) {
   if (!is.null(names(pattern))) {
     for (i in seq_along(pattern)) {
-      text <- gsub(
+      string <- gsub(
         pattern = names(pattern)[[i]],
         replacement = pattern[[i]],
-        x = text,
+        x = string,
         perl = TRUE
       )
     }
 
-    return(text)
+    return(string)
   }
 
-  gsub(pattern = pattern, replacement = replacement, x = text, perl = TRUE)
+  gsub(pattern = pattern, replacement = replacement, x = string, perl = TRUE)
+}
+
+str_remove_all <- function(string, pattern) {
+  gsub(pattern = pattern, replacement = "", x = string, perl = TRUE)
 }

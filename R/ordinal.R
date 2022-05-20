@@ -55,7 +55,7 @@ ordinal <- function(
   ))
 
   ordinal <- paste0(x, suffix)
-  ordinal <- gsub(" ", "-", ordinal)
+  ordinal <- str_replace_all(ordinal, " ", "-")
 
   ordinal[!is.na(x) & x == "NaN"] <- NaN
   ordinal[is.na(x)]               <- NA

@@ -23,15 +23,18 @@ adverbial <- function(x, thrice = FALSE, ...) {
   numeric <- x
   na      <- is.na(x)
 
-  adv                    <- paste(cardinal(x, ...), "time")
-  adv[!na & abs(x) != 1] <- paste0(adv[!na & abs(x) != 1], "s")
+  adv <- paste(cardinal(x, ...), "times")
 
-  adv[!na & abs(x) == 1] <- gsub("one time$", "once", adv[!na & abs(x) == 1])
-  adv[!na & abs(x) == 2] <- gsub("two times$", "twice", adv[!na & abs(x) == 2])
+  adv[!na & abs(x) == 1] <- str_replace_all(
+    adv[!na & abs(x) == 1], "one times$", "once"
+  )
+  adv[!na & abs(x) == 2] <- str_replace_all(
+    adv[!na & abs(x) == 2], "two times$", "twice"
+  )
 
   if (thrice) {
-    adv[!na & abs(x) == 3] <- gsub(
-      "three times$", "thrice", adv[!na & abs(x) == 3]
+    adv[!na & abs(x) == 3] <- str_replace_all(
+      adv[!na & abs(x) == 3], "three times$", "thrice"
     )
   }
 
