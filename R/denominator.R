@@ -31,20 +31,20 @@ denominator <- function(x, numerator = 1, quarter = TRUE, ...) {
   denom   <- ordinal(x, ...)
   plural  <- abs(numerator) != 1
 
-  denom[finite & abs(x) == 1] <- gsub(
-    "1st$|first$", "whole", denom[finite & abs(x) == 1]
+  denom[finite & abs(x) == 1] <- str_replace_all(
+    denom[finite & abs(x) == 1], "1st$|first$", "whole"
   )
 
-  denom[finite & abs(x) == 2 & !plural] <- gsub(
-    "2nd$|second$", "half", denom[finite & abs(x) == 2 & !plural]
+  denom[finite & abs(x) == 2 & !plural] <- str_replace_all(
+    denom[finite & abs(x) == 2 & !plural], "2nd$|second$", "half"
   )
-  denom[finite & abs(x) == 2 & plural] <- gsub(
-    "2nd$|second$", "halves", denom[finite & abs(x) == 2 & plural]
+  denom[finite & abs(x) == 2 & plural] <- str_replace_all(
+    denom[finite & abs(x) == 2 & plural], "2nd$|second$", "halves"
   )
 
   if (quarter) {
-    denom[finite & abs(x) == 4] <- gsub(
-      "fourth$", "quarter", denom[finite & abs(x) == 4]
+    denom[finite & abs(x) == 4] <- str_replace_all(
+      denom[finite & abs(x) == 4], "fourth$", "quarter"
     )
   }
 
@@ -52,7 +52,7 @@ denominator <- function(x, numerator = 1, quarter = TRUE, ...) {
     denom[finite & plural & abs(x) != 2], "s"
   )
 
-  denom <- gsub("^one-", "", denom)
+  denom <- str_remove_all(denom, "^one-")
 
   denom[is.na(x)]  <- NA
   denom[is.nan(x)] <- NaN

@@ -34,7 +34,7 @@ uncardinal <- function(x) {
     return(attr(x, "numeric"))
   }
 
-  powers <- gsub(" ", "", powers)[-1]
+  powers <- str_remove_all(powers, " ")[-1]
 
   mat   <- strsplit(x, " |\\-")
   max_n <- max(lengths(mat))
@@ -52,11 +52,11 @@ uncardinal <- function(x) {
   mat                                  <- matrix(mat, ncol = length(x))
 
   eq_str <- apply(mat, 2, paste, collapse = "")
-  eq_str <- gsub(" \\+ $",     "",      eq_str)
-  eq_str <- gsub(" \\+ \\(?$", " + (0", eq_str)
-  eq_str <- gsub(" \\+ \\)",   ")",     eq_str)
-  eq_str <- gsub("\\+ \\*",    "*",     eq_str)
-  eq_str <- gsub("^([^\\-])", "((\\1",  eq_str)
+  eq_str <- str_remove_all(eq_str, " \\+ $")
+  eq_str <- str_replace_all(eq_str, " \\+ \\(?$", " + (0")
+  eq_str <- str_replace_all(eq_str," \\+ \\)", ")")
+  eq_str <- str_replace_all(eq_str, "\\+ \\*", "*")
+  eq_str <- str_replace_all(eq_str, "^([^\\-])", "((\\1")
   eq_str <- paste0(eq_str, "))")
 
   eval_eq <- function(eq_str) {

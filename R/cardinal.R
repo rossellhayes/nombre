@@ -42,9 +42,9 @@ cardinal <- function(x, max_n = Inf, negative = "negative", ...) {
 
   finite <- is.finite(x)
 
-  card                         <- character(n)
-  card[finite & abs(x) > max_n] <- gsub(
-    " ", "", format(x[finite & abs(x) > max_n], scientific = FALSE)
+  card                          <- character(n)
+  card[finite & abs(x) > max_n] <- str_remove_all(
+    format(x[finite & abs(x) > max_n], scientific = FALSE), " "
   )
 
   unmaxed <- card == character(1)
