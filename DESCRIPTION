@@ -21,7 +21,7 @@ BugReports: https://github.com/rossellhayes/nombre/issues
 Depends: 
     R (>= 2.10)
 Imports:
-    fracture (>= 0.1.2)
+    fracture (>= 0.2.1)
 Suggests: 
     testthat (>= 3.0.0)
 Encoding: UTF-8
