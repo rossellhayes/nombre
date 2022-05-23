@@ -1,4 +1,4 @@
-# nombre (development version)
+# nombre 0.4.1
 
 * Non-finite inputs (`NA`, `Inf`, and `NaN`) no longer produce an error.
   - `Inf` is handled like a normal number. `nom_card(Inf)` produces `"infinity"` and `nom_ord(Inf)` produces `"infinitieth"`.
