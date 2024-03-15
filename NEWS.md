@@ -1,3 +1,8 @@
+# nombre (development version)
+
+* `adverbial()` gains a `cardinal` argument like `ordinal()`.
+  - Set `cardinal = FALSE` to add "times" suffixes without converting to cardinal numbers.
+
 # nombre 0.4.1
 
 * Non-finite inputs (`NA`, `Inf`, and `NaN`) no longer produce an error.

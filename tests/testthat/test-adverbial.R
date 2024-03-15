@@ -4,6 +4,12 @@ test_that("simple adverbial", {
   expect_equal(nom_adv(4), "four times")
 })
 
+test_that("simple adverbial uncardinalized", {
+  expect_equal(nom_adv(1, cardinal = FALSE), "1 time")
+  expect_equal(nom_adv(2, cardinal = FALSE), "2 times")
+  expect_equal(nom_adv(4, cardinal = FALSE), "4 times")
+})
+
 test_that("adverbial vector", {
   expect_equal(nom_adv(1:2), c("once", "twice"))
   expect_equal(nom_adv(4:5), c("four times", "five times"))
