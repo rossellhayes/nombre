@@ -11,7 +11,9 @@ test_that("uncardinal", {
     -1000:1e4,
     sample(c(1, -1), 1e4, replace = TRUE) * 10 ^ runif(1e4, 5, 15.95) %/% 1
   )
-  expect_equal(uncardinal(as.character(cardinal(x))), x)
+
+  cardinal_x <- suppressWarnings(cardinal(x))
+  expect_equal(uncardinal(as.character(cardinal_x)), x)
 })
 
 test_that("uncardinal with class nombre", {

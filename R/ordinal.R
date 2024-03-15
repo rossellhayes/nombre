@@ -19,9 +19,7 @@
 #' @export
 #' @example examples/ordinal.R
 
-ordinal <- function(
-    x, cardinal = TRUE, ...
-) {
+ordinal <- function(x, cardinal = TRUE, ...) {
   if (!length(x))                 return(character(0))
   if (all(is.na(x) & !is.nan(x))) return(as.character(x))
   if (!is.numeric(x) & !is.character(x))
