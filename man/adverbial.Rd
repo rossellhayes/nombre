@@ -6,11 +6,11 @@
 \alias{nom_times}
 \title{Convert numbers to adverbial character vectors (once, twice, three times)}
 \usage{
-adverbial(x, thrice = FALSE, ...)
+adverbial(x, thrice = FALSE, cardinal = TRUE, max_n = Inf, ...)
 
-nom_adv(x, thrice = FALSE, ...)
+nom_adv(x, thrice = FALSE, cardinal = TRUE, max_n = Inf, ...)
 
-nom_times(x, thrice = FALSE, ...)
+nom_times(x, thrice = FALSE, cardinal = TRUE, max_n = Inf, ...)
 }
 \arguments{
 \item{x}{A numeric vector}
@@ -19,6 +19,18 @@ nom_times(x, thrice = FALSE, ...)
 If \code{TRUE}, the adverbial of \code{3} will be "thrice".
 If \code{FALSE}, the adverbial of \code{3} will be "three times".
 Defaults to \code{FALSE}.}
+
+\item{cardinal}{Whether to convert a numeric vector with \code{\link[=cardinal]{cardinal()}}
+before applying adverbial suffixes.
+When \code{TRUE}, 1 -> "once".
+When \code{FALSE}, 1 -> "1 time".
+Defaults to \code{TRUE}.}
+
+\item{max_n}{A numeric vector.
+When the absolute value of \code{x} is greater than \code{max_n}, \code{x} remains
+numeric instead of being converted to words.
+If \code{max_n} is negative, no \code{x}s will be converted to words.
+Defaults to \code{Inf}, which converts all \code{x}s to words.}
 
 \item{...}{Additional arguments passed to \code{\link[=cardinal]{cardinal()}}}
 }

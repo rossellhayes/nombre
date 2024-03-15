@@ -6,10 +6,15 @@
 #'     If `FALSE`, the adverbial of `3` will be "three times".
 #'     Defaults to `FALSE`.
 #' @param cardinal Whether to convert a numeric vector with [cardinal()]
-#'     before applying ordinal suffixes.
-#'     When `TRUE`, 1 -> "first".
-#'     When `FALSE`, 1 -> "1st".
+#'     before applying adverbial suffixes.
+#'     When `TRUE`, 1 -> "once".
+#'     When `FALSE`, 1 -> "1 time".
 #'     Defaults to `TRUE`.
+#' @param max_n A numeric vector.
+#'     When the absolute value of `x` is greater than `max_n`, `x` remains
+#'     numeric instead of being converted to words.
+#'     If `max_n` is negative, no `x`s will be converted to words.
+#'     Defaults to `Inf`, which converts all `x`s to words.
 #' @param ... Additional arguments passed to [cardinal()]
 #'
 #' @return A character vector of the same length as `x`
