@@ -1,3 +1,5 @@
+# nombre (development version)
+
 # nombre 0.4.1
 
 * Non-finite inputs (`NA`, `Inf`, and `NaN`) no longer produce an error.
